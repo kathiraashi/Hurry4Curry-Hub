@@ -1,0 +1,300 @@
+<div class="page" style="margin-top:100px;margin-bottom:100px;">
+   <div class="container-fluid">
+      <!-- Page Identity -->
+      <div class="Page_Identity">
+         <div class="Page_Track">
+            <ul>
+               <li class="HeaderName">Home</li>
+               <li class="arrow">>></li>
+               <li class= "LinkName">Inventory</li>
+               <li class="arrow">>></li>
+               <li >Purchase Request</li>
+            </ul>
+         </div>
+      </div>
+      <form>
+         <div class="row">
+            <!-- Company details -->
+            <div class="Company_Details">
+               <h5 style="color:#49B660;font-size:20px;font-weight: 600;">Purchase 
+                  <span style="color:#516570;font-size:20px;font-weight: 600;">Request</span>
+               </h5>
+               <br>
+               <div class="col-sm-12">
+                  <div class="row">
+                  <div class="col-sm-5 Form_Input">
+                     <label>Ref No:</label>
+                     <br>
+                     <input type="text">
+                  </div>
+                  <div class="col-sm-5 Form_Input">
+                     <label> Vendor:</label>
+                     <br>
+                     <input type="text">
+                  </div>
+                  <div class="col-sm-5 Form_Input">
+                     <label>Date:</label>
+                     <br>
+                     <input type="text" readonly="true">
+                  </div>
+                  <div class="col-sm-5 Form_Input">
+                     <label>Contact:</label>
+                     <br>
+                     <input type="text" readonly="true">
+                  </div>
+                  <div class="col-sm-5 Form_Input">
+                     <label>Validity Till:</label>
+                     <br>
+                     <input type="text" readonly="true">
+                  </div>
+                  <div class="col-sm-5 Form_TextArea">
+                     <label>Subject:</label>
+                     <br>
+                     <textarea class="Description" rows="3"></textarea>
+                  </div>
+                  </div>
+               </div>
+            </div>
+            
+            <!-- Table Section -->
+            <!-- <div class="Table_Section">
+               <h5 style="color:#49B660;font-size:20px;font-weight: 600;">Product
+                  <span style="color:#516570;font-size:20px;font-weight: 600;">Details</span>
+                  <span><button class="Add_Product_Button">Add Product</button></span>
+               </h5>
+               <br>
+               <table class="table_section">
+                  <thead class="table_head">
+                     <tr>
+                        <th class="S_No">S.No</th>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>Required Quantity</th>
+                        <th>Required Date</th>
+                        <th>Approved Quantity</th>
+                        <th>Tax</th>
+                        <th>Status</th>
+                        <th class="Action">Action</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td >1</td>
+                        <td class="Form_Select">
+                           <select>
+                              <option checked>Select one Product</option>
+                              <option> Product1</option>
+                              <option> Product2</option>
+                              <option> Product3</option>
+                              <option> Product4</option>
+                           </select>
+                        </td>
+                        <td class="Form_TextArea">
+                           <textarea class="Description" rows="2"></textarea>
+                        </td>
+                        <td class="Form_Input">
+                           <input type="text">
+                        </td>
+                        <td class="Form_Input">
+                           <input type="text">
+                        </td>
+                        <td class="Form_Input">
+                           <input type="text">
+                        </td>
+                        <td class="Form_Input">
+                           <input type="text">
+                        </td>
+                        <td class="Form_Input">
+                           <input type="text">
+                        </td>
+                        <td>
+                           <span class="Action_Section Bg_Danger">
+                              <i class="material-icons">delete</i>
+                           </span> 
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <br>
+            </div> -->
+         </div>
+         <!-- Tab -->
+         <div class="Product">
+            <div class="Product_Tab">
+               <div class="Product_details">
+                  <span [ngClass]="{'active': Active_Tab === 'Product_Details'}" (click)="Active_Tab_Change('Product_Details')">Product Details</span>
+               </div>
+               <div class="Quote_Terms">
+                  <span [ngClass]="{'active': Active_Tab === 'quote_Terms'}" (click)="Active_Tab_Change('quote_Terms')">Terms & Conditions</span>
+               </div>
+               <!-- <div class="Quote_Terms">
+                  <span [ngClass]="{'active': Active_Tab === 'shipping_by'}" (click)="Active_Tab_Change('shipping_by')">Shipping By</span>
+               </div> -->
+            </div>
+            <span><button class="Add_Product_Button">Add Product</button></span><br><br>
+            <!-- Table Section -->
+            <div class="Product_Details" *ngIf="Active_Tab === 'Product_Details'">
+               <table class="table_section">
+                  <thead class="table_head">
+                     <tr>
+                        <th>S.No</th>  
+                        <th>Product</th>  
+                        <th>Description</th>  
+                        <th>Price</th>  
+                        <th>Quantity</th>  
+                        <th>Tax</th> 
+                        <th>Total</th> 
+                        <th>Action</th> 
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td  colspan="8"><span> No Records found</span> </td>
+                     </tr>
+                  </tbody>
+               </table><br>
+               <div class="row">
+                  <div class="col-sm-8">
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="Title">
+                        <h5>SubTotal:</h5>
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="Value">
+                        <h5>RS. 0</h5>
+                     </div>
+                  </div>
+                  <div class="col-sm-8">
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="Title">
+                        <h5>Total Tax:</h5>
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="Value">
+                        <h5>RS. 0</h5>
+                     </div>
+                  </div>
+                  <div class="col-sm-8">
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="Title">
+                        <h5>Total:</h5>
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="Value">
+                        <h5>RS. 0</h5>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <br>
+         <div class="Done_Section" *ngIf="Active_Tab === 'quote_Terms'">
+           <div class="row">
+            <div class="col-sm-4 Form_Input" >
+               <input type="text" placeholder="Payment Terms"> 
+            </div>
+            <div class="col-sm-4 Form_Input" >
+               <input type="text" placeholder="Delivery Terms"> 
+            </div>
+               <div class="col-sm-4 Form_TextArea" >
+                     <textarea  type="text" row="4" placeholder="Others"></textarea>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <!-- <div class="Done_Section" *ngIf="Active_Tab === 'shipping_by'">
+               <div class="Product_Details" >
+                  <div class="Product_Tab">
+                     <div class="Product_details">
+                        <span [ngClass]="{'active': Active_Tab === 'Courier'}" (click)="Active_Tab_Change('Courier')">Courier</span>
+                     </div>
+                     <div class="Quote_Terms">
+                        <span [ngClass]="{'active': Active_Tab === 'Transports'}" (click)="Active_Tab_Change('Transports')">Transports</span>
+                     </div>
+                     <div class="Quote_Terms">
+                        <span [ngClass]="{'active': Active_Tab === 'others'}" (click)="Active_Tab_Change('others')">others</span>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="Bank" *ngIf="Active_Tab === 'Courier'">
+                     <div class="row">
+                        <div class="col-sm-2">
+                           <input type="radio" checked> Courier
+                        </div>
+                        <div class="col-sm-2">
+                           <input type="radio"> transports
+                        </div>
+                        <div class="col-sm-2">
+                           <input type="radio"> others
+                        </div>
+                     </div>
+                     <br>
+                     <div class="row">
+                        <div class="col-sm-4 Form_Input">
+                           <label>Courier Name:</label>
+                           <input type="text">
+                        </div>
+                        <div class="col-sm-4 Form_Input">
+                           <label>Reference No:</label>
+                           <input type="text">
+                        </div>
+                     </div>
+                  </div>
+               <div class="cash" *ngIf="Active_Tab === 'Transports'">
+                  <div class="row">
+                     <div class="col-sm-2">
+                        <input type="radio" > Courier
+                     </div>
+                     <div class="col-sm-2">
+                        <input type="radio" checked> transports
+                     </div>
+                     <div class="col-sm-2">
+                        <input type="radio">others
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-sm-4 Form_Input">
+                        <label>Transport Name:</label>
+                        <input type="text">
+                     </div>
+                     <div class="col-sm-4 Form_Input">
+                           <label>Reference No:</label>
+                           <input type="text">
+                        </div>
+                     <div class="col-sm-4 Form_Input">
+                        <label>Vehicle No:</label>
+                        <input type="text">
+                     </div>
+                  </div>
+               </div>
+               <div class="cash" *ngIf="Active_Tab === 'others'">
+                  <div class="row">
+                     <div class="col-sm-2">
+                        <input type="radio" >Courier
+                     </div>
+                     <div class="col-sm-2">
+                        <input type="radio"> transports
+                     </div>
+                     <div class="col-sm-2">
+                        <input type="radio" checked>others
+                     </div>
+                  </div>
+               </div>
+                  <br>
+               </div>
+                </div> -->
+         </div>
+         <div class="row" style="margin-top:20px;">
+            <div class="col-sm-12 text-right">
+               <button mat-raised-button color="primary" > Submit </button>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>

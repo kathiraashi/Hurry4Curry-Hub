@@ -1,0 +1,191 @@
+<div class="Main_Section">
+   <div class="page_section">
+      <div class="container-fluid">
+         <!-- Page Identity -->
+         <div class="Page_Identity">
+            <div class="Page_Track">
+               <ul >
+                  <li class="HeaderName">Home</li>
+                  <li class="arrow">>></li>
+                  <li class= "LinkName">Accounts</li>
+                  <li class="arrow">>></li>
+                  <li >Cheque Entries </li>
+               </ul>
+            </div>
+         </div>
+         <!-- Header Part -->
+         <div class="row header_part">
+            <div class="col-sm-6">
+               <button class="Create_Button" mat-button (click)="CreateChequeEntries()"> + Create </button>
+            </div>
+            <div class="col-sm-6">
+               <div class="Search_Section">
+                  <input type="text" placeholder="Search.." name="search">
+                  <i class="material-icons">search</i>
+               </div>
+            </div>
+         </div>
+         <!-- Table section -->
+         <div class="Table_Section">
+            <table>
+               <thead>
+                  <tr>
+                     <th>S.no</th>
+                     <th>Date</th>
+                     <th>Partners</th>
+                     <th>Bank</th>
+                     <th>Cheque No</th>
+                     <th>Cheque Date</th>
+                     <th>Amount</th>
+                     <th>Status</th>
+                     <th>Action</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>
+                        <span class="S_no"> 1 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1">27/06/18</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">Partners</span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Axis</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">123</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">27/06/18</span>
+                     </td>
+                     <td>
+                       <span class="Style_1">5000</span>
+                    </td>
+                    <td>
+                       <span class="Style_1">Cleared</span>
+                    </td>
+                     <td>
+                          <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
+                             <i class="material-icons">zoom_in</i>
+                          </button>
+                          <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
+                             <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <span class="S_no"> 2 </span>
+                        </td>
+                        <td>
+                           <span class="Style_1">27/06/18</span>
+                        </td>
+                        <td>
+                           <span class="Style_1">Partners</span>
+                        </td>
+                        <td>
+                           <span class="Style_1"> Axis</span>
+                        </td>
+                        <td>
+                           <span class="Style_1">123</span>
+                        </td>
+                        <td>
+                           <span class="Style_1">27/06/18</span>
+                        </td>
+                        <td>
+                          <span class="Style_1">5000</span>
+                       </td>
+                       <td>
+                          <span class="Style_1">Cleared</span>
+                       </td>
+                        <td>
+                             <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
+                                <i class="material-icons">zoom_in</i>
+                             </button>
+                             <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
+                                <i class="material-icons">edit</i>
+                             </button>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 3 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">27/06/18</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Partners</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> Axis</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">123</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">27/06/18</span>
+                           </td>
+                           <td>
+                             <span class="Style_1">5000</span>
+                          </td>
+                          <td>
+                             <span class="Style_1">Cleared</span>
+                          </td>
+                           <td>
+                                <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
+                                   <i class="material-icons">zoom_in</i>
+                                </button>
+                                <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
+                                   <i class="material-icons">edit</i>
+                                </button>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <span class="S_no"> 4 </span>
+                              </td>
+                              <td>
+                                 <span class="Style_1">27/06/18</span>
+                              </td>
+                              <td>
+                                 <span class="Style_1">Partners</span>
+                              </td>
+                              <td>
+                                 <span class="Style_1"> Axis</span>
+                              </td>
+                              <td>
+                                 <span class="Style_1">123</span>
+                              </td>
+                              <td>
+                                 <span class="Style_1">27/06/18</span>
+                              </td>
+                              <td>
+                                <span class="Style_1">5000</span>
+                             </td>
+                             <td>
+                                <span class="Style_1">Cleared</span>
+                             </td>
+                              <td>
+                                   <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
+                                      <i class="material-icons">zoom_in</i>
+                                   </button>
+                                   <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
+                                      <i class="material-icons">edit</i>
+                                   </button>
+                                 </td>
+                              </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+   
+   
+

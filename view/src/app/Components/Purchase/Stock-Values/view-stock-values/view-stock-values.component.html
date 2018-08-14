@@ -1,0 +1,177 @@
+<div class="page" style="margin-top:100px;margin-bottom:100px;">
+   <div class="container-fluid">
+      <!-- Page Identity -->
+      <div class="Page_Identity">
+         <div class="Page_Track">
+            <ul>
+               <li class="HeaderName">Home</li>
+               <li class="arrow">>></li>
+               <li class= "LinkName">Inventory</li>
+               <li class="arrow">>></li>
+               <li >Stock Values</li>
+            </ul>
+         </div>
+      </div>
+      <form>
+         <div class="row">
+            <!-- Company details -->
+            <div class="Company_Details">
+              <br>
+              <div class="col-sm-12">
+                <div class="view_item">
+                   <div class="Static">Product Name </div>
+                   <div class="dots"> : </div>
+                   <div class="Data"> Product Name</div>
+                </div>
+                <div class="view_item">
+                   <div class="Static">Quantity</div>
+                   <div class="dots"> : </div>
+                   <div class="Data"> Quantity</div>
+                </div>
+                <div class="view_item">
+                   <div class="Static">Location </div>
+                   <div class="dots"> : </div>
+                   <div class="Data">Location</div>
+                </div>
+                <div class="view_item">
+                   <div class="Static">Incoming Date </div>
+                   <div class="dots"> : </div>
+                   <div class="Data"> 27.03.18 </div>
+                </div>
+              </div>
+            </div>
+         </div>
+         <!-- Tab -->
+         <div class="Product">
+            <div class="Product_Tab">
+               <div class="Product_details">
+                  <span [ngClass]="{'active': Active_Tab === 'History'}" (click)="Active_Tab_Change('History')">History</span>
+               </div>
+               <!-- <div class="Quote_Terms">
+                  <span [ngClass]="{'active': Active_Tab === 'shipping_by'}" (click)="Active_Tab_Change('shipping_by')">Shipping By</span>
+               </div> -->
+            </div>
+            <br>
+           <!-- Table Section -->
+            <div class="Product_Details" *ngIf="Active_Tab === 'History'">
+               <div class="Table_Section">
+                  <table>
+                     <thead>
+                        <tr>
+                           <th>S.no</th>
+                           <th>Reference</th>
+                           <th> Start Quantity</th>
+                           <th> End Quantity</th>
+                           <th>Date</th>
+                           <th>Source</th>
+                           <th>Destination</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 1 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">reference</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 20</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 10</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Chennai</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Coimbatore</span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 2 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">reference</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 20</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 10</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Chennai</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Coimbatore</span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 3 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">reference</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 20</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 10</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Chennai</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Coimbatore</span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 4 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">reference</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 20</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 10</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Chennai</span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Coimbatore</span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         <br>
+         </div>
+         <div class="row" style="margin-top:20px;">
+            <div class="col-sm-12 text-right">
+               <button mat-raised-button color="primary" > Submit </button>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+

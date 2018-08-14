@@ -1,0 +1,131 @@
+<div class="page" style="margin-top:100px;margin-bottom:100px;">
+   <div class="container-fluid">
+      <!-- Page Identity -->
+      <div class="Page_Identity">
+         <div class="Page_Track">
+            <ul>
+               <li class="HeaderName">Home</li>
+               <li class="arrow">>></li>
+               <li class= "LinkName">Accounts</li>
+               <li class="arrow">>></li>
+               <li >Cheque Entries</li>
+            </ul>
+         </div>
+      </div>
+      <form>
+         <div class="row">
+            <!-- Company details -->
+            <div class="Company_Details">
+              <br>
+              <div class="col-sm-12">
+                <div class="view_item">
+                   <div class="Static">Partner </div>
+                   <div class="dots"> : </div>
+                   <div class="Data"> Partner</div>
+                </div>
+                <div class="view_item">
+                   <div class="Static">Bank</div>
+                   <div class="dots"> : </div>
+                   <div class="Data"> Bank</div>
+                </div>
+                <div class="view_item">
+                   <div class="Static">Cheque No </div>
+                   <div class="dots"> : </div>
+                   <div class="Data">123</div>
+                </div>
+                <div class="view_item">
+                   <div class="Static">Cheque Date </div>
+                   <div class="dots"> : </div>
+                   <div class="Data"> 27.03.18 </div>
+                </div>
+                <div class="view_item">
+                  <div class="Static">Amount </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> 50000 </div>
+               </div>
+              </div>
+            </div>
+         </div>
+         <!-- Tab -->
+         <div class="Product">
+            <div class="Product_Tab">
+               <div class="Product_details">
+                  <span [ngClass]="{'active': Active_Tab === 'Posponed'}" (click)="Active_Tab_Change('Posponed')">Posponed</span>
+               </div>
+               <!-- <div class="Quote_Terms">
+                  <span [ngClass]="{'active': Active_Tab === 'shipping_by'}" (click)="Active_Tab_Change('shipping_by')">Shipping By</span>
+               </div> -->
+            </div>
+            <br>
+           <!-- Table Section -->
+            <div class="Product_Details" *ngIf="Active_Tab === 'Posponed'">
+               <div class="Table_Section">
+                  <table>
+                     <thead>
+                        <tr>
+                           <th>S.no</th>
+                           <th>Posponed Date</th>
+                           <th>Reason</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 1 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> reason</span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 2 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> reason</span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 3 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> reason</span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 4 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">25/05/2017</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> reason</span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         <br>
+         </div>
+         <div class="row" style="margin-top:20px;">
+            <div class="col-sm-12 text-right">
+               <button mat-raised-button color="primary" > Submit </button>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+
+

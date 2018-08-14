@@ -1,0 +1,132 @@
+
+<div class="page" style="margin-top:100px;margin-bottom:100px;">
+      <div class="container-fluid">
+         <!-- page identity -->
+         <div class="Page_Identity">
+            <div class="Page_Track">
+               <ul>
+                  <li class="HeaderName">Home</li>
+                  <li class="arrow">>></li>
+                  <li>Product</li>
+               </ul>
+            </div>
+         </div>
+         <div class="row">
+            <!-- Company details -->
+            <div class="Company_Details">
+               <div class="row">
+                  <div class="col-sm-4 Form_Input">
+                      <label>Name:</label>
+                      <input type="text">
+                  </div>
+                  <div class="col-sm-4 Form_Input">
+                       <label>Item:</label>
+                       <input type="text">
+                   </div>
+                   <div class="col-sm-4 Form_Input">
+                       <label>HSN Code:</label>
+                       <input type="text">
+                   </div>
+                   <div class="col-sm-4 Form_Input">
+                       <label>Price:</label>
+                       <input type="text">
+                   </div>
+                   <div class="col-sm-4 Form_TextArea">
+                       <label>Description:</label>
+                       <textarea type="text" row="4"></textarea>
+                   </div>
+                  </div>
+                </div>
+
+            <!-- Tab -->
+         <div class="Product">
+            <div class="Product_Tab">
+               <div class="Product_details">
+                  <span [ngClass]="{'active': Active_Tab === 'Product_Varients'}" (click)="Active_Tab_Change('Product_Varients')">Product Varients</span>
+               </div>
+               <div class="Quote_Terms">
+                  <span [ngClass]="{'active': Active_Tab === 'Price_List'}" (click)="Active_Tab_Change('Price_List')">Price List</span>
+               </div>
+               <div class="Quote_Terms">
+                  <span [ngClass]="{'active': Active_Tab === 'Offers_Promotions'}" (click)="Active_Tab_Change('Offers_Promotions')">Offers & Promotions</span>
+               </div>
+            </div>
+            <br>
+            <!-- Table Section -->
+            <div class="Product_Details" *ngIf="Active_Tab === 'Product_Varients'">
+               <div class="row">
+               <div class="col-sm-4 Form_Select">
+                  <label>Varients:</label>
+                  <select>
+                     <option disabled> Varients</option>
+                     <option> Varients</option>
+                     <option>Varients </option>
+                     <option> Varients </option>
+                   </select>
+              </div>
+              <div class="col-sm-4 Form_Input">
+               <label>value:</label>
+               <input type="text">
+           </div>
+              </div>
+            </div>
+         <div class="Done_Section" *ngIf="Active_Tab === 'Price_List'">
+               <div class="row">
+                     <div class="col-sm-4 Form_Select">
+                        <label>Customer:</label>
+                        <select>
+                           <option disabled> Customer</option>
+                           <option> Customer</option>
+                           <option>Customer </option>
+                           <option> Customer </option>
+                         </select>
+                    </div>
+                    <div class="col-sm-4 Form_Select">
+                     <label>Location:</label>
+                     <select>
+                        <option disabled> Location</option>
+                        <option> Location</option>
+                        <option>Location </option>
+                        <option> Location </option>
+                      </select>
+                 </div>
+                    <div class="col-sm-4 Form_Input">
+                        <label>Amount:</label>
+                        <input type="text">
+                    </div>
+                    </div>
+            </div>
+            <div class="Done_Section" *ngIf="Active_Tab === 'Offers_Promotions'">
+               <div class="row">
+                     <div class="col-sm-4 Form_Input">
+                           <label>Offer Name:</label>
+                           <input type="text">
+                       </div>
+                       <div class="col-sm-4 Form_Input">
+                           <label>Validity:</label>
+                           <input type="text">
+                       </div>
+                       <div class="col-sm-4 Form_Input">
+                           <label>Location:</label>
+                           <input type="text">
+                       </div>
+                       <div class="col-sm-4 Form_Input">
+                           <label>Product Price Above:</label>
+                           <input type="text">
+                       </div>
+                  </div>
+            </div>
+         </div>
+         </div>
+         <div class="row" style="margin-top:20px;"> 
+            <div class="col-sm-12 text-right">
+                  <button mat-raised-button color="primary" style = "bottom: 20px;"> Submit </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+            
+         
+   
+   
