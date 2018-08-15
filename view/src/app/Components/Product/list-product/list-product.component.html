@@ -131,7 +131,7 @@
 </div>
 
 <!-- Dropdown menus -->
-<mat-menu #Action="matMenu">
+<mat-menu class="MenuStyleOne" #Action="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below" class="MenuStyleOne">
   <button mat-menu-item [routerLink]="['/Create_Product']">
     <span>Edit</span>
   </button>

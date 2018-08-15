@@ -6,7 +6,7 @@
          <div class="col-sm-4"></div>
          <div class="col-sm-4">
             <div class="Logo">
-               <img src="assets/images/basic/Insight360.png" alt="">
+               <img src="assets/images/basic/H4C-logo.png" alt="">
             </div>
          </div>
          <div class="col-sm-4"></div>
@@ -20,29 +20,20 @@
                   <h5> Login Page</h5>
                </div>
                <div class="Form_Area">
-                  <!-- Form Group and Controllers -->
-                  <form [formGroup]="LoginForm">
                      <!-- User_Name Form Controller  -->
-                     <p class="error" *ngIf="LoginForm.controls['User_Name'].errors && !LoginForm.controls['User_Name'].pristine">
-                        <span *ngIf="LoginForm.controls['User_Name'].errors.required">User Name is required</span>
-                     </p>
-                     <div class="Form_Field" [ngClass]="{'Form_Err': LoginForm.controls['User_Name'].errors && !LoginForm.controls['User_Name'].pristine, 'Form_Success': LoginForm.controls['User_Name'].valid && !LoginForm.controls['User_Name'].pristine }">
+                     <div class="Form_Field">
                         <i class="material-icons">person_outline</i>
-                        <input type="text" formControlName="User_Name" placeholder="User Name">
+                        <input type="text" placeholder="User Name">
                      </div>
                      <!-- User_Password Form Controller  -->
-                     <p class="error" *ngIf="LoginForm.controls['User_Password'].errors && !LoginForm.controls['User_Password'].pristine">
-                        <span *ngIf="LoginForm.controls['User_Password'].errors.required">Password is required</span>
-                     </p>
-                     <div class="Form_Field" [ngClass]="{'Form_Err': LoginForm.controls['User_Password'].errors && !LoginForm.controls['User_Password'].pristine, 'Form_Success': LoginForm.controls['User_Password'].valid && !LoginForm.controls['User_Password'].pristine }">
+                     <div class="Form_Field">
                         <i class="material-icons">lock</i>
-                        <input type="password" formControlName="User_Password" placeholder="Password">
+                        <input type="password"  placeholder="Password">
                      </div>
                      <!-- FormGroup Submit  -->
                      <div class="Submit_Btn">
-                        <button type="submit" (click)="submit()" [disabled]="LoginForm.invalid" mat-raised-button color="primary"> Submit </button>
+                        <button type="submit" (click)="submit()" mat-raised-button color="primary"> Submit </button>
                      </div>
-                  </form>
                </div>
                <!-- Form Section Footer Part  -->
                <div class="Footer_Area">

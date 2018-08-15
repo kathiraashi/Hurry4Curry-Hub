@@ -5,9 +5,7 @@
          <div class="Page_Identity">
             <div class="Page_Track">
                <ul >
-                  <li class="HeaderName">Home</li>
-                  <li class="arrow">>></li>
-                  <li class= "LinkName">Inventory</li>
+                  <li class="HeaderName">Inventory</li>
                   <li class="arrow">>></li>
                   <li > Stock Values</li>
                </ul>
@@ -143,14 +141,11 @@
 </div>
 
 <!-- Dropdown menus -->
-<mat-menu #Action="matMenu">
-   <button mat-menu-item>
-      <span>Edit</span>
-   </button>
+<mat-menu class="MenuStyleOne" #Action="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below" class="MenuStyleOne">
    <button mat-menu-item [routerLink]="['/View_Stock_Values']">
       <span>View</span>
    </button>
-   <button mat-menu-item>
+   <button mat-menu-item (click)="DeleteStockValues()">
       <span>Delete</span>
    </button>
 </mat-menu>

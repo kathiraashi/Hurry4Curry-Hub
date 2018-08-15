@@ -12,26 +12,11 @@ import { MainHrSettingsComponent } from './Components/Settings/HR-Settings/main-
 import { MainAccountSettingsComponent } from './Components/Settings/Account-Settings/main-account-settings/main-account-settings.component';
 import { MainInventorySettingsComponent } from './Components/Settings/Inventory-Settings/main-inventory-settings/main-inventory-settings.component';
 import { MainProductSettingsComponent } from './Components/Settings/Product-Settings/main-product-settings/main-product-settings.component';
-import { CrmCustomersListComponent } from './Components/CRM/Customers/crm-customers-list/crm-customers-list.component';
-import { MainCrmCustomersViewComponent } from './Components/CRM/Customers/Crm-Customers-View/main-crm-customers-view/main-crm-customers-view.component';
-import { CrmCustomersCreateComponent } from './Components/CRM/Customers/crm-customers-create/crm-customers-create.component';
-import { CrmInvoiceListComponent } from './Components/CRM/Invoice/crm-invoice-list/crm-invoice-list.component';
-import { CrmInvoiceCreateComponent } from './Components/CRM/Invoice/crm-invoice-create/crm-invoice-create.component';
 import { PurchaseRequestListComponent } from './Components/Purchase/PurchaseRequest/purchase-request-list/purchase-request-list.component';
 import {PurchaseRequestCreateComponent  } from './Components/Purchase/PurchaseRequest/purchase-request-create/purchase-request-create.component';
-import { VendorBillsListComponent } from './Components/Purchase/VendorBills/vendor-bills-list/vendor-bills-list.component';
-import { VendorListComponent } from './Components/Purchase/Vendor/vendor-list/vendor-list.component';
 import { PurchaseRequestViewComponent } from './Components/Purchase/PurchaseRequest/purchase-request-view/purchase-request-view.component';
-import { VendorBillsCreateComponent } from './Components/Purchase/VendorBills/vendor-bills-create/vendor-bills-create.component';
-import { VendorBillsViewComponent } from './Components/Purchase/VendorBills/vendor-bills-view/vendor-bills-view.component';
-import { VendorCreateComponent } from './Components/Purchase/Vendor/vendor-create/vendor-create.component';
-import { CrmInvoiceViewComponent } from './Components/CRM/Invoice/crm-invoice-view/crm-invoice-view.component';
-import { MainVendorViewComponent } from './Components/Purchase/Vendor/vendor-view/main-vendor-view/main-vendor-view.component';
-import { AccountsCustomerPaymentsListComponent } from './Components/Accounts/customer-payments/accounts-customer-payments-list/accounts-customer-payments-list.component';
-import { CustomerPaymentsCreateComponent } from './Components/Accounts/customer-payments/customer-payments-create/customer-payments-create.component';
 import { VendorPaymentsListComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-list/vendor-payments-list.component';
 import { VendorPaymentsCreateComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-create/vendor-payments-create.component';
-import { AccountsCustomerPaymentsViewComponent } from './Components/Accounts/customer-payments/accounts-customer-payments-view/accounts-customer-payments-view.component';
 import { VendorPaymentsViewComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-view/vendor-payments-view.component';
 import { UserManagementListComponent } from './Components/Settings/UserManagement/user-management-list/user-management-list.component';
 import { UserPermissionsComponent } from './Components/Settings/UserPermissions/user-permissions/user-permissions.component';
@@ -43,7 +28,6 @@ import { ListAttendanceLogComponent } from './Components/HR/Attendance-Log/list-
 import { CreateAttendanceLogComponent } from './Components/HR/Attendance-Log/create-attendance-log/create-attendance-log.component';
 import { ViewAttendanceLogComponent } from './Components/HR/Attendance-Log/view-attendance-log/view-attendance-log.component';
 import { ListAttendanceReportComponent } from './Components/HR/Attendance-Report/list-attendance-report/list-attendance-report.component';
-import { CreateAttendanceReportComponent } from './Components/HR/Attendance-Report/create-attendance-report/create-attendance-report.component';
 import { ViewAttendanceReportComponent } from './Components/HR/Attendance-Report/view-attendance-report/view-attendance-report.component';
 import { PayrollListComponent } from './Components/HR/Payroll/payroll-list/payroll-list.component';
 import { PayrollViewComponent } from './Components/HR/Payroll/payroll-view/payroll-view.component';
@@ -72,6 +56,17 @@ import { ListCashRegistersComponent } from './Components/Accounts/Cash-Registers
 import { ListChequeEntriesComponent } from './Components/Accounts/Cheque-Entries/list-cheque-entries/list-cheque-entries.component';
 import { ViewChequeEntriesComponent } from './Components/Accounts/Cheque-Entries/view-cheque-entries/view-cheque-entries.component';
 import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board.component';
+import { ListFranchiseeComponent } from './Components/Sales/Franchisee/list-franchisee/list-franchisee.component';
+import { CreateFranchiseeComponent } from './Components/Sales/Franchisee/create-franchisee/create-franchisee.component';
+import { ViewFranchiseeComponent } from './Components/Sales/Franchisee/view-franchisee/view-franchisee.component';
+import { ListBillComponent } from './Components/Sales/Bill/list-bill/list-bill.component';
+import { CreateBillComponent } from './Components/Sales/Bill/create-bill/create-bill.component';
+import { ViewBillComponent } from './Components/Sales/Bill/view-bill/view-bill.component';
+import { ListPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/list-purchase-bills/list-purchase-bills.component';
+import { ViewPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/view-purchase-bills/view-purchase-bills.component';
+import { ListFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/list-franchisee-payments/list-franchisee-payments.component';
+import { CreateFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/create-franchisee-payments/create-franchisee-payments.component';
+import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/view-franchisee-payments/view-franchisee-payments.component';
 
 
 const appRoutes: Routes = [
@@ -140,35 +135,42 @@ const appRoutes: Routes = [
       data: {   animation: { value: 'Product_Settings'}   }
    },
    {
-      path: 'Crm_Customers_List',
-      component: CrmCustomersListComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'Crm_Customers_List'}   }
-   },
-   {
-      path: 'main_crm_customers_view',
-      component: MainCrmCustomersViewComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'main_crm_customers_view'}   }
-   },
-   {
-      path: 'crm_customers_create',
-      component: CrmCustomersCreateComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'crm_customers_create'}   }
-   },
-   {
-      path: 'crm_invoice_list',
-      component: CrmInvoiceListComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'crm_invoice_list'}   }
-   },
-   {
-      path: 'crm_invoice_create',
-      component: CrmInvoiceCreateComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'crm_invoice_create'}   }
-   },
+    path: 'List_Franchisee',
+    component: ListFranchiseeComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'List_Franchisee'}   }
+ },
+ {
+    path: 'Create_Franchisee',
+    component: CreateFranchiseeComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Create_Franchisee'}   }
+ },
+ {
+    path: 'View_Franchisee',
+    component: ViewFranchiseeComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'View_Franchisee'}   }
+ },
+ {
+    path: 'List_Bill',
+    component: ListBillComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'List_Bill'}   }
+ },
+ {
+    path: 'Create_Bill',
+    component: CreateBillComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Create_Bill'}   }
+ },
+ {
+    path: 'View_Bill',
+    component: ViewBillComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'View_Bill'}   }
+ },
+
    //  {
    //      path: 'HRMS_DashBoard',
    //      component: DashBoardComponent,
@@ -259,67 +261,42 @@ const appRoutes: Routes = [
       canActivate: [AuthGuard],
       data: {   animation: { value: 'purchase_request_create'}   }
    },
-   {
-      path: 'Vendor_Bills_List',
-      component: VendorBillsListComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'Vendor_Bills_List'}   }
-   },
-   {
-      path: 'Vendor_List',
-      component: VendorListComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'Vendor_List'}   }
-   },
-   {
+  {
       path: 'Purchase_Request_View',
       component: PurchaseRequestViewComponent,
       canActivate: [AuthGuard],
       data: {   animation: { value: 'Purchase_Request_View'}   }
    },
    {
-      path: 'Vendor_Bills_Create',
-      component: VendorBillsCreateComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'Vendor_Bills_Create'}   }
-   },
-   {
-      path: 'Vendor_Bills_View',
-      component: VendorBillsViewComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'Vendor_Bills_View'}   }
-   },
-   {
-      path: 'Vendor_Create',
-      component: VendorCreateComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'Vendor_Create'}   }
-   },
-   {
-      path: 'crm_invoice_view',
-      component: CrmInvoiceViewComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'crm_invoice_view'}   }
-   },
-   {
-      path: 'main_vendor_view',
-      component: MainVendorViewComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'main_vendor_view'}   }
-   },
-
-   {
-      path: 'account_customer_payments_list',
-      component: AccountsCustomerPaymentsListComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'account_customer_payments_list'}   }
-   },
-   {
-      path: 'customer_payment_create',
-      component: CustomerPaymentsCreateComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'customer_payment_create'}   }
-   },
+    path: 'Purchase_Bills_List',
+    component: ListPurchaseBillsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Purchase_Bills_List'}   }
+ },
+ {
+    path: 'Purchase_Bills_View',
+    component: ViewPurchaseBillsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Purchase_Bills_View'}   }
+ },
+  {
+    path: 'List_Franchisee_payments',
+    component: ListFranchiseePaymentsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'List_Franchisee_payments'}  }
+ },
+ {
+    path: 'Create_Franchisee_payments',
+    component: CreateFranchiseePaymentsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Create_Franchisee_payments'}  }
+ },
+ {
+    path: 'View_Franchisee_payments',
+    component: ViewFranchiseePaymentsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'View_Franchisee_payments'}   }
+ },
    {
       path: 'vendor_payment_list',
       component: VendorPaymentsListComponent,
@@ -333,19 +310,12 @@ const appRoutes: Routes = [
       data: {   animation: { value: 'vendor_payment_create'}   }
    },
    {
-      path: 'customer_payment_view',
-      component: AccountsCustomerPaymentsViewComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'customer_payment_view'}   }
-   },
-   {
     path: 'vendor_payment_view',
     component: VendorPaymentsViewComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'vendor_payment_view'}   }
 },
-
-   {
+{
       path: 'User_Management',
       component: UserManagementListComponent,
       canActivate: [AuthGuard],
@@ -404,12 +374,6 @@ const appRoutes: Routes = [
     component: ListAttendanceReportComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'List_Attendance_Report'}   }
-},
-{
-    path: 'Create_Attendance_Report',
-    component: CreateAttendanceReportComponent,
-    canActivate: [AuthGuard],
-    data: {   animation: { value: 'Create_Attendance_Report'}   }
 },
 {
     path: 'View_Attendance_Report',

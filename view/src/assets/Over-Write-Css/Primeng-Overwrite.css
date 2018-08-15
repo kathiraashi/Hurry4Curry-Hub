@@ -13,20 +13,20 @@
     border-bottom: none;
 }
 .Custom_Calender_1 .ui-datepicker.ui-widget .ui-datepicker-calendar td a.ui-state-highlight{
-    background-color: #06a92c33;
-    color: #49b660;
+    background-color: #9db7c5;
+    color: #4E6A7A;
     font-weight: 700;
 }
 .Custom_Calender_1 .ui-datepicker.ui-widget .ui-datepicker-calendar td a.ui-state-active{
-    background-color:#49b660;
+    background-color:#4E6A7A;
     color: #ffffff;
 }
 .Custom_Calender_1 .ui-datepicker .ui-datepicker-calendar td:not(.ui-state-disabled) a:hover{
-    background: #49b6607a;
+    background: #4E6A7A;
     color: #ffffff;
 }
 .Custom_Calender_1 .ui-datepicker.ui-widget .ui-datepicker-calendar td a.ui-state-active:hover{
-    background-color:#49b660;
+    background-color:#4E6A7A;
     color: #ffffff;
 }
 .Custom_Calender_1  .ui-datepicker .ui-datepicker-header{

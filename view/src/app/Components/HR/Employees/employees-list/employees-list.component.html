@@ -5,11 +5,9 @@
       <div class="Page_Identity">
          <div class="Page_Track">
             <ul>
-               <li class="HeaderName">Home</li>
+               <li class="HeaderName">HR</li>
                <li class="arrow">>></li>
-               <li class="LinkName">HR</li>
-               <li class="arrow">>></li>
-               <li>Employees</li>
+               <li>Employees List</li>
             </ul>
          </div>
       </div>
@@ -152,14 +150,14 @@
 </div>
 
 <!-- Dropdown menus -->
-<mat-menu #Action="matMenu">
+<mat-menu class="MenuStyleOne" #Action="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below" class="MenuStyleOne">
    <button mat-menu-item [routerLink]="['/Create_Employees']">
       <span>Edit</span>
    </button>
    <button mat-menu-item [routerLink]="['/View_Employees']">
       <span>View</span>
    </button>
-   <button mat-menu-item>
+   <button mat-menu-item (click)=" DeleteEmployees()">
       <span>Delete</span>
    </button>
 </mat-menu>

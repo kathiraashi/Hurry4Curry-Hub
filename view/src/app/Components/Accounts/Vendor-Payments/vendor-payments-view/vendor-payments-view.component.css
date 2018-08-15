@@ -95,7 +95,7 @@
     margin-left: 15px;
     width: 100%;
     border-radius: 5px;
-    border-top: 2px solid #49B660;
+    border-top: 2px solid #4E6A7A;
     height:300px;
   }
   .table_section{
@@ -181,7 +181,7 @@
     font-weight: 700;
  }
  .Page_Identity .Page_Track{
-    width:50%;
+    width:100%;
     line-height: 35px;
  }
  .Page_Identity .Page_Track ul{
@@ -193,7 +193,6 @@
     float: right;
  }
  .Page_Identity .Page_Track ul li {
-    color: #a5adb1;
     font-size: 13px;
     font-weight: 500;
     margin-left: 5px;
@@ -207,13 +206,13 @@
      letter-spacing: -4px;
      font-size: 19px;
      transform: scale(.6, 1);
-     color: #4ab65f;
+     color: #4E6A7A;
   }
  .Page_Identity .Page_Track ul li.HeaderName{
-     color: #4ab65f;
+     color: #4E6A7A;
  }
  .Page_Identity .Page_Track ul li.LinkName{
-    color: #4ab65f;
+    color: #4E6A7A;
     cursor: pointer;
  }
  .register_Payment{

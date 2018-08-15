@@ -5,9 +5,11 @@
          <div class="Page_Identity">
             <div class="Page_Track">
                <ul>
-                  <li class="HeaderName">Home</li>
+                  <li class="HeaderName">Product</li>
                   <li class="arrow">>></li>
-                  <li>Product</li>
+                  <li class="LinkName" [routerLink]="['/List_Product']">Product List</li>
+                  <li class="arrow">>></li>
+                  <li>Product Create</li>
                </ul>
             </div>
          </div>
@@ -57,12 +59,9 @@
                <div class="row">
                <div class="col-sm-4 Form_Select">
                   <label>Varients:</label>
-                  <select>
-                     <option disabled> Varients</option>
-                     <option> Varients</option>
-                     <option>Varients </option>
-                     <option> Varients </option>
-                   </select>
+                  <ng-select class="NgSelect" [searchable]="true" placeholder="Varients">
+                        <ng-option *ngFor="let Varients of _Varients" [value]="Varients">{{Varients}}</ng-option>
+                     </ng-select>
               </div>
               <div class="col-sm-4 Form_Input">
                <label>value:</label>
@@ -74,21 +73,15 @@
                <div class="row">
                      <div class="col-sm-4 Form_Select">
                         <label>Customer:</label>
-                        <select>
-                           <option disabled> Customer</option>
-                           <option> Customer</option>
-                           <option>Customer </option>
-                           <option> Customer </option>
-                         </select>
+                        <ng-select class="NgSelect" [searchable]="true" placeholder="Customer">
+                              <ng-option *ngFor="let Customer of _Customers" [value]="Customer">{{Customer}}</ng-option>
+                           </ng-select>
                     </div>
                     <div class="col-sm-4 Form_Select">
                      <label>Location:</label>
-                     <select>
-                        <option disabled> Location</option>
-                        <option> Location</option>
-                        <option>Location </option>
-                        <option> Location </option>
-                      </select>
+                     <ng-select class="NgSelect" [searchable]="true" placeholder="Location">
+                           <ng-option *ngFor="let Location of _Locations" [value]="Location">{{Location}}</ng-option>
+                        </ng-select>
                  </div>
                     <div class="col-sm-4 Form_Input">
                         <label>Amount:</label>

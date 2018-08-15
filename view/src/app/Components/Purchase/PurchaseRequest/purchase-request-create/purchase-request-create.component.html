@@ -4,23 +4,23 @@
       <div class="Page_Identity">
          <div class="Page_Track">
             <ul>
-               <li class="HeaderName">Home</li>
+               <li class="HeaderName">Inventory</li>
                <li class="arrow">>></li>
-               <li class= "LinkName">Inventory</li>
+               <li class= "LinkName" [routerLink]="['/purchase_request_list']">Purchase Request List</li>
                <li class="arrow">>></li>
-               <li >Purchase Request</li>
+               <li >Purchase Request Create</li>
             </ul>
          </div>
       </div>
       <form>
          <div class="row">
-            <!-- Company details -->
+           <div class="col-sm-12">
+               <!-- Company details -->
             <div class="Company_Details">
-               <h5 style="color:#49B660;font-size:20px;font-weight: 600;">Purchase 
-                  <span style="color:#516570;font-size:20px;font-weight: 600;">Request</span>
-               </h5>
-               <br>
-               <div class="col-sm-12">
+                  <h5 style="color:#4E6A7A;font-size:20px;font-weight: 600;">Purchase 
+                     <span style="color:#516570;font-size:20px;font-weight: 600;">Request</span>
+                  </h5>
+                  <br>
                   <div class="row">
                   <div class="col-sm-5 Form_Input">
                      <label>Ref No:</label>

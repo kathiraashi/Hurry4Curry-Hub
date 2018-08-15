@@ -131,22 +131,6 @@
             import { ModelAssettypeAccountsettingsComponent } from './models/settings/account_settings/model-assettype-accountsettings/model-assettype-accountsettings.component';
             import { ModelPaymenttermsAccountsettingsComponent } from './models/settings/account_settings/model-paymentterms-accountsettings/model-paymentterms-accountsettings.component';
 
-
-      // Sales Folder --------------------------------------------------------------
-         // Customers ----------------
-            // Sales Customers List
-               import { CrmCustomersListComponent } from './Components/CRM/Customers/crm-customers-list/crm-customers-list.component';
-            // Sales Customers View
-               // Main Sales Customers View
-                  import { MainCrmCustomersViewComponent } from './Components/CRM/Customers/Crm-Customers-View/main-crm-customers-view/main-crm-customers-view.component';
-            // Sales-customers-create
-                import { CrmCustomersCreateComponent } from './Components/CRM/Customers/crm-customers-create/crm-customers-create.component';
-        // Invoice ---------------------
-            import { CrmInvoiceCreateComponent } from './Components/CRM/Invoice/crm-invoice-create/crm-invoice-create.component';
-            import { CrmInvoiceListComponent } from './Components/CRM/Invoice/crm-invoice-list/crm-invoice-list.component';
-            import { CrmInvoiceViewComponent } from './Components/CRM/Invoice/crm-invoice-view/crm-invoice-view.component';
-      // Leads Folder ----------------------------------------------------
-
 // models
     // HRMS
         import { ModelLeavesHrmsComponent } from './models/HRMS/model-leaves-hrms/model-leaves-hrms.component';
@@ -158,22 +142,7 @@
         import { PurchaseRequestListComponent } from './Components/Purchase/PurchaseRequest/purchase-request-list/purchase-request-list.component';
         import { PurchaseRequestCreateComponent } from './Components/Purchase/PurchaseRequest/purchase-request-create/purchase-request-create.component';
         import { PurchaseRequestViewComponent } from './Components/Purchase/PurchaseRequest/purchase-request-view/purchase-request-view.component';
-        // Vendor Bills
-        import { VendorBillsListComponent } from './Components/Purchase/VendorBills/vendor-bills-list/vendor-bills-list.component';
-        import { VendorBillsCreateComponent } from './Components/Purchase/VendorBills/vendor-bills-create/vendor-bills-create.component';
-        import { VendorBillsViewComponent } from './Components/Purchase/VendorBills/vendor-bills-view/vendor-bills-view.component';
-        // vendor
-        import { VendorListComponent } from './Components/Purchase/Vendor/vendor-list/vendor-list.component';
-        import { VendorCreateComponent } from './Components/Purchase/Vendor/vendor-create/vendor-create.component';
-            // main vendor view
-                import { MainVendorViewComponent } from './Components/Purchase/Vendor/vendor-view/main-vendor-view/main-vendor-view.component';
 
-    // Accounts Folder
-        // Customer
-            import { AccountsCustomerPaymentsListComponent } from './Components/Accounts/customer-payments/accounts-customer-payments-list/accounts-customer-payments-list.component';
-        // vendor
-            import { AccountsCustomerPaymentsViewComponent } from './Components/Accounts/customer-payments/accounts-customer-payments-view/accounts-customer-payments-view.component';
-import { CustomerPaymentsCreateComponent } from './Components/Accounts/customer-payments/customer-payments-create/customer-payments-create.component';
 import { VendorPaymentsListComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-list/vendor-payments-list.component';
 import { VendorPaymentsCreateComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-create/vendor-payments-create.component';
 import { VendorPaymentsViewComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-view/vendor-payments-view.component';
@@ -181,20 +150,13 @@ import { UserManagementListComponent } from './Components/Settings/UserManagemen
 import { UserPermissionsComponent } from './Components/Settings/UserPermissions/user-permissions/user-permissions.component';
 import { ModelUserCreateUserManagementComponent } from './models/settings/user_management/model-user-create-user-management/model-user-create-user-management.component';
 import { UserPermissionsGroupCreateComponent } from './Components/Settings/UserPermissions/user-permissions-group-create/user-permissions-group-create.component';
-import { ModelEmployeesCreateComponent } from './models/HR/model-employees-create/model-employees-create.component';
-import { ModelAttendanceLogCreateComponent } from './models/HR/model-attendance-log-create/model-attendance-log-create.component';
 import { ModelAttendanceReportCreateComponent } from './models/HR/model-attendance-report-create/model-attendance-report-create.component';
-import { ModelPayrollMasterViewComponent } from './models/HR/model-payroll-master-view/model-payroll-master-view.component';
 import { EarningsHrSettingsComponent } from './Components/Settings/HR-Settings/SubComponents/earnings-hr-settings/earnings-hr-settings.component';
 import { DetectionsHrSettingsComponent } from './Components/Settings/HR-Settings/SubComponents/detections-hr-settings/detections-hr-settings.component';
 import { ModelEarningsHrsettingsComponent } from './models/settings/hr_settings/model-earnings-hrsettings/model-earnings-hrsettings.component';
 import { ModelDetectionsHrsettingsComponent } from './models/settings/hr_settings/model-detections-hrsettings/model-detections-hrsettings.component';
-
-
 // Services
 import { LoginService } from './services/LoginService/login.service';
-import { CallScheduleLeadComponent } from './models/Leads/call-schedule-lead/call-schedule-lead.component';
-import { LogPhoneCallLeadComponent } from './models/Leads/log-phone-call-lead/log-phone-call-lead.component';
 import { LocationsInventorySettingsComponent } from './Components/Settings/Inventory-Settings/SubComponents/locations-inventory-settings/locations-inventory-settings.component';
 import { ModelLocationsInventorySettingsComponent } from './models/settings/inventory_settings/model-locations-inventory-settings/model-locations-inventory-settings.component';
 import { CurrencyAccountSettingsComponent } from './Components/Settings/Account-Settings/SubComponents/currency-account-settings/currency-account-settings.component';
@@ -205,7 +167,6 @@ import { EmployeesViewComponent } from './Components/HR/Employees/employees-view
 import { CreateAttendanceLogComponent } from './Components/HR/Attendance-Log/create-attendance-log/create-attendance-log.component';
 import { ListAttendanceLogComponent } from './Components/HR/Attendance-Log/list-attendance-log/list-attendance-log.component';
 import { ViewAttendanceLogComponent } from './Components/HR/Attendance-Log/view-attendance-log/view-attendance-log.component';
-import { CreateAttendanceReportComponent } from './Components/HR/Attendance-Report/create-attendance-report/create-attendance-report.component';
 import { ListAttendanceReportComponent } from './Components/HR/Attendance-Report/list-attendance-report/list-attendance-report.component';
 import { ViewAttendanceReportComponent } from './Components/HR/Attendance-Report/view-attendance-report/view-attendance-report.component';
 import { PayrollListComponent } from './Components/HR/Payroll/payroll-list/payroll-list.component';
@@ -237,6 +198,17 @@ import { ModelBankRegisterComponent } from './models/Accounts/model-bank-registe
 import { ModelChequeEntriesComponent } from './models/Accounts/model-cheque-entries/model-cheque-entries.component';
 import { ViewChequeEntriesComponent } from './Components/Accounts/Cheque-Entries/view-cheque-entries/view-cheque-entries.component';
 import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board.component';
+import { CreateFranchiseeComponent } from './Components/Sales/Franchisee/create-franchisee/create-franchisee.component';
+import { ListFranchiseeComponent } from './Components/Sales/Franchisee/list-franchisee/list-franchisee.component';
+import { ViewFranchiseeComponent } from './Components/Sales/Franchisee/view-franchisee/view-franchisee.component';
+import { CreateBillComponent } from './Components/Sales/Bill/create-bill/create-bill.component';
+import { ListBillComponent } from './Components/Sales/Bill/list-bill/list-bill.component';
+import { ViewBillComponent } from './Components/Sales/Bill/view-bill/view-bill.component';
+import { ListPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/list-purchase-bills/list-purchase-bills.component';
+import { ViewPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/view-purchase-bills/view-purchase-bills.component';
+import { CreateFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/create-franchisee-payments/create-franchisee-payments.component';
+import { ListFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/list-franchisee-payments/list-franchisee-payments.component';
+import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/view-franchisee-payments/view-franchisee-payments.component';
 
 
 @NgModule({
@@ -353,19 +325,6 @@ import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board
     // Common-Components
         // delete-confirmation
                  DeleteConfirmationComponent,
-    // Sales Folder
-        // Customers
-            // Sales-customers-list
-                CrmCustomersListComponent,
-                 // main Sales customers view
-                    MainCrmCustomersViewComponent,
-                    // SubComponents
-                    CrmCustomersCreateComponent,
-        // Invoice
-        CrmInvoiceCreateComponent,
-        CrmInvoiceListComponent,
-        CrmInvoiceViewComponent,
-    // models
     // models
         // HRMS
                 ModelLeavesHrmsComponent,
@@ -377,25 +336,7 @@ import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board
         PurchaseRequestListComponent,
         PurchaseRequestCreateComponent,
         PurchaseRequestViewComponent,
-        // Vendor Bills
-         VendorBillsListComponent,
-         VendorBillsCreateComponent,
-         VendorBillsViewComponent,
-        // vendor
-         VendorListComponent,
-         VendorCreateComponent,
-              // main vendor view
-                MainVendorViewComponent,
-
-   // Accounts Folder
-        // Customer
-
-            AccountsCustomerPaymentsListComponent,
-
-        // vendor
-            AccountsCustomerPaymentsViewComponent,
-            CustomerPaymentsCreateComponent,
-            VendorPaymentsListComponent,
+        VendorPaymentsListComponent,
             VendorPaymentsCreateComponent,
             VendorPaymentsViewComponent,
             LoginComponent,
@@ -403,18 +344,12 @@ import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board
             UserPermissionsComponent,
             ModelUserCreateUserManagementComponent,
             UserPermissionsGroupCreateComponent,
-            ModelEmployeesCreateComponent,
-
-            ModelAttendanceLogCreateComponent,
             ModelAttendanceReportCreateComponent,
-           ModelPayrollMasterViewComponent,
-            EarningsHrSettingsComponent,
+           EarningsHrSettingsComponent,
             DetectionsHrSettingsComponent,
             ModelEarningsHrsettingsComponent,
             ModelDetectionsHrsettingsComponent,
-            CallScheduleLeadComponent,
-            LogPhoneCallLeadComponent,
-           LocationsInventorySettingsComponent,
+            LocationsInventorySettingsComponent,
             ModelLocationsInventorySettingsComponent,
             CurrencyAccountSettingsComponent,
             ModelCurrencyAccountSettingsComponent,
@@ -424,7 +359,6 @@ import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board
             CreateAttendanceLogComponent,
             ListAttendanceLogComponent,
             ViewAttendanceLogComponent,
-            CreateAttendanceReportComponent,
             ListAttendanceReportComponent,
             ViewAttendanceReportComponent,
             PayrollListComponent,
@@ -455,7 +389,18 @@ import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board
                ModelBankRegisterComponent,
             ModelChequeEntriesComponent,
             ViewChequeEntriesComponent,
-            DashBoardComponent
+            DashBoardComponent,
+            CreateFranchiseeComponent,
+            ListFranchiseeComponent,
+            ViewFranchiseeComponent,
+            CreateBillComponent,
+            ListBillComponent,
+            ViewBillComponent,
+            ListPurchaseBillsComponent,
+            ViewPurchaseBillsComponent,
+            CreateFranchiseePaymentsComponent,
+            ListFranchiseePaymentsComponent,
+            ViewFranchiseePaymentsComponent
 
 
    ],
@@ -519,14 +464,9 @@ import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board
       ModelPermissionsHrmsComponent,
       ModelAdvanceHrmsComponent,
       ModelUserCreateUserManagementComponent,
-     ModelEmployeesCreateComponent,
-      ModelAttendanceLogCreateComponent,
-      ModelAttendanceReportCreateComponent,
-      ModelPayrollMasterViewComponent,
+     ModelAttendanceReportCreateComponent,
       ModelEarningsHrsettingsComponent,
       ModelDetectionsHrsettingsComponent,
-      LogPhoneCallLeadComponent,
-      CallScheduleLeadComponent,
       ModelLocationsInventorySettingsComponent,
       ModelCurrencyAccountSettingsComponent,
       ModelBankRegisterComponent,

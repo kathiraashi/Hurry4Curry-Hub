@@ -4,11 +4,11 @@
         <div class="Page_Identity">
           <div class="Page_Track">
             <ul>
-              <li class="HeaderName">Home</li>
+              <li class="HeaderName">Accounts</li>
               <li class="arrow">>></li>
-              <li class="LinkName">Accounts</li>
+              <li class="LinkName" [routerLink]="['/vendor_payment_list']">Vendor Payments List</li>
               <li class="arrow">>></li>
-              <li>Vendor Payments</li>
+              <li>Vendor Payments Create</li>
             </ul>
           </div>
         </div>
@@ -17,18 +17,14 @@
             <div class="col-sm-12">
               <div class="row">
                 <div class="col-sm-6 Form_Input">
-                  <label>Vendor:</label>
+                  <label>Supplier:</label>
                   <input type="text">
                 </div>
                 <div class="col-sm-6 Form_Select">
                   <label>Bill No:</label>
-                  <select>
-                     <option checked>Bill No</option>
-                     <option> BILL133</option>
-                     <option> BILL133</option>
-                     <option> BILL133</option>
-                     <option> BILL133</option>
-                  </select>
+                  <ng-select class="NgSelect" [searchable]="true" placeholder="Bill No">
+                      <ng-option *ngFor="let BillNo of _BillNo" [value]="BillNo">{{BillNo}}</ng-option>
+                   </ng-select>
                 </div>
                 <div class="col-sm-6 Form_Input">
                   <label>Payment Amount:</label>
