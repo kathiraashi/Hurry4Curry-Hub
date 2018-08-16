@@ -1,312 +1,230 @@
-.Main_Section{
-    margin-top:100px;
- }
+/* Main Section */
+   .Main_Section{
+      margin-top:100px;
+   }
 /* --------------   Page Identity Section  ----------------- */
- .Page_Identity{
-    display: flex;
-    height:40px;
-    width: 100%;
-    margin-bottom: 5px;
- }
- .Page_Identity .Page_Track{
-    width:100%;
-    line-height: 35px;
- }
- .Page_Identity .Page_Track ul{
-    display: flex;
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-    align-items: center;
-    float: right;
- }
- .Page_Identity .Page_Track ul li {
-    font-size: 13px;
-    font-weight: 500;
-    margin-left: 5px;
- }
- .Page_Identity .Page_Track ul li.arrow{
-    letter-spacing: -4px;
-    font-size: 19px;
-    transform: scale(.6, 1);
- }
- .Page_Identity .Page_Track ul li.arrowGreen{
-    letter-spacing: -4px;
-    font-size: 19px;
-    transform: scale(.6, 1);
-    color: #4E6A7A;
- }
- .Page_Identity .Page_Track ul li.HeaderName{
-    color: #4E6A7A;
- }
- .Page_Identity .Page_Track ul li.LinkName{
-    color: #4E6A7A;
-    cursor: pointer;
- }
-/* Image Section */
- .Image_Section img{
-    width: 100%;
-    height: 100%;
-    margin-left:10px;
-    box-shadow: 2px 2px 8px #9a9292;
- }
+   .Page_Identity{
+      display: flex;
+      height:40px;
+      width: 100%;
+      margin-bottom: 5px;
+   }
+   .Page_Identity .Page_Track{
+      width:100%;
+      line-height: 35px;
+   }
+   .Page_Identity .Page_Track ul{
+      display: flex;
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px;
+      align-items: center;
+      float: right;
+   }
+   .Page_Identity .Page_Track ul li {
+      font-size: 13px;
+      font-weight: 500;
+      margin-left: 5px;
+   }
+   .Page_Identity .Page_Track ul li.arrow{
+      letter-spacing: -4px;
+      font-size: 19px;
+      transform: scale(.6, 1);
+   }
+   .Page_Identity .Page_Track ul li.arrowGreen{
+      letter-spacing: -4px;
+      font-size: 19px;
+      transform: scale(.6, 1);
+      color: #4E6A7A;
+   }
+   .Page_Identity .Page_Track ul li.HeaderName{
+      color: #4E6A7A;
+   }
+   .Page_Identity .Page_Track ul li.LinkName{
+      color: #4E6A7A;
+      cursor: pointer;
+   }
 /* Cards */
- .Card {
-    background: linear-gradient(229deg, #74da8b, #009e26);
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
-    height: 100px;
- }
- .Card .Card_Body {    
-    height: 70px;
-    display: flex;
-    align-items: center;
- }
- .Card .Card_Body .Card_Left {
-    width: 25%;
-    text-align: center;
- }
- .Card .Card_Body .Card_Left i {
-    font-size: 25px;
-    line-height: 85px;
- }
- .Card .Card_Body .Card_Left .account_balance{
-    color:#233780;
- }
- .Card .Card_Body .Card_Left .assignment{
-    color:#dc4f35;
- }
- .Card .Card_Body .Card_Left .add_shopping{
-    color:#3957B5;
- }
- .Card .Card_Body .Card_Left .alarm{
-    color:#AF1437;
- }
- .Card .Card_Body .Card_Right {
-    text-align: center;
-    width: 75%;
- }
- .Card .Card_Body .Card_Right h5 {
-    color: #017f1e;
-    font-size: 16px;
-    line-height: 30px;
-    margin: 0px;
- }
- .Card .Card_Body .Card_Right h6 {
-    color: #ffffff;
-    font-size: 16px;
- }
- .Card .Card_Footer {
-    height: 35px;
-    background-color: #017f1e;
-    display: inline-block;
-    width: 100%;
-    align-items: center;
-    padding: 0px 10px;
-    line-height: 30px;
-    text-align: center;
- }
- .Card .Card_Footer .Card_Info {
-    font-size: 12px;
-    color: #ffffff;
-    font-weight: 500;
- }
+   .Card {
+      background: linear-gradient(229deg, #74da8b, #009e26);
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
+      height: 100px;
+   }
+   .Card .Card_Body {    
+      height: 70px;
+      display: flex;
+      align-items: center;
+   }
+   .Card .Card_Body .Card_Left {
+      width: 25%;
+      text-align: center;
+   }
+   .Card .Card_Body .Card_Left i {
+      font-size: 25px;
+      line-height: 85px;
+   }
+   .Card .Card_Body .Card_Left .account_balance{
+      color:#233780;
+   }
+   .Card .Card_Body .Card_Left .assignment{
+      color:#dc4f35;
+   }
+   .Card .Card_Body .Card_Left .add_shopping{
+      color:#3957B5;
+   }
+   .Card .Card_Body .Card_Left .alarm{
+      color:#AF1437;
+   }
+   .Card .Card_Body .Card_Right {
+      text-align: center;
+      width: 75%;
+   }
+   .Card .Card_Body .Card_Right h5 {
+      color: #017f1e;
+      font-size: 16px;
+      line-height: 30px;
+      margin: 0px;
+   }
+   .Card .Card_Body .Card_Right h6 {
+      color: #ffffff;
+      font-size: 16px;
+   }
+   .Card .Card_Footer {
+      height: 35px;
+      background-color: #017f1e;
+      display: inline-block;
+      width: 100%;
+      align-items: center;
+      padding: 0px 10px;
+      line-height: 30px;
+      text-align: center;
+   }
+   .Card .Card_Footer .Card_Info {
+      font-size: 12px;
+      color: #ffffff;
+      font-weight: 500;
+   }
 
- .card_bg_Liner_1{
-    background: linear-gradient(229deg, #fd9a77, #fb827a) !important;
- }
- .card_bg_1{
-    background-color: #d24330 !important;
- }
- .card_color_1{
-    color: #d2432f !important;
- }
+   .card_bg_Liner_1{
+      background: linear-gradient(229deg, #fd9a77, #fb827a) !important;
+   }
+   .card_bg_1{
+      background-color: #d24330 !important;
+   }
+   .card_color_1{
+      color: #d2432f !important;
+   }
 
- .card_bg_Liner_2{
-    background: linear-gradient(229deg, #8edead, #43c6ac) !important;
- }
- .card_bg_2{
-    background-color: #049870 !important;
- }
- .card_color_2{
-    color: #049870 !important;
- }
+   .card_bg_Liner_2{
+      background: linear-gradient(229deg, #8edead, #43c6ac) !important;
+   }
+   .card_bg_2{
+      background-color: #049870 !important;
+   }
+   .card_color_2{
+      color: #049870 !important;
+   }
 
- .card_bg_Liner_3{
-    background: linear-gradient(248deg, #348ac7, #7474bf);
- }
- .card_bg_3{
-    background-color: #3957b5 !important;
- }
- .card_color_3{
-    color: #3957b5 !important;
- }
+   .card_bg_Liner_3{
+      background: linear-gradient(248deg, #348ac7, #7474bf);
+   }
+   .card_bg_3{
+      background-color: #3957b5 !important;
+   }
+   .card_color_3{
+      color: #3957b5 !important;
+   }
 
- .card_bg_Liner_4{
-    background: linear-gradient(67deg, #f15f79, #b24592);
- }
- .card_bg_4{
-    background-color: #af1437 !important;
- }
- .card_color_4{ 
-    color: #af1437 !important;
- }
- .customer_name{
-    color: #626669;
-    font-weight:800;
- }
- span i{
-    color:#49B660;
-    padding: 5px;
-    cursor: pointer;
- }
-/* Creatr Button */
- .Create_Button{
-    border-radius: 0px;
-    color: #49B660;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 0.9px;
-    cursor: pointer;
-    float:right;
-    margin-top: 10px;
- }
-/* Menu Bar */
- .Menu_Bar .Menu{
-    padding:0px;
-    list-style-type:none;
-    display:inline-flex;
-    align-items: center;
-    margin-left:0px;
-    width:100%;
-    height:35px;
-    background-color: #516570;
-    color: #fff;
- }
- .Menu_Bar .Menu li {
-    border-right: 1px solid #3b4a52;
-    display: block;
-    width: 11.14%;
-    height: 35px;
-    line-height: 35px;
-    text-align: center;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-    cursor: pointer;
- }
- .Menu_Bar .Menu li:hover{
-    background-color:#49B660;
-    color:#fff;
- }
- .Menu_Bar .Menu li.active {
-    Background-color:#49B660;
- }
- .Menu_Bar .Menu li.active span{
-    Background-color:#49B660;
-    color:#fff;
- }
- .Menu_Bar .Menu li:last-child{
-    border:none;
- }
-/* Calender */
- .Calender{
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
- }
-/* Log section */
- .Log_Section{
-    background-color: #ffffff;
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
- }
- .Log_Header {
-    background-color: #06a92c;
-    height: 40px;
- }
- .Log_Header h5 {
-    line-height: 40px;
-    text-align: center;
-    color: #ffffff;
- }
- .Log_List ul {
-    list-style-type: none;
-    padding: 0px;
- }
- .Log_List ul li {
-    border-bottom: 1px solid #efefef;
-    background-color: #f3f3f3;
-    padding: 0px 10px;
-    height: 45px;
-    padding: 5px 20px;
- }
- .Log_List ul li:nth-child(odd) {
-    background-color: #ffffff;
- }
- .Log_List ul li h5 {
-    margin: 0px;
-    font-size: 15px;
-    color: #888c90;
- }
- .Log_List ul li h6 {
-    font-weight: 400;
-    margin: 0px;
-    color: #afadad;
-    font-size: 12px;
- }
-
- .Table_Section table {
-    border: 1px solid lightgray;
-    width: 100%;
-    box-shadow: 2px 2px 3px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
- }
- .Table_Section table thead {
-    line-height: 40px;
-    text-align: center;
-    background-color: #ffffff;
-    color: #4d6a7a;
-    font-size: 14px;
-    letter-spacing: 0.5px;
- }
- .Table_Section table thead th{
-    font-weight: 800;
- }
- .Table_Section table tbody {
-    border: 1px solid #e8e8e8;
-    background-color: #ffffff;
- }
- .Table_Section table tbody tr {
-    line-height: 42px;
-    text-align: center;
-    align-items: center;
-    border-bottom: 1px solid #eaeaea;
- }
- .Table_Section table tbody tr:nth-child(odd) {
-    background-color: #f1f1f185;
- }
- .Table_Section table tbody tr:hover {
-    background-color: #4f6a7a40;
- }
- .Table_Section table tbody tr td .S_no {
-    font-size: 14px;
-    color: #4d6a7a;
- }
- .Table_Section table tbody tr td .Style_1 {
-    font-size: 14px;
-    color: rgba(77, 106, 122, 0.84);
-    font-weight: 600;
-    cursor: pointer;
- }
- .Table_Section table tbody tr td .Action_Section{
-    color: #ffffff;
-    height: 35px;
-    width: 35px;
-    line-height: 30px;
-    display: flex;
-    border-radius: 5px;
-    cursor: pointer;
-    float: right;
-    margin-right: 10px;
- }
- .Table_Section table tbody tr td .Action_Section i {
-    width: 100%;
-    line-height: 35px;
- }
-
+   .card_bg_Liner_4{
+      background: linear-gradient(67deg, #f15f79, #b24592);
+   }
+   .card_bg_4{
+      background-color: #af1437 !important;
+   }
+   .card_color_4{ 
+      color: #af1437 !important;
+   }
+/* Table Section */
+   .Table_Section table {
+      border: 1px solid lightgray;
+      width: 100%;
+      box-shadow: 2px 2px 3px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+   }
+   .Table_Section table thead {
+      line-height: 40px;
+      text-align: center;
+      background-color: #ffffff;
+      color: #4d6a7a;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+   }
+   .Table_Section table thead th{
+      font-weight: 800;
+   }
+   .Table_Section table tbody {
+      border: 1px solid #e8e8e8;
+      background-color: #ffffff;
+   }
+   .Table_Section table tbody tr {
+      line-height: 42px;
+      text-align: center;
+      align-items: center;
+      border-bottom: 1px solid #eaeaea;
+   }
+   .Table_Section table tbody tr:nth-child(odd) {
+      background-color: #f1f1f185;
+   }
+   .Table_Section table tbody tr:hover {
+      background-color: #4f6a7a40;
+   }
+   .Table_Section table tbody tr td .S_no {
+      font-size: 14px;
+      color: #4d6a7a;
+   }
+   .Table_Section table tbody tr td .Style_1 {
+      font-size: 14px;
+      color: rgba(77, 106, 122, 0.84);
+      font-weight: 600;
+      cursor: pointer;
+   }
+   .Table_Section table tbody tr td .Action_Section{
+      color: #ffffff;
+      height: 35px;
+      width: 35px;
+      line-height: 30px;
+      display: flex;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+      margin-right: 10px;
+   }
+   .Table_Section table tbody tr td .Action_Section i {
+      width: 100%;
+      line-height: 35px;
+   }
+/* ************************************ View Style ******************************* */
+   .view_item {
+      display: grid;
+      grid-template-columns: 40% 15px auto;
+      margin-left: 20px;
+   }
+   .view_item .Static{
+      font-weight: 700;
+      color: #4f6a7a;
+      margin-bottom: 10px;
+      font-size: 15px;
+   }
+   .view_item .dots{
+      font-weight: 800;
+      color: #4f6a7a;
+      margin-bottom: 10px;
+      font-size: 15px;
+   }
+   .view_item .Data{
+      font-weight: 500;
+      color: #4f6a7a;
+      margin-bottom: 10px;
+      font-size: 14px;
+   }
+ 
+   

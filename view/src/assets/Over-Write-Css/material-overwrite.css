@@ -8,7 +8,7 @@
    color: #4E6A7A;
 }
 .mat-button.mat-primary .mat-button-focus-overlay, .mat-icon-button.mat-primary .mat-button-focus-overlay, .mat-stroked-button.mat-primary .mat-button-focus-overlay{
-   background-color: #4E6A7A;
+   background-color: rgba(134, 153, 165, 0.32);
 }
 
 /* Table Action Button Style Change */

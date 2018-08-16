@@ -11,198 +11,114 @@
                <li>Bill Create</li>
             </ul>
          </div>
-       </div>
+      </div>
       <div class="row">
          <div class="col-sm-12">
-             <!-- Company details -->
-       <div class="Company_Details">
-            <h5 style="color:#4E6A7A;font-size:20px;font-weight: 600;">Company <span style="color:#516570;font-size:20px;font-weight: 600;">Details</span></h5><br>
+            <!-- Company details -->
+            <div class="Company_Details">
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Bill </span> Details
+               </h5>
                <div class="row">
-                  <div class="col-sm-4 Form_Input" >
-                     <input type="text" placeholder="Date">
-                  </div>
-                  <div class="col-sm-4 Form_Select" >
-                        <ng-select class="NgSelect" [searchable]="true" placeholder="Name">
-                              <ng-option *ngFor="let Name of _Names" [value]="Name">{{Name}}</ng-option>
-                           </ng-select>
-                  </div>
-                  <div class="col-sm-4 Form_Select" >
-                        <ng-select class="NgSelect" [searchable]="true" placeholder="Contact person">
-                              <ng-option *ngFor="let ContactPerson of _ContactPersons" [value]="ContactPerson">{{ContactPerson}}</ng-option>
-                           </ng-select>
+                  <div class="col-sm-4 Form_Select">
+                     <ng-select class="NgSelect" [searchable]="true" placeholder="Franchisee">
+                        <ng-option *ngFor="let Franchisee of _Franchisee" [value]="Franchisee">{{Franchisee}}</ng-option>
+                     </ng-select>
                   </div>
                   <div class="col-sm-4 Form_Input" >
-                     <input type="text" placeholder="Invoice Reference Number"> 
+                     <input type="text" placeholder="Bill Number"> 
                   </div>
-                 <div class="col-sm-4 Form_Select" >
-                     <ng-select class="NgSelect" [searchable]="true" placeholder="Employee Name">
-                           <ng-option *ngFor="let Employee of _Employees" [value]="Employee">{{Employee}}</ng-option>
-                        </ng-select>                         
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="Bill date">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="Due date">
+                  </div>
+                 <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="Created By">
                   </div>
                </div>
             </div>
          </div>
-         <!-- Tab -->
-         <div class="Product">
-            <div class="Product_Tab">
-               <div class="Product_details">
-                  <span [ngClass]="{'active': Active_Tab === 'Product_Details'}" (click)="Active_Tab_Change('Product_Details')">Product Details</span>
+         <!-- Product Details -->
+         <div class="col-sm-12" style="margin-top:25px;">
+            <div class="Company_Details">
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Product </span> Details
+               </h5>
+               <span class="AddMoreButton">
+                  <button mat-raised-button color="primary" >Add Product</button>
+               </span>
+               <br>
+               <!-- Table Section -->
+               <div class="Product_Details">
+                  <table class="table_section">
+                     <thead class="table_head">
+                        <tr>
+                           <th style="width: 80px">S.No</th>  
+                           <th>Product</th>  
+                           <th>Price</th>  
+                           <th>Quantity</th>  
+                           <th>Total</th> 
+                           <th style="width: 100px">Action</th> 
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td class="Style_1">
+                              <span> 1 </span> 
+                           </td>
+                           <td class="Style_1">
+                              <input type="text">
+                           </td>
+                           <td class="Style_1">
+                              <input type="text">
+                           </td>
+                           <td class="Style_1">
+                              <input type="text">
+                           </td>
+                           <td class="Style_1">
+                              <input type="text" readonly>
+                           </td>
+                           <td class="Style_1">
+                              <button class="Table_Action_mini Bg_Danger" mat-mini-fab color="primary">
+                                 <i class="material-icons">delete_forever</i>
+                              </button>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <br>
+                  <div class="row">
+                     <div class="col-sm-9">
+                     </div>
+                     <!-- Result Section -->
+                     <div class="col-sm-3">
+                        <div class="ResultSection">
+                           <span class="Title"> Sub Total </span>
+                           <span class="Split"> : </span>
+                           <span class="Value"> Rs.0000 </span>
+                        </div>
+                        <div class="ResultSection">
+                           <span class="Title"> Total Tax</span>
+                           <span class="Split"> : </span>
+                           <span class="Value"> Rs.0000 </span>
+                        </div>
+                        <div class="ResultSection">
+                           <span class="Title"> Total </span>
+                           <span class="Split"> : </span>
+                           <span class="Value"> Rs.0000 </span>
+                        </div>
+                     </div>
+                  </div>
                </div>
-               <!-- <div class="Quote_Terms">
-                  <span [ngClass]="{'active': Active_Tab === 'shipping_by'}" (click)="Active_Tab_Change('shipping_by')">Shipping By</span>
-               </div> -->
             </div>
-            <span><button class="Add_Product_Button">Add Product</button></span><br><br>
-            <!-- Table Section -->
-            <div class="Product_Details" *ngIf="Active_Tab === 'Product_Details'">
-               <table class="table_section">
-                  <thead class="table_head">
-                     <tr>
-                        <th>S.No</th>  
-                        <th>Product</th>  
-                        <th>Price</th>  
-                        <th>Quantity</th>  
-                        <th>Total</th> 
-                        <th>Action</th> 
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td  colspan="6"><span> No Records found</span> </td>
-                     </tr>
-                  </tbody>
-               </table><br>
-               <div class="row">
-                  <div class="col-sm-8">
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="Title">
-                        <h5>SubTotal:</h5>
-                     </div>
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="Value">
-                        <h5>RS. 0</h5>
-                     </div>
-                  </div>
-                  <div class="col-sm-8">
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="Title">
-                        <h5>Total Tax:</h5>
-                     </div>
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="Value">
-                        <h5>RS. 0</h5>
-                     </div>
-                  </div>
-                  <div class="col-sm-8">
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="Title">
-                        <h5>Total:</h5>
-                     </div>
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="Value">
-                        <h5>RS. 0</h5>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         <br>
-         <!-- <div class="Done_Section" *ngIf="Active_Tab === 'shipping_by'">
-               <div class="Product_Details" >
-                  <div class="Product_Tab">
-                     <div class="Product_details">
-                        <span [ngClass]="{'active': Active_Tab === 'Courier'}" (click)="Active_Tab_Change('Courier')">Courier</span>
-                     </div>
-                     <div class="Quote_Terms">
-                        <span [ngClass]="{'active': Active_Tab === 'Transports'}" (click)="Active_Tab_Change('Transports')">Transports</span>
-                     </div>
-                     <div class="Quote_Terms">
-                        <span [ngClass]="{'active': Active_Tab === 'others'}" (click)="Active_Tab_Change('others')">others</span>
-                     </div>
-                  </div>
-                  <br>
-                  <div class="Bank" *ngIf="Active_Tab === 'Courier'">
-                     <div class="row">
-                        <div class="col-sm-2">
-                           <input type="radio" checked> Courier
-                        </div>
-                        <div class="col-sm-2">
-                           <input type="radio"> transports
-                        </div>
-                        <div class="col-sm-2">
-                           <input type="radio"> others
-                        </div>
-                     </div>
-                     <br>
-                     <div class="row">
-                        <div class="col-sm-4 Form_Input">
-                           <label>Courier Name:</label>
-                           <input type="text">
-                        </div>
-                        <div class="col-sm-4 Form_Input">
-                           <label>Reference No:</label>
-                           <input type="text">
-                        </div>
-                     </div>
-                  </div>
-               <div class="cash" *ngIf="Active_Tab === 'Transports'">
-                  <div class="row">
-                     <div class="col-sm-2">
-                        <input type="radio" > Courier
-                     </div>
-                     <div class="col-sm-2">
-                        <input type="radio" checked> transports
-                     </div>
-                     <div class="col-sm-2">
-                        <input type="radio">others
-                     </div>
-                  </div>
-                  <br>
-                  <div class="row">
-                     <div class="col-sm-4 Form_Input">
-                        <label>Transport Name:</label>
-                        <input type="text">
-                     </div>
-                     <div class="col-sm-4 Form_Input">
-                           <label>Reference No:</label>
-                           <input type="text">
-                        </div>
-                     <div class="col-sm-4 Form_Input">
-                        <label>Vehicle No:</label>
-                        <input type="text">
-                     </div>
-                  </div>
-               </div>
-               <div class="cash" *ngIf="Active_Tab === 'others'">
-                  <div class="row">
-                     <div class="col-sm-2">
-                        <input type="radio" >Courier
-                     </div>
-                     <div class="col-sm-2">
-                        <input type="radio"> transports
-                     </div>
-                     <div class="col-sm-2">
-                        <input type="radio" checked>others
-                     </div>
-                  </div>
-               </div>
-                  <br>
-               </div>
-                </div> -->
          </div>
-      </div>
-   
-   <div class="row" style="margin-top:20px;"> 
-      <div class="col-sm-12 text-right">
-         <button mat-raised-button color="primary" style = "bottom: 8px;"> Submit </button>
       </div>
    </div>
 </div>
+<!-- Footer -->
+<div class="FooterForBill">
+   <button mat-raised-button color="primary" style = "top: 5px;"> Submit </button>
 </div>
-
 

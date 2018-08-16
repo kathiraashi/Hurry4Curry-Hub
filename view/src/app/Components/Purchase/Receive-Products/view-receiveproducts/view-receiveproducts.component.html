@@ -1,0 +1,157 @@
+<!-- Page -->
+<div class="page" style="margin-top:100px;margin-bottom:100px;">
+   <div class="container-fluid">
+      <!-- page Identity -->
+      <div class="Page_Identity">
+         <div class="Page_Track">
+         <ul>
+            <li class="HeaderName">Inventory</li>
+            <li class="arrow">>></li>
+            <li class="LinkName" [routerLink]="['/List_Receive_Products']">Receive Products List</li>
+            <li class="arrow">>></li>
+            <li>Receive Products View</li>
+         </ul>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-4">
+            <!-- Company details -->
+            <div class="Company_Details">
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Request </span> Details
+               </h5>
+               <div class="view_item">
+                  <div class="Static">Inward Ref </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> Ref-00123</div>
+               </div>
+               <div class="view_item">
+                  <div class="Static">Date</div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> 15/08/2018 </div>
+               </div>
+               <div class="view_item">
+                  <div class="Static"> Supplier </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> Supplier One </div>
+               </div>
+               <div class="view_item">
+                  <div class="Static"> Purchase Order No </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> Order-0123 </div>
+               </div>
+               <div class="view_item">
+                  <div class="Static"> Purchase Date </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> 15/08/2018  </div>
+               </div>
+               <br>
+               <div> 
+                  <button mat-raised-button color="primary" style ="margin-left: 10px;"> Receive </button>
+                  <button mat-raised-button color="primary" style ="margin-left: 10px;"> Return </button>
+                  <button mat-raised-button color="primary" style ="margin-left: 10px;"> Back </button>
+               </div>
+            </div>
+            <br>
+         </div>
+         <!-- Section Identity -->
+         <div class="col-sm-8">
+            <div class="Company_Details">
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Product </span> Details
+               </h5>
+               <div class="Table_Section">
+                  <table>
+                     <thead>
+                        <tr>
+                           <th> S.no </th>
+                           <th> Product </th>
+                           <th> Quantity</th>
+                           <th> Tax </th>
+                           <th> Total </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 1 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Product Name</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 5 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 10% </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> Rs.5000 </span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 2 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Product Name</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 3 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 10% </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> Rs.450 </span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 3 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Product Name</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 2 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 10% </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> Rs.500 </span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <!-- Result Section -->
+               <div class="row" style="margin-top: 20px;">
+                  <div class="col-sm-8">
+                  </div>
+                  <div class="col-sm-4">
+                     <div class="ResultSection">
+                        <span class="Title"> Sub Total </span>
+                        <span class="Split"> : </span>
+                        <span class="Value"> Rs.0000 </span>
+                     </div>
+                     <div class="ResultSection">
+                        <span class="Title"> Total Tax</span>
+                        <span class="Split"> : </span>
+                        <span class="Value"> Rs.0000 </span>
+                     </div>
+                     <div class="ResultSection">
+                        <span class="Title"> Total </span>
+                        <span class="Split"> : </span>
+                        <span class="Value"> Rs.0000 </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <br>
+         </div>
+      </div>
+   </div>
+</div>
+   

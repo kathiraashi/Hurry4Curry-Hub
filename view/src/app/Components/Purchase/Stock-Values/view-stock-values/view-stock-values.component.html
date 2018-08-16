@@ -8,52 +8,101 @@
                <li class="arrow">>></li>
                <li class= "LinkName" [routerLink]="['/List_Stock_Values']">Stock Values List</li>
                <li class="arrow">>></li>
-               <li >Stock Values view</li>
+               <li >Stock Value View</li>
             </ul>
          </div>
       </div>
-      <form>
-         <div class="row">
-            <!-- Company details -->
+      <div class="row">
+         <div class="col-sm-4">
+         <!-- Company details -->
             <div class="Company_Details">
-              <br>
-              <div class="col-sm-12">
-                <div class="view_item">
-                   <div class="Static">Product Name </div>
-                   <div class="dots"> : </div>
-                   <div class="Data"> Product Name</div>
-                </div>
-                <div class="view_item">
-                   <div class="Static">Quantity</div>
-                   <div class="dots"> : </div>
-                   <div class="Data"> Quantity</div>
-                </div>
-                <div class="view_item">
-                   <div class="Static">Location </div>
-                   <div class="dots"> : </div>
-                   <div class="Data">Location</div>
-                </div>
-                <div class="view_item">
-                   <div class="Static">Incoming Date </div>
-                   <div class="dots"> : </div>
-                   <div class="Data"> 27.03.18 </div>
-                </div>
-              </div>
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Stock </span> Details
+               </h5>
+               <div class="view_item">
+                  <div class="Static">Product Name </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> Product Name </div>
+               </div>
+               <div class="view_item">
+                  <div class="Static"> Quantity </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> Quantity </div>
+               </div>
+               <div class="view_item">
+                  <div class="Static"> Location </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> Location </div>
+               </div>
+               <div class="view_item">
+                  <div class="Static">Incoming Date</div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> 15/08/2018 </div>
+               </div>
             </div>
          </div>
-         <!-- Tab -->
-         <div class="Product">
-            <div class="Product_Tab">
-               <div class="Product_details">
-                  <span [ngClass]="{'active': Active_Tab === 'History'}" (click)="Active_Tab_Change('History')">History</span>
+         <div class="col-sm-2">
+            <div class="Card card_bg_Liner_1">
+               <div class="Card_Body">
+                  <div class="Card_Left">
+                     <i class="material-icons people">equalizer</i>
+                  </div>
+                  <div class="Card_Right">
+                     <h5 class="card_color_1">Yield </h5>
+                     <h6> 852 </h6>
+                  </div>
                </div>
-               <!-- <div class="Quote_Terms">
-                  <span [ngClass]="{'active': Active_Tab === 'shipping_by'}" (click)="Active_Tab_Change('shipping_by')">Shipping By</span>
-               </div> -->
             </div>
-            <br>
-           <!-- Table Section -->
-            <div class="Product_Details" *ngIf="Active_Tab === 'History'">
+         </div>
+         <div class="col-sm-2">
+            <div class="Card card_bg_Liner_2">
+               <div class="Card_Body">
+                  <div class="Card_Left">
+                     <i class="material-icons Total_Invoice">equalizer</i>
+                  </div>
+                  <div class="Card_Right">
+                     <h5 class="card_color_2"> Waste </h5>
+                     <h6>522</h6>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-2">
+            <div class="Card card_bg_Liner_3">
+               <div class="Card_Body">
+                  <div class="Card_Left">
+                     <i class="material-icons Paid_Invoice">equalizer</i>
+                  </div>
+                  <div class="Card_Right">
+                     <h5 class="card_color_3"> Total Purchase </h5>
+                     <h6> 4570</h6>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-2">
+            <div class="Card card_bg_Liner_4">
+               <div class="Card_Body">
+                  <div class="Card_Left">
+                     <i class="material-icons unPaid_Invoice">equalizer</i>
+                  </div>
+                  <div class="Card_Right">
+                     <h5 class="card_color_4"> Total Sales </h5>
+                     <h6> 2000 </h6>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <br>
+      <!-- Tab -->
+      <div class="row">
+         <!-- Table Section -->
+         <div class="col-sm-12">
+            <div class="Company_Details">
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> History </span> of Stock
+               </h5>
                <div class="Table_Section">
                   <table>
                      <thead>
@@ -164,14 +213,8 @@
                   </table>
                </div>
             </div>
-         <br>
          </div>
-         <div class="row" style="margin-top:20px;">
-            <div class="col-sm-12 text-right">
-               <button mat-raised-button color="primary" > Submit </button>
-            </div>
-         </div>
-      </form>
+      </div>
    </div>
 </div>
 

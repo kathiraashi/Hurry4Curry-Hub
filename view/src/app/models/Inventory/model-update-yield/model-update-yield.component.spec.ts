@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModelChequeEntriesComponent } from './model-cheque-entries.component';
+import { ModelUpdateYieldComponent } from './model-update-yield.component';
 
-describe('ModelChequeEntriesComponent', () => {
-  let component: ModelChequeEntriesComponent;
-  let fixture: ComponentFixture<ModelChequeEntriesComponent>;
+describe('ModelUpdateYieldComponent', () => {
+  let component: ModelUpdateYieldComponent;
+  let fixture: ComponentFixture<ModelUpdateYieldComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModelChequeEntriesComponent ]
+      declarations: [ ModelUpdateYieldComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModelChequeEntriesComponent);
+    fixture = TestBed.createComponent(ModelUpdateYieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

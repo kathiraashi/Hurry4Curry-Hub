@@ -12,17 +12,17 @@ import { DeleteConfirmationComponent } from '../../../../Components/Common-Compo
 })
 export class ListFranchiseeComponent implements OnInit {
 
-  bsModalRef: BsModalRef;
-  constructor( private modalService: BsModalService) { }
+   bsModalRef: BsModalRef;
+   constructor( private modalService: BsModalService) { }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+   }
 
-  DeleteFranchisee() {
-    const initialState = {
-       Text: 'Franchisee'
-    };
-    this.bsModalRef = this.modalService.show(DeleteConfirmationComponent, Object.assign({initialState}, { class: 'modal-sm' }));
- }
+   DeleteFranchisee() {
+      const initialState = {
+         Text: 'Franchisee'
+      };
+      this.bsModalRef = this.modalService.show(DeleteConfirmationComponent, Object.assign({initialState}, { class: 'modal-sm' }));
+   }
 
 }

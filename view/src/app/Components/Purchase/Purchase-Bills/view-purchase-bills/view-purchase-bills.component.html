@@ -1,148 +1,154 @@
 <div class="page" style="margin-top:100px;margin-bottom:100px;">
-      <div class="container-fluid">
-          <div class="Page_Identity">
-              <div class="Page_Track">
-                  <ul>
-                    <li class="HeaderName">Inventory</li>
-                    <li class="arrow">>></li>
-                    <li class= "LinkName" [routerLink]="['/Purchase_Bills_List']">Purchase Bills List</li>
-                    <li class="arrow">>></li>
-                    <li >Purchase Bills View</li>
-                  </ul>
-               </div>
-           </div>
-        <form>
-          <div class="row">
-            <div class="col-sm-12">
-                  <div class="Company_Details">
-                        <h5 style="color:#4E6A7A;font-size:20px;font-weight: 600;">Purchase 
-                          <span style="color:#516570;font-size:20px;font-weight: 600;">Order</span>
-                        </h5>
-                  <div class="row">
-                      <div class="col-sm-6 text-right"> <b> Bill No: </b></div>
-                      <div class="col-sm-6 text-left">  123 </div>
-                   </div>
-                   <div class="row">
-                      <div class="col-sm-6 text-right"> <b> Bill Date : </b></div>
-                      <div class="col-sm-6 text-left">  24/05/2017 </div>
-                   </div>
-                  <div class="row">
-                      <div class="col-sm-6 text-right"> <b> Account Name : </b></div>
-                      <div class="col-sm-6 text-left">  aashi </div>
-                   </div>
-                  <div class="row">
-                      <div class="col-sm-6 text-right"> <b> Purchase Order: </b></div>
-                      <div class="col-sm-6 text-left"> order1 
-                          </div>
-                   </div>
-                  <div class="row">
-                      <div class="col-sm-6 text-right"> <b> Contact: </b></div>
-                      <div class="col-sm-6 text-left"> +5757475478
-                          </div>
-                   </div>
-                   <div class="row">
-                      <div class="col-sm-6 text-right"> <b> Validity Till: </b></div>
-                      <div class="col-sm-6 text-left"> 24/05/17
-                          </div>
-                   </div>
-              </div>
-            </div>
-            <div class="Table_Section">
-              <h5 style="color:#4E6A7A;font-size:20px;font-weight: 600;">Product
-                <span style="color:#516570;font-size:20px;font-weight: 600;">Details</span>
-                <span><button class="Add_Product_Button">Add Product</button></span>
-              </h5>
-              <br>
-              <table class="table_section">
-                <thead class="table_head">
-                  <tr>
-                    <th class="S_No">S.No</th>
-                    <th>Product</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Tax</th>
-                    <th>Total</th>
-                    <th class="Action">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td >1</td>
-                    <td class="Form_Select">
-                      <select>
-                      <option checked>Select an option</option>
-                      <option> option1</option>
-                      <option> option2</option>
-                      <option> option3</option>
-                      <option> option4</option>
-                   </select>
-                  </td>
-                   <td class="Form_TextArea">
-                     <textarea class="" rows="1"></textarea>
-                    </td>
-                    <td class="Form_Input">
-                         <input type="text">
-                       </td>
-                       <td class="Form_Input">
-                            <input type="text">
-                          </td>
-                          <td class="Form_Select">
-                                <select>
-                                      <option checked>Select</option>
-                                      <option> Tax</option>
-                                      <option> Tax</option>
-                                      <option> Tax</option>
-                                      <option> Tax</option>
-                                   </select>
-                             </td>
-                             <td class="Form_Input">
-                                  <input type="text">
-                                </td>
-                                <td>
-                                     <span class="Action_Section Bg_Danger">
-                                           <i class="material-icons">delete</i>
-                                        </span> 
-                                   </td>
-                  </tr>
-                </tbody>
-              </table>
-              <br>
-              <div class="row">
-                 <div class="col-sm-4">
-                    </div>
-                    <div class="col-sm-4">
-                       </div>
-                       <div class="col-sm-4 Form_Input">
-                           <label>Sub Total:</label>
-                          <input type="text">
-                          </div>
-                          <div class="col-sm-4">
-                             </div>
-                             <div class="col-sm-4">
-                                </div>
-                                <div class="col-sm-4 Form_Input">
-                                    <label>Tax:</label>
-                                   <input type="text">
-                                   </div>
-                                   <div class="col-sm-4">
-                                      </div>
-                                      <div class="col-sm-4">
-                                         </div>
-                                         <div class="col-sm-4 Form_Input">
-                                            <label>Total:</label>
-                                            <input type="text">
-                                            </div>
-                 </div>
-            </div>
-          </div>
-          <div class="row" style="margin-top:20px;">
-          </div>
-        </form>
+   <div class="container-fluid">
+      <!-- page Identity -->
+      <div class="Page_Identity">
+         <div class="Page_Track">
+         <ul>
+            <li class="HeaderName">Inventory</li>
+            <li class="arrow">>></li>
+            <li class= "LinkName" [routerLink]="['/Purchase_Bills_List']">Purchase Bills List</li>
+            <li class="arrow">>></li>
+            <li >Purchase Bill View</li>
+         </ul>
+         </div>
       </div>
-    </div>
-  
-  
-  
-  
+      <div class="row">
+         <!-- Company details -->
+         <div class="col-sm-4">
+         <div class="Company_Details">
+            <h5 class="SectionIdentity"> 
+               <span class="Highlight"> Bill </span> Details
+            </h5>
+            <div class="view_item">
+               <div class="Static">Bill Number </div>
+               <div class="dots"> : </div>
+               <div class="Data"> Bill-00123</div>
+            </div>
+            <div class="view_item">
+                  <div class="Static">Bill Date </div>
+                  <div class="dots"> : </div>
+                  <div class="Data"> 15/08/2018 </div>
+               </div>
+            <div class="view_item">
+               <div class="Static">Franchisee</div>
+               <div class="dots"> : </div>
+               <div class="Data">Franchisee</div>
+            </div>
+           <div class="view_item">
+               <div class="Static"> Validity Till </div>
+               <div class="dots"> : </div>
+               <div class="Data"> 15/08/2018</div>
+            </div>
+         </div>
+         <br>
+         </div>
+         <div class="col-sm-8">
+            <div class="Company_Details">
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Product </span> Details
+               </h5>
+               <div class="Table_Section">
+                  <table>
+                     <thead>
+                        <tr>
+                           <th> S.no </th>
+                           <th> Product </th>
+                           <th> Price</th>
+                           <th> Quantity</th>
+                           <th> Tax </th>
+                           <th> Total </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 1 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Product Name</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 1000 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 5 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 0% </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> Rs.5000 </span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 2 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Product Name</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 100 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 3 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 0% </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> Rs.300 </span>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <span class="S_no"> 3 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1">Product Name</span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 100 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 5 </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> 0% </span>
+                           </td>
+                           <td>
+                              <span class="Style_1"> Rs.500 </span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <div class="row" style="margin-top: 20px;">
+                  <div class="col-sm-8">
+                  </div>
+                  <div class="col-sm-4">
+                     <div class="ResultSection">
+                        <span class="Title"> Sub Total </span>
+                        <span class="Split"> : </span>
+                        <span class="Value"> Rs.0000 </span>
+                     </div>
+                     <div class="ResultSection">
+                        <span class="Title"> Total Tax</span>
+                        <span class="Split"> : </span>
+                        <span class="Value"> Rs.0000 </span>
+                     </div>
+                     <div class="ResultSection">
+                        <span class="Title"> Total </span>
+                        <span class="Split"> : </span>
+                        <span class="Value"> Rs.0000 </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <br>
+         </div>
+      </div>
+   </div>
+</div>
 
+  

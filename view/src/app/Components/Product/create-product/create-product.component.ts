@@ -6,16 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
-Active_Tab = 'Product_Varients';
+  Active_Tab = 'Product_Variants';
 
-_Varients: any[] = ['Varients1', 'Varients2', 'Varients3', 'Varients4'];
-_Customers: any[] = ['Customer1', 'Customer2', 'Customer3', 'Customer4'];
-_Locations: any[] = ['Location1', 'Location2', 'Location3', 'Location4'];
+  _Variants: any[] = ['Variant One', 'Variant Two', 'Variant Three', 'Variant Four', 'Variant Five'];
+
+  _Segments: any[] = ['Hub', 'Franchises'];
+
+  _Locations: any[] = ['Location One', 'Location Two', 'Location Three', 'Location Four', 'Location Five'];
   constructor() { }
 
   ngOnInit() {
   }
-Active_Tab_Change(name) {
-  this.Active_Tab = name;
-}
+  Active_Tab_Change(name) {
+    this.Active_Tab = name;
+ }
 }

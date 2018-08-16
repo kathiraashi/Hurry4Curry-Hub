@@ -16,7 +16,6 @@ import { PurchaseRequestListComponent } from './Components/Purchase/PurchaseRequ
 import {PurchaseRequestCreateComponent  } from './Components/Purchase/PurchaseRequest/purchase-request-create/purchase-request-create.component';
 import { PurchaseRequestViewComponent } from './Components/Purchase/PurchaseRequest/purchase-request-view/purchase-request-view.component';
 import { VendorPaymentsListComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-list/vendor-payments-list.component';
-import { VendorPaymentsCreateComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-create/vendor-payments-create.component';
 import { VendorPaymentsViewComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-view/vendor-payments-view.component';
 import { UserManagementListComponent } from './Components/Settings/UserManagement/user-management-list/user-management-list.component';
 import { UserPermissionsComponent } from './Components/Settings/UserPermissions/user-permissions/user-permissions.component';
@@ -67,6 +66,11 @@ import { ViewPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills
 import { ListFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/list-franchisee-payments/list-franchisee-payments.component';
 import { CreateFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/create-franchisee-payments/create-franchisee-payments.component';
 import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/view-franchisee-payments/view-franchisee-payments.component';
+import { ListReceiveproductsComponent } from './Components/Purchase/Receive-Products/list-receiveproducts/list-receiveproducts.component';
+import { ViewReceiveproductsComponent } from './Components/Purchase/Receive-Products/view-receiveproducts/view-receiveproducts.component';
+import { ListDeliverProductsComponent } from './Components/Purchase/Deliver-Products/list-deliver-products/list-deliver-products.component';
+import { ViewDeliverProductsComponent } from './Components/Purchase/Deliver-Products/view-deliver-products/view-deliver-products.component';
+
 
 
 const appRoutes: Routes = [
@@ -268,6 +272,30 @@ const appRoutes: Routes = [
       data: {   animation: { value: 'Purchase_Request_View'}   }
    },
    {
+    path: 'List_Receive_Products',
+    component: ListReceiveproductsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'List_Receive_Products'}   }
+ },
+ {
+    path: 'View_Receive_Products',
+    component: ViewReceiveproductsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'View_Receive_Products'}   }
+ },
+ {
+    path: 'List_Deliver_Products',
+    component: ListDeliverProductsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'List_Deliver_Products'}   }
+ },
+ {
+    path: 'View_Deliver_Products',
+    component: ViewDeliverProductsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'View_Deliver_Products'}   }
+ },
+   {
     path: 'Purchase_Bills_List',
     component: ListPurchaseBillsComponent,
     canActivate: [AuthGuard],
@@ -302,12 +330,6 @@ const appRoutes: Routes = [
       component: VendorPaymentsListComponent,
       canActivate: [AuthGuard],
       data: {   animation: { value: 'vendor_payment_list'}   }
-   },
-   {
-      path: 'vendor_payment_create',
-      component: VendorPaymentsCreateComponent,
-      canActivate: [AuthGuard],
-      data: {   animation: { value: 'vendor_payment_create'}   }
    },
    {
     path: 'vendor_payment_view',

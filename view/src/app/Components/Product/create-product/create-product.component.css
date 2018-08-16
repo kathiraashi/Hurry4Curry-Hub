@@ -1,45 +1,44 @@
-
 /* --------------   Page Identity Section  ----------------- */
 .Page_Identity{
-   display: flex;
-   height:40px;
-   width: 100%;
-   margin-bottom: 5px;
+    display: flex;
+    height:40px;
+    width: 100%;
+    margin-bottom: 5px;
 }
 .Page_Identity .Page_Track{
-   width:100%;
-   line-height: 35px;
+    width:100%;
+    line-height: 35px;
 }
 .Page_Identity .Page_Track ul{
-   display: flex;
-   list-style-type: none;
-   padding: 0px;
-   margin: 0px;
-   align-items: center;
-   float: right;
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    align-items: center;
+    float: right;
 }
 .Page_Identity .Page_Track ul li {
    font-size: 13px;
-   font-weight: 500;
-   margin-left: 5px;
+    font-weight: 500;
+    margin-left: 5px;
 }
 .Page_Identity .Page_Track ul li.arrow{
-   letter-spacing: -4px;
-   font-size: 19px;
-   transform: scale(.6, 1);
+    letter-spacing: -4px;
+    font-size: 19px;
+    transform: scale(.6, 1);
 }
 .Page_Identity .Page_Track ul li.arrowGreen{
-   letter-spacing: -4px;
-   font-size: 19px;
-   transform: scale(.6, 1);
-   color: #4E6A7A;
+    letter-spacing: -4px;
+    font-size: 19px;
+    transform: scale(.6, 1);
+    color: #4E6A7A;
 }
 .Page_Identity .Page_Track ul li.HeaderName{
-   color: #4E6A7A;
+    color: #4E6A7A;
 }
 .Page_Identity .Page_Track ul li.LinkName{
-   color: #4E6A7A;
-   cursor: pointer;
+    color: #4E6A7A;
+    cursor: pointer;
 }
 /* Form designs  */
 .Form_Input label {
@@ -131,81 +130,45 @@
  }
 /* Company details */
 .Company_Details{
-   background-color: #fff;
-   margin: 10px;
-   padding: 20px;
-   margin-left: 15px;
-   width: 100%;
-   border-radius: 5px;
-   border-top: 2px solid #4E6A7A;
-}
-/* Tabs */
-.Product{
     background-color: #fff;
-    margin: 10px;
     padding: 20px;
-    margin-left: 15px;
-    width: 100%;
     border-radius: 5px;
     border-top: 2px solid #4E6A7A;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
+    position: relative;
  }
- .Product .Product_Tab{
-    display:flex;
- }
- .Product .Product_Tab .Product_details span{
-    width: 50%;
-    height: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 5px 10px; 
+/* Tabs */
+.Tabs{
+    display: flex;
+    width: 100%;
+}
+.Tabs .Tab{
+    color: #4d6a7a;
+    width: 14%;
+    line-height: 35px;
+    background-color: #80808038;
+    margin-top: -10px;
+    text-align: center;
     margin-right: 5px;
-    letter-spacing: 0.8px;
-    border-radius: 3px;
- }
- .Product .Product_Tab .Product_details span.active{
-    width: 50%;
-    height: 50px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 5px 10px;
-    border: 1px solid #4E6A7A;
-    background-color: #4E6A7A;
-    color: #fff;
-    margin-right: 5px;
-    letter-spacing: 0.8px;
-    border-radius: 3px;
- }
- .Product .Product_Tab .Product_details span:hover{
-    cursor:pointer;
-    box-shadow: 2px 2px 2px rgb(16, 26, 18);
- }
- .Product .Product_Tab .Quote_Terms span{
-    width: 50%;
-    height: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 5px 10px;
-    margin-right: 5px;
-    letter-spacing: 0.8px;
-    border-radius: 3px;
- }
- .Product .Product_Tab .Quote_Terms span.active{
-    width: 50%;
-    height: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 5px 10px;
-    border: 1px solid #4E6A7A;
-    background-color: #4E6A7A;
-    color: #fff;
-    margin-right: 5px;
-    letter-spacing: 0.8px;
-    border-radius: 3px;
- }
- .Product .Product_Tab .Quote_Terms span:hover{
-    cursor:pointer;
-    box-shadow: 2px 2px 2px rgb(16, 26, 18);
- }
+    letter-spacing: 0.4px;
+    cursor: pointer;
+}
+.Tabs .Tab:hover{
+    background-color: #80808048;
+    border-bottom: 2px solid #80808068;
+}
+
+.Tabs .Tab.active{
+    border-bottom: 2px solid #4E6A7A;
+    color: #4E6A7A;
+    cursor: default;
+}
+
+
+
+
 /* table section */
 .table_section{
    border-collapse: collapse;
@@ -256,4 +219,14 @@
 .Table_Section table tbody tr td .Action_Section i {
    width: 100%;
    line-height: 35px;
+}
+
+.FooterForBill {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 0px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 45px;
+    text-align: right
 }

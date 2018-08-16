@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateFranchiseeComponent implements OnInit {
 
-  _Countries: any[] = ['India', 'Australia', 'America', 'Japan'];
-  _States: any[] = ['TamilNadu', 'Karnataka'];
-  _Cities: any[] = ['Chennai', 'Bangalore'];
+   _Countries: any[] = ['India', 'Australia', 'America', 'Japan'];
+   _States: any[] = ['TamilNadu', 'Karnataka'];
+   _Cities: any[] = ['Chennai', 'Bangalore'];
 
-  constructor() { }
+   constructor() { }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+   }
 
 }

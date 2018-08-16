@@ -1,68 +1,154 @@
 <div class="page" style="margin-top:100px;margin-bottom:100px;">
-    <div class="container-fluid">
-       <!-- page Identity -->
-       <div class="Page_Identity">
-          <div class="Page_Track">
-             <ul>
-                <li class="HeaderName">Product</li>
-                <li class="arrow">>></li>
-                <li class="LinkName" [routerLink]="['/List_Product']">Product List</li>
-                <li class="arrow">>></li>
-                <li>Product View</li>
-               </ul>
-          </div>
-       </div>
-       <form>
-          <div class="row">
-             <!-- Company details -->
-             <div class="Company_Details">
-                <h5>
-                  <span><button class="Add_Product_Button pull-left">Update Quantity</button></span>
-                  <span><button class="Add_Product_Button pull-right">On Hand</button></span>
-                  <span><button class="Add_Product_Button pull-right">Purchase Order</button></span>
-                  <span><button class="Add_Product_Button pull-right">Sale Order</button></span>
-                </h5>
-                <br>
-                <div class="col-sm-12">
-                   <div class="view_item">
-                      <div class="Static"> Name </div>
-                      <div class="dots"> : </div>
-                      <div class="Data">  Name</div>
-                   </div>
-                   <div class="view_item">
-                      <div class="Static">Item Code </div>
-                      <div class="dots"> : </div>
-                      <div class="Data"> Item Code</div>
-                   </div>
-                   <div class="view_item">
-                      <div class="Static">HSN Code </div>
-                      <div class="dots"> : </div>
-                      <div class="Data"> HSN Code </div>
-                   </div>
-                   <div class="view_item">
-                      <div class="Static">Price </div>
-                      <div class="dots"> : </div>
-                      <div class="Data"> Price </div>
-                   </div>
-                   <div class="view_item">
-                      <div class="Static">UOM </div>
-                      <div class="dots"> : </div>
-                      <div class="Data"> UOM </div>
-                   </div>
-                   <div class="view_item">
-                      <div class="Static">Product Type </div>
-                      <div class="dots"> : </div>
-                      <div class="Data"> Product Type </div>
-                   </div>
-                  </div>
-                <br>
-             </div>
-          </div>
-          <div class="row" style="margin-top:20px;">
-             <div class="col-sm-12 text-right">
-             </div>
-          </div>
-       </form>
-    </div>
- </div>
- 
+  <div class="container-fluid">
+     <!-- page Identity -->
+     <div class="Page_Identity">
+        <div class="Page_Track">
+        <ul>
+           <li class="HeaderName">Products</li>
+           <li class="arrow">>></li>
+           <li class="LinkName" [routerLink]="['/List_Product']">Products List</li>
+           <li class="arrow">>></li>
+           <li> Product View</li>
+        </ul>
+        </div>
+     </div>
+     <div class="row">
+        <!-- Company details -->
+        <div class="col-sm-4">
+           <div class="Company_Details">
+              <h5 class="SectionIdentity"> 
+                 <span class="Highlight"> Product </span> Details
+              </h5>
+              <div class="view_item">
+                 <div class="Static"> Name </div>
+                 <div class="dots"> : </div>
+                 <div class="Data"> Product Name </div>
+              </div>
+              <div class="view_item">
+                 <div class="Static">Item</div>
+                 <div class="dots"> : </div>
+                 <div class="Data"> Product Item </div>
+              </div>
+              <div class="view_item">
+                 <div class="Static"> HSN Code </div>
+                 <div class="dots"> : </div>
+                 <div class="Data">  HSN Code </div>
+              </div>
+              <div class="view_item">
+                 <div class="Static"> Price </div>
+                 <div class="dots"> : </div>
+                 <div class="Data"> Price </div>
+              </div>
+              <div class="view_item">
+                 <div class="Static"> Description </div>
+                 <div class="dots"> : </div>
+                 <div class="Data"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, optio sunt saepe nisi aliquid dolorum consequuntur earum  </div>
+              </div>
+           </div>
+        <br>
+        
+        </div>
+        <div class="col-sm-8">
+           <div class="Company_Details">
+              <h5 class="SectionIdentity"> 
+                 <span class="Highlight"> Variants </span>
+              </h5>
+              <div class="Table_Section">
+                 <table>
+                    <thead>
+                       <tr>
+                          <th> S.no </th>
+                          <th> Product Variant </th>
+                          <th> Value </th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                          <td>
+                             <span class="S_no"> 1 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1">Product Variant</span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> 5 </span>
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>
+                             <span class="S_no"> 2 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1">Product Variant</span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> 3 </span>
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>
+                             <span class="S_no"> 3 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1">Product Variant</span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> 2 </span>
+                          </td>
+                       </tr>
+                    </tbody>
+                 </table>
+              </div>
+              <br>
+              <div>
+                 <h5 class="SectionIdentity"> 
+                    <span class="Highlight"> Price List </span>
+                 </h5>
+                 <div class="view_item">
+                    <div class="Static"> Segments </div>
+                    <div class="dots"> : </div>
+                    <div class="Data">  Hub </div>
+                 </div>
+                 <div class="view_item">
+                    <div class="Static"> Location </div>
+                    <div class="dots"> : </div>
+                    <div class="Data"> Location One </div>
+                 </div>
+                 <div class="view_item">
+                    <div class="Static"> Amount </div>
+                    <div class="dots"> : </div>
+                    <div class="Data">  Rs.0000 </div>
+                 </div>
+              </div>
+              <br>
+              <div>
+                 <h5 class="SectionIdentity"> 
+                    <span class="Highlight"> Offer & Promotions </span>
+                 </h5>
+                 <div class="view_item">
+                    <div class="Static"> Offer Name </div>
+                    <div class="dots"> : </div>
+                    <div class="Data"> Offer Name </div>
+                 </div>
+                 <div class="view_item">
+                    <div class="Static"> Validity </div>
+                    <div class="dots"> : </div>
+                    <div class="Data"> 15/08/2018 </div>
+                 </div>
+                 <div class="view_item">
+                    <div class="Static"> Location </div>
+                    <div class="dots"> : </div>
+                    <div class="Data">  Location One </div>
+                 </div>
+                 <div class="view_item">
+                    <div class="Static"> Product Price Above </div>
+                    <div class="dots"> : </div>
+                    <div class="Data">  Rs.0000 </div>
+                 </div>
+              </div>
+           </div>
+           <br>
+        </div>
+     </div>
+  </div>
+</div>

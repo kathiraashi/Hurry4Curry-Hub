@@ -1,52 +1,132 @@
 <div class="page" style="margin-top:100px;margin-bottom:100px;">
-   <div class="container-fluid">
+  <div class="container-fluid">
+     <!-- page Identity -->
      <div class="Page_Identity">
-       <div class="Page_Track">
-         <ul>
-            <li class="HeaderName">Accounts</li>
-            <li class="arrow">>></li>
-            <li class="LinkName">Franchisee Payments List</li>
-            <li class="arrow">>></li>
-            <li>Franchisee Payments View</li>
-         </ul>
-       </div>
+        <div class="Page_Track">
+        <ul>
+           <li class="HeaderName">Accounts</li>
+           <li class="arrow">>></li>
+           <li class="LinkName" [routerLink]="['/List_Franchisee_payments']">Franchisee Payments List</li>
+           <li class="arrow">>></li>
+           <li>Franchisee Payments View</li>
+        </ul>
+        </div>
      </div>
-     <form>
-       <div class="row">
-         <div class="Company_Details">
-           <h5 style="color:#4E6A7A;font-size:20px;font-weight: 600;">Company
-             <span style="color:#516570;font-size:20px;font-weight: 600;">Details</span>
+     <div class="row">
+        <!-- Company details -->
+        <div class="col-sm-4">
+        <div class="Company_Details">
+           <h5 class="SectionIdentity"> 
+              <span class="Highlight"> Bill </span> Details
            </h5>
-           <br>
-           <div class="col-sm-12">
-             <div class="row">
-               <div class="col-sm-12 text-center Left_Section">
-                <div class="row">
-                   <div class="col-sm-6 text-right Static"> Franchisee: </div>
-                   <div class="col-sm-6 text-left Data"> Franchisee </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-sm-6 text-right Static"> Invoice No: </div>
-                      <div class="col-sm-6 text-left Data">inv_1122 </div>
-                     </div>
-                     <div class="row">
-                          <div class="col-sm-6 text-right Static"> Payment Amount: </div>
-                          <div class="col-sm-6 text-left Data"> 4000 </div>
-                        </div>
-                        <div class="row">
-                             <div class="col-sm-6 text-right Static">  Date: </div>
-                             <div class="col-sm-6 text-left Data"> 07/8/17 </div>
-                           </div>
-                </div>
-             </div>
+           <div class="view_item">
+              <div class="Static">Bill Number </div>
+              <div class="dots"> : </div>
+              <div class="Data"> Bill-00123</div>
            </div>
-         </div>
-       </div>
-       <div class="row" style="margin-top:20px;">
-         <div class="col-sm-12 text-right">
- </div>
-       </div>
-     </form>
-   </div>
- </div>
-
+           <div class="view_item">
+              <div class="Static">Franchisee</div>
+              <div class="dots"> : </div>
+              <div class="Data"> Franchisee</div>
+           </div>
+           <div class="view_item">
+              <div class="Static"> Date </div>
+              <div class="dots"> : </div>
+              <div class="Data"> 15/08/2018</div>
+           </div>
+           <div class="view_item">
+              <div class="Static"> Amount </div>
+              <div class="dots"> : </div>
+              <div class="Data"> 4000 </div>
+           </div>
+          </div>
+        <br>
+        </div>
+        <div class="col-sm-8">
+           <div class="Company_Details">
+              <h5 class="SectionIdentity"> 
+                 <span class="Highlight"> Product </span> Details
+              </h5>
+              <div class="Table_Section">
+                 <table>
+                    <thead>
+                       <tr>
+                          <th> S.no </th>
+                          <th> Product </th>
+                          <th> Quantity</th>
+                          <th> Total </th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                          <td>
+                             <span class="S_no"> 1 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1">Product Name</span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> 5 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> Rs.5000 </span>
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>
+                             <span class="S_no"> 2 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1">Product Name</span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> 3 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> Rs.450 </span>
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>
+                             <span class="S_no"> 3 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1">Product Name</span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> 2 </span>
+                          </td>
+                          <td>
+                             <span class="Style_1"> Rs.500 </span>
+                          </td>
+                       </tr>
+                    </tbody>
+                 </table>
+              </div>
+              <div class="row" style="margin-top: 20px;">
+                 <div class="col-sm-8">
+                 </div>
+                 <div class="col-sm-4">
+                    <div class="ResultSection">
+                       <span class="Title"> Sub Total </span>
+                       <span class="Split"> : </span>
+                       <span class="Value"> Rs.0000 </span>
+                    </div>
+                    <div class="ResultSection">
+                       <span class="Title"> Total Tax</span>
+                       <span class="Split"> : </span>
+                       <span class="Value"> Rs.0000 </span>
+                    </div>
+                    <div class="ResultSection">
+                       <span class="Title"> Total </span>
+                       <span class="Split"> : </span>
+                       <span class="Value"> Rs.0000 </span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <br>
+        </div>
+     </div>
+  </div>
+</div>

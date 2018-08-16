@@ -144,7 +144,6 @@
         import { PurchaseRequestViewComponent } from './Components/Purchase/PurchaseRequest/purchase-request-view/purchase-request-view.component';
 
 import { VendorPaymentsListComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-list/vendor-payments-list.component';
-import { VendorPaymentsCreateComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-create/vendor-payments-create.component';
 import { VendorPaymentsViewComponent } from './Components/Accounts/Vendor-Payments/vendor-payments-view/vendor-payments-view.component';
 import { UserManagementListComponent } from './Components/Settings/UserManagement/user-management-list/user-management-list.component';
 import { UserPermissionsComponent } from './Components/Settings/UserPermissions/user-permissions/user-permissions.component';
@@ -194,8 +193,6 @@ import { ViewStockValuesComponent } from './Components/Purchase/Stock-Values/vie
 import { ListBankRegistersComponent } from './Components/Accounts/Bank-Registers/list-bank-registers/list-bank-registers.component';
 import { ListCashRegistersComponent } from './Components/Accounts/Cash-Registers/list-cash-registers/list-cash-registers.component';
 import { ListChequeEntriesComponent } from './Components/Accounts/Cheque-Entries/list-cheque-entries/list-cheque-entries.component';
-import { ModelBankRegisterComponent } from './models/Accounts/model-bank-register/model-bank-register.component';
-import { ModelChequeEntriesComponent } from './models/Accounts/model-cheque-entries/model-cheque-entries.component';
 import { ViewChequeEntriesComponent } from './Components/Accounts/Cheque-Entries/view-cheque-entries/view-cheque-entries.component';
 import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board.component';
 import { CreateFranchiseeComponent } from './Components/Sales/Franchisee/create-franchisee/create-franchisee.component';
@@ -209,6 +206,11 @@ import { ViewPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills
 import { CreateFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/create-franchisee-payments/create-franchisee-payments.component';
 import { ListFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/list-franchisee-payments/list-franchisee-payments.component';
 import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/view-franchisee-payments/view-franchisee-payments.component';
+import { ListReceiveproductsComponent } from './Components/Purchase/Receive-Products/list-receiveproducts/list-receiveproducts.component';
+import { ViewReceiveproductsComponent } from './Components/Purchase/Receive-Products/view-receiveproducts/view-receiveproducts.component';
+import { ModelUpdateYieldComponent } from './models/Inventory/model-update-yield/model-update-yield.component';
+import { ListDeliverProductsComponent } from './Components/Purchase/Deliver-Products/list-deliver-products/list-deliver-products.component';
+import { ViewDeliverProductsComponent } from './Components/Purchase/Deliver-Products/view-deliver-products/view-deliver-products.component';
 
 
 @NgModule({
@@ -337,7 +339,6 @@ import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchise
         PurchaseRequestCreateComponent,
         PurchaseRequestViewComponent,
         VendorPaymentsListComponent,
-            VendorPaymentsCreateComponent,
             VendorPaymentsViewComponent,
             LoginComponent,
             UserManagementListComponent,
@@ -386,8 +387,6 @@ import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchise
             ListBankRegistersComponent,
             ListCashRegistersComponent,
              ListChequeEntriesComponent,
-               ModelBankRegisterComponent,
-            ModelChequeEntriesComponent,
             ViewChequeEntriesComponent,
             DashBoardComponent,
             CreateFranchiseeComponent,
@@ -400,7 +399,12 @@ import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchise
             ViewPurchaseBillsComponent,
             CreateFranchiseePaymentsComponent,
             ListFranchiseePaymentsComponent,
-            ViewFranchiseePaymentsComponent
+            ViewFranchiseePaymentsComponent,
+            ListReceiveproductsComponent,
+            ViewReceiveproductsComponent,
+            ModelUpdateYieldComponent,
+            ListDeliverProductsComponent,
+            ViewDeliverProductsComponent
 
 
    ],
@@ -469,8 +473,7 @@ import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchise
       ModelDetectionsHrsettingsComponent,
       ModelLocationsInventorySettingsComponent,
       ModelCurrencyAccountSettingsComponent,
-      ModelBankRegisterComponent,
-      ModelChequeEntriesComponent
+      ModelUpdateYieldComponent
     ],
    bootstrap: [AppComponent]
 })

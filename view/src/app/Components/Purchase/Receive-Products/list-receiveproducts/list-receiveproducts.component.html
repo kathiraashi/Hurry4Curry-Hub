@@ -1,0 +1,182 @@
+<!-- Main Section -->
+<div class="Main_Section">
+   <div class="page_section">
+      <div class="container-fluid">
+         <!-- Page Identity -->
+         <div class="Page_Identity">
+            <div class="Page_Track">
+               <ul >
+                  <li class="HeaderName">Inventory</li>
+                  <li class="arrow">>></li>
+                  <li > Receive Products List </li>
+               </ul>
+            </div>
+         </div>
+         <!-- Header Part -->
+         <div class="row header_part">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+               <div class="Search_Section">
+                  <input type="text" placeholder="Search.." name="search">
+                  <i class="material-icons">search</i>
+               </div>
+            </div>
+         </div>
+         <!-- Table section -->
+         <div class="Table_Section">
+            <table>
+               <thead>
+                  <tr>
+                     <th> S.no </th>
+                     <th> Supplier Name</th>
+                     <th> Inward Ref </th>
+                     <th> Total Value </th>
+                     <th> Status </th>
+                     <th> Action </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>
+                        <span class="S_no"> 1 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Supplier One </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Ref-00123 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1">35000</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">Requested</span>
+                     </td>
+                     <td>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <span class="S_no"> 2 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Supplier One </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Ref-00123 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1">35000</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">Requested</span>
+                     </td>
+                     <td>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <span class="S_no"> 3 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Supplier One </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Ref-00123 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1">35000</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">Requested</span>
+                     </td>
+                     <td>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <span class="S_no"> 4 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Supplier One </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Ref-00123 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1">35000</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">Requested</span>
+                     </td>
+                     <td>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <span class="S_no"> 5 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Supplier One </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Ref-00123 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1">35000</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">Received</span>
+                     </td>
+                     <td>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <span class="S_no"> 6 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Supplier One </span>
+                     </td>
+                     <td>
+                        <span class="Style_1"> Ref-00123 </span>
+                     </td>
+                     <td>
+                        <span class="Style_1">35000</span>
+                     </td>
+                     <td>
+                        <span class="Style_1">Received</span>
+                     </td>
+                     <td>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Dropdown menus -->
+   <mat-menu #Action="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
+      <button mat-menu-item [routerLink]="['/View_Receive_Products']">
+         <span>View</span>
+      </button>
+      <button mat-menu-item>
+         <span> Receive </span>
+      </button>
+      <button mat-menu-item>
+         <span> Return </span>
+      </button>
+      <button mat-menu-item (click)="UpdateYield()">
+         <span> Update Yield </span>
+      </button>
+   </mat-menu>
+      
+      

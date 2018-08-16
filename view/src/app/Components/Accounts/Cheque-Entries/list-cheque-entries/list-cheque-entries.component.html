@@ -14,8 +14,7 @@
          <!-- Header Part -->
          <div class="row header_part">
             <div class="col-sm-6">
-               <button class="Create_Button" mat-button (click)="CreateChequeEntries()"> + Create </button>
-            </div>
+             </div>
             <div class="col-sm-6">
                <div class="Search_Section">
                   <input type="text" placeholder="Search.." name="search">
@@ -36,7 +35,6 @@
                      <th>Cheque Date</th>
                      <th>Amount</th>
                      <th>Status</th>
-                     <th>Action</th>
                   </tr>
                </thead>
                <tbody>
@@ -65,14 +63,6 @@
                     <td>
                        <span class="Style_1">Cleared</span>
                     </td>
-                     <td>
-                          <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
-                             <i class="material-icons">zoom_in</i>
-                          </button>
-                          <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
-                             <i class="material-icons">edit</i>
-                          </button>
-                        </td>
                      </tr>
                      <tr>
                         <td>
@@ -99,14 +89,6 @@
                        <td>
                           <span class="Style_1">Cleared</span>
                        </td>
-                        <td>
-                             <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
-                                <i class="material-icons">zoom_in</i>
-                             </button>
-                             <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
-                                <i class="material-icons">edit</i>
-                             </button>
-                           </td>
                         </tr>
                         <tr>
                            <td>
@@ -133,14 +115,6 @@
                           <td>
                              <span class="Style_1">Cleared</span>
                           </td>
-                           <td>
-                                <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
-                                   <i class="material-icons">zoom_in</i>
-                                </button>
-                                <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
-                                   <i class="material-icons">edit</i>
-                                </button>
-                              </td>
                            </tr>
                            <tr>
                               <td>
@@ -167,14 +141,6 @@
                              <td>
                                 <span class="Style_1">Cleared</span>
                              </td>
-                              <td>
-                                   <button  [routerLink]="['/View_Cheque_Entries']" class="Table_Action_mini Bg_Info" mat-mini-fab color="primary">
-                                      <i class="material-icons">zoom_in</i>
-                                   </button>
-                                   <button  (click)="CreateChequeEntries()" class="Table_Action_mini Bg_warning" mat-mini-fab color="primary">
-                                      <i class="material-icons">edit</i>
-                                   </button>
-                                 </td>
                               </tr>
                </tbody>
             </table>

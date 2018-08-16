@@ -4,12 +4,8 @@
       <!-- Logo -->
       <img src="../../../../assets//images/basic/H4C-logo.png" alt="Logo" class="Header_Logo"> 
       <!-- Header Button -->
-      <span class="Header_Button" [routerLink]="['/Create_Bill']">
-         <span class="Button_Tree">
-            <span class="Menu">
-               <span class="header_button">+ Bill</span>
-            </span>
-            </span>
+      <span class="Header_Button">
+            <button mat-button color="primary" [routerLink]="['/Create_Bill']" > + Bill </button>
       </span>
       <!-- Search Section -->
       <span class="search_section">
@@ -50,7 +46,9 @@
                   <span> &nbsp; Inventory </span> 
                </span>
                <ul class="Menu_Tree_View">
-                  <li *ngIf="SubModulesValidate('Purchase_Requests_List')" class="Menu_Tree_List" [routerLink]="['/purchase_request_list']"><a> Purchase Requests </a></li>
+                  <li *ngIf="SubModulesValidate('Purchase_Requests_List')" class="Menu_Tree_List" [routerLink]="['/purchase_request_list']"><a> Purchase Orders </a></li>
+                  <li *ngIf="SubModulesValidate('Purchase_Requests_List')" class="Menu_Tree_List" [routerLink]="['/List_Receive_Products']"><a> Receive Products </a></li>
+                  <li *ngIf="SubModulesValidate('Purchase_Requests_List')" class="Menu_Tree_List" [routerLink]="['/List_Deliver_Products']"><a> Deliver Products </a></li>
                   <li *ngIf="SubModulesValidate('Purchase_Quotations_List')" class="Menu_Tree_List" [routerLink]="['/List_Stock_Values']"><a> stock values </a></li>
                   <li *ngIf="SubModulesValidate('Purchase_VendorBills_List')" class="Menu_Tree_List" [routerLink]="['/Purchase_Bills_List']"><a> Purchase Bills </a></li>
                </ul>

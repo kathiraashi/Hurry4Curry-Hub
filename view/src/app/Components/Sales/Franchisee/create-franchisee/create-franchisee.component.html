@@ -1,135 +1,141 @@
-<div class="page" style="margin-top:100px">
-  <div class="container-fluid">
-     <!-- page Identity -->
-     <div class="Page_Identity">
-        <div class="Page_Track">
-           <ul>
-              <li class="HeaderName">Sales</li>
-              <li class="arrow">>></li>
-              <li class="LinkName" [routerLink]="['/List_Franchisee']">Franchisee List</li>
-              <li class="arrow">>></li>
-              <li>Franchisee Create</li>
-           </ul>
-        </div>
-     </div>
-     <form>
-        <div class="row">
-           <div class="col-sm-3" >
-              <!-- Left Section -->
-              <div class="left_section" style="background-color:#fff;border-radius: 5px;margin-bottom:150px;">
-                 <div class="row">
-                    <div class="col-sm-12 text-center">
-                       <img src="../../../../../assets/images/basic/company.png" alt="Company Image" style="width:150px; height:150px; margin:10px; box-shadow:0 1px 5px 1px rgba(0,0,0,.2);">
-                    </div>
-                    <div class="col-sm-12 text-center">
-                       <button type="button" class="change_button"> Change Picture </button>
-                    </div><br><br>
-                    <div class="col-sm-12 Form_Input">
-                       <input type="text"  placeholder="Name" style="width:90%;margin-left:15px;">
-                    </div>
-                    <div class="col-sm-12 Form_Input">
-                       <input type="text"  placeholder="Phone Number"  style="width:90%;margin-left:15px;">
-                    </div>
-                    <div class="col-sm-12 Form_Input" >
-                       <input  type="text" placeholder="Email Address" style="width:90%;margin-left:15px;">
-                    </div>
-                    <div class="col-sm-12 Form_Input">
-                       <input  type="text" placeholder="Website" style="width:90%;margin-left:15px;">
-                    </div>
-                 </div>
-              </div>
-           </div>
-           <div class="col-sm-9">
-              <h5 class="text-style-1" style="margin-top:0px;"> Franchisee Details </h5>
-              <div class="row" style="padding:10px;background-color:#ecf0f5b5">
-                <div class="col-sm-4 Form_Input" >
-                    <input type="text" placeholder="Name">
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input type="text" placeholder="Contact No">
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input type="text" placeholder="Email Id">
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input type="text" placeholder="GST No">
-                 </div>
-              </div>
-              <h5 class="text-style-1"> Billing Address </h5>
-              <div class="row" style="padding:10px;background-color:#ecf0f5b5">
-                 <div class="col-sm-4 Form_Input" >
-                    <input type="text" placeholder="No / Street">
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input type="text"  placeholder="Area">
-                 </div>
-                 <div class="col-sm-4 Form_Select" >
-                    <ng-select class="NgSelect" [searchable]="true" placeholder="Country">
-                        <ng-option *ngFor="let Country of _Countries" [value]="Country">{{Country}}</ng-option>
-                     </ng-select>
+<!-- Page -->
+<div class="page" style="margin-top:100px;margin-bottom: 100px;">
+   <div class="container-fluid">
+      <!-- page Identity -->
+      <div class="Page_Identity">
+         <div class="Page_Track">
+            <ul>
+               <li class="HeaderName">Sales</li>
+               <li class="arrow">>></li>
+               <li class="LinkName" [routerLink]="['/List_Franchisee']">Franchisee List</li>
+               <li class="arrow">>></li>
+               <li>Franchisee Create</li>
+            </ul>
+         </div>
+      </div>
+      <form>
+         <div class="row">
+            <div class="col-sm-3" >
+               <!-- Left Section -->
+               <div class="left_section" style="background-color:#fff;margin-bottom:150px;box-shadow: 3px 2px 2px #afa3a3;">
+                  <div class="row">
+                     <div class="col-sm-12 text-center">
+                        <img src="../../../../../assets/images/basic/H4C-logo.png" alt="Company Image" style="width:150px; height:150px; margin:10px; box-shadow:0 1px 5px 1px rgba(0,0,0,.2);">
+                     </div>
+                     <div class="col-sm-12 text-center">
+                        <button type="button" class="change_button"> Change Picture </button>
+                     </div><br><br>
+                     <div class="col-sm-12 Form_Input">
+                        <input type="text"  placeholder="Name" style="width:90%;margin-left:15px;">
+                     </div>
+                     <div class="col-sm-12 Form_Input">
+                        <input type="text"  placeholder="Phone Number"  style="width:90%;margin-left:15px;">
+                     </div>
+                     <div class="col-sm-12 Form_Input" >
+                        <input  type="text" placeholder="Email Address" style="width:90%;margin-left:15px;">
+                     </div>
+                     <div class="col-sm-12 Form_Input">
+                        <input  type="text" placeholder="Website" style="width:90%;margin-left:15px;">
+                     </div>
                   </div>
-                 <div class="col-sm-4 Form_Select" >
-                     <ng-select class="NgSelect" [searchable]="true" placeholder="State">
-                           <ng-option *ngFor="let State of _States" [value]="State">{{State}}</ng-option>
-                        </ng-select>
-                 </div>
-                 <div class="col-sm-4 Form_Select" >
-                     <ng-select class="NgSelect" [searchable]="true" placeholder="City">
-                           <ng-option *ngFor="let City of _Cities" [value]="City">{{City}}</ng-option>
-                        </ng-select>
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input matInput type="text"  placeholder="Zip Code">
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input matInput type="text"  placeholder="GST NO">
-                 </div>
-              </div>
-              <div class="row">
-                 <div class="col-sm-12">
-                    <div style="margin-top:20px;font-size: 18px;font-weight: 600;">
-                       <input type="checkbox" > Same As Billing Address
-                    </div>
-                 </div>
-              </div>
-              <br>
-              <h5 class="text-style-1" style="margin-top:10px;"> Shipping Address </h5>
-              <div class="row" style="padding:10px;background-color:#ecf0f5b5">
-                 <div class="col-sm-4 Form_Input" >
-                    <input  type="text"  placeholder="No / Street">
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input  type="text" placeholder="Area">
-                 </div>
-                 <div class="col-sm-4 Form_Select" >
+               </div>
+            </div>
+            <div class="col-sm-9">
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Franchisee </span> Details
+               </h5>
+               <div class="row" style="padding:10px;background-color: #ffffff; border-top: 2px solid #4e6a7a;border-radius:3px;box-shadow: 3px 2px 2px #afa3a3;width: 100%;">
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="Name">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="Contact No">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="Email Id">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="GST No">
+                  </div>
+               </div>
+               <br>
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Billing </span> Address
+               </h5>
+               <div class="row" style="padding:10px;background-color: #ffffff; border-top: 2px solid #4e6a7a;border-radius:3px;box-shadow: 3px 2px 2px #afa3a3;width: 100%;">
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text" placeholder="No / Street">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text"  placeholder="Area">
+                  </div>
+                  <div class="col-sm-4 Form_Select" >
                      <ng-select class="NgSelect" [searchable]="true" placeholder="Country">
                            <ng-option *ngFor="let Country of _Countries" [value]="Country">{{Country}}</ng-option>
                         </ng-select>
-                 </div>
-                 <div class="col-sm-4 Form_Select" >
+                     </div>
+                  <div class="col-sm-4 Form_Select" >
+                        <ng-select class="NgSelect" [searchable]="true" placeholder="State">
+                              <ng-option *ngFor="let State of _States" [value]="State">{{State}}</ng-option>
+                           </ng-select>
+                  </div>
+                  <div class="col-sm-4 Form_Select" >
+                        <ng-select class="NgSelect" [searchable]="true" placeholder="City">
+                              <ng-option *ngFor="let City of _Cities" [value]="City">{{City}}</ng-option>
+                           </ng-select>
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input matInput type="text"  placeholder="Zip Code">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input matInput type="text"  placeholder="GST NO">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div style="margin-top:15px;font-size: 16px;font-weight: 600;">
+                        <input type="checkbox" > Same As Billing Address
+                     </div>
+                  </div>
+               </div><br>
+               <h5 class="SectionIdentity"> 
+                  <span class="Highlight"> Shipping </span> Address
+               </h5>
+               <div class="row" style="padding:10px;background-color: #ffffff; border-top: 2px solid #4e6a7a;border-radius:3px;box-shadow: 3px 2px 2px #afa3a3;width: 100%;">
+                  <div class="col-sm-4 Form_Input" >
+                     <input  type="text"  placeholder="No / Street">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input  type="text" placeholder="Area">
+                  </div>
+                  <div class="col-sm-4 Form_Select" >
+                     <ng-select class="NgSelect" [searchable]="true" placeholder="Country">
+                        <ng-option *ngFor="let Country of _Countries" [value]="Country">{{Country}}</ng-option>
+                     </ng-select>
+                  </div>
+                  <div class="col-sm-4 Form_Select" >
                      <ng-select class="NgSelect" [searchable]="true" placeholder="State">
-                           <ng-option *ngFor="let State of _States" [value]="State">{{State}}</ng-option>
-                        </ng-select>
-                 </div>
-                 <div class="col-sm-4 Form_Select" >
+                        <ng-option *ngFor="let State of _States" [value]="State">{{State}}</ng-option>
+                     </ng-select>
+                  </div>
+                  <div class="col-sm-4 Form_Select" >
                      <ng-select class="NgSelect" [searchable]="true" placeholder="City">
-                           <ng-option *ngFor="let City of _Cities" [value]="City">{{City}}</ng-option>
-                        </ng-select>
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input type="text"  placeholder="Zip Code">
-                 </div>
-                 <div class="col-sm-4 Form_Input" >
-                    <input matInput type="text"  placeholder="GST NO">
-                 </div>
-              </div>
-              <div class="row" style="margin-top:20px;"> 
-                 <div class="col-sm-12 text-right">
-                    <button mat-raised-button color="primary" class="Submit" style = "bottom: 7px;"> Submit </button>
-                 </div>
-              </div>
-           </div>
-        </div>
-     </form>
-  </div>
+                        <ng-option *ngFor="let City of _Cities" [value]="City">{{City}}</ng-option>
+                     </ng-select>
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input type="text"  placeholder="Zip Code">
+                  </div>
+                  <div class="col-sm-4 Form_Input" >
+                     <input matInput type="text"  placeholder="GST NO">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+<!-- Footer -->
+<div class="FooterForBill">
+   <button mat-raised-button color="primary" style = "top: 5px;"> Submit </button>
 </div>

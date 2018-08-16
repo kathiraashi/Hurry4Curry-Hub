@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CreateFranchiseePaymentsComponent implements OnInit {
   Active_Tab = 'Bank';
 
-  _InvoiceNo: any[] = ['IVC123', 'IVC355' , 'IVC768', 'IVC465'];
+  _BillNo: any[] = ['Bill-123', 'Bill-355' , 'Bill-768', 'Bill-465'];
   constructor() { }
 
   ngOnInit() {

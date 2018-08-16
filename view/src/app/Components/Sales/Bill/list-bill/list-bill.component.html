@@ -1,5 +1,7 @@
 <app-header></app-header>
+<!-- Main Section -->
 <div class="Main_Section">
+   <!-- Page Section -->
    <div class="Page_Section">
       <div class="container-fluid">
          <!-- Page identity -->
@@ -59,14 +61,13 @@
                         <span class="Style_3">Rs.2500</span>
                      </td>
                      <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action
-                        </button>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
                      </td>
                   </tr>
                   <tr>
                      <td>
                         <span class="S_no"> 2 </span>
-                        </td>
+                     </td>
                      <td>
                         <span class="Style_2"> Invoice-aab227b7
                            <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
@@ -79,8 +80,8 @@
                      </td>
                      <td>
                         <span class="Style_3">Admin Name</span>
-                        </td>
-                        <td>
+                     </td>
+                     <td>
                         <span class="Style_3">Rs.2500</span>
                      </td>
                      <td>
@@ -192,13 +193,13 @@
                            <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
                         </span>
                      </td>
-                    <td>
-                     <span class="Style_2">Customer Name
-                        <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
-                     </span>
+                     <td>
+                        <span class="Style_2">Customer Name
+                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
+                        </span>
                      </td>
                      <td>
-                     <span class="Style_3">Admin Name</span>
+                        <span class="Style_3">Admin Name</span>
                      </td>
                      <td>
                         <span class="Style_3">Rs.2500</span>
@@ -215,16 +216,13 @@
 </div>
 <!-- Dropdown menus -->
 <mat-menu class="MenuStyleOne" #Action="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below" class="MenuStyleOne">
-      <button mat-menu-item [routerLink]="['/Create_Bill']">
-         <span>Edit</span>
-      </button>
-      <button mat-menu-item [routerLink]="['/View_Bill']">
-         <span>View</span>
-      </button>
-      <button mat-menu-item (click)=" DeleteBill()">
-         <span>Delete</span>
-      </button>
-      <button mat-menu-item>
-         <span>Register Payment</span>
-      </button>
-   </mat-menu>
+   <button mat-menu-item [routerLink]="['/Create_Bill']">
+      <span>Edit</span>
+   </button>
+   <button mat-menu-item [routerLink]="['/View_Bill']">
+      <span>View</span>
+   </button>
+   <button mat-menu-item (click)=" DeleteBill()">
+      <span>Delete</span>
+   </button>
+</mat-menu>
