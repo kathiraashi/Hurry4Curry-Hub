@@ -134,7 +134,7 @@
                         <span class="Style_1">Received</span>
                      </td>
                      <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="ActionOne">Action</button>
                      </td>
                   </tr>
                   <tr>
@@ -154,7 +154,7 @@
                         <span class="Style_1">Received</span>
                      </td>
                      <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="ActionOne">Action</button>
                      </td>
                   </tr>
                </tbody>
@@ -178,5 +178,14 @@
          <span> Update Yield </span>
       </button>
    </mat-menu>
+
+   <mat-menu #ActionOne="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
+         <button mat-menu-item [routerLink]="['/View_Receive_Products']">
+            <span>View</span>
+         </button>
+         <button mat-menu-item (click)="UpdateYield()">
+            <span> Update Yield </span>
+         </button>
+      </mat-menu>
       
       
