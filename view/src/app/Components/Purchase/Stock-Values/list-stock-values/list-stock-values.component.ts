@@ -15,13 +15,13 @@ export class ListStockValuesComponent implements OnInit {
   bsModalRef: BsModalRef;
    constructor( private modalService: BsModalService) { }
 
-  ngOnInit() {
-  }
-  DeleteStockValues() {
-    const initialState = {
-       Text: 'StockValues'
-    };
-    this.bsModalRef = this.modalService.show(DeleteConfirmationComponent, Object.assign({initialState}, { class: 'modal-sm' }));
- }
+   ngOnInit() {
+   }
+   DeleteStockValues() {
+      const initialState = {
+         Text: 'StockValues'
+      };
+      this.bsModalRef = this.modalService.show(DeleteConfirmationComponent, Object.assign({initialState}, { class: 'modal-sm' }));
+   }
 
 }
