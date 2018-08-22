@@ -1,0 +1,141 @@
+<app-header></app-header>
+<!-- Page section -->
+<div class="Page_Section">
+   <div class="container-fluid">
+      <div class="Page_Identity">
+         <div class="Page_Track">
+            <ul>
+               <li class="HeaderName">Accounts</li>
+               <li class="arrow">>></li>
+               <li>Log Expenses List</li>
+            </ul>
+         </div>
+      </div>
+      <!--  Header Part -->
+      <!-- Create and search Section -->
+      <div class="row header_part">
+         <div class="col-sm-6">
+            <button class="Create_Button" mat-button [routerLink]="['/Create_Log_Expenses']"> + Create </button>
+         </div>
+         <div class="col-sm-6">
+            <div class="Search_Section">
+               <input type="text" placeholder="Search.." name="search">
+               <i class="material-icons">search</i>
+            </div>
+         </div>
+      </div>
+      <!-- Table Section -->
+      <div class="Table_Section">
+         <table>
+            <thead>
+               <tr>
+                  <th>S.no</th>
+                  <th>Type Of Expense</th>
+                  <th>Expence Date</th>
+                  <th>Expence</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>
+                     <span class="S_no"> 1 </span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Vegical expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1"> 31/08/18</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">10,000</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Waiting For Approved</span>
+                  </td>
+                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
+               </tr>
+               <tr>
+                  <td>
+                     <span class="S_no"> 2 </span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Vegical expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1"> 31/08/18</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">10,000</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Waiting For Approved</span>
+                  </td>
+                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
+               </tr>
+               <tr>
+                  <td>
+                     <span class="S_no"> 3 </span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Vegical expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1"> 31/08/18</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">10,000</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Waiting For Approved</span>
+                  </td>
+                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
+               </tr>
+               <tr>
+                  <td>
+                     <span class="S_no"> 4 </span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Vegical expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1"> 31/08/18</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Expence</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">10,000</span>
+                  </td>
+                  <td>
+                     <span class="Style_1">Waiting For Approved</span>
+                  </td>
+                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <br>
+   </div>
+</div>
+<!-- Dropdown menus -->
+<mat-menu #Action="matMenu" class="MenuStyleOne" [overlapTrigger]="false" yPosition="below" xPosition="after">
+   <button mat-menu-item [routerLink]="['/View_Log_Expenses']">
+      <span>View</span>
+   </button>
+   <button mat-menu-item >
+      <span>Register Payment</span>
+   </button>
+</mat-menu>
+

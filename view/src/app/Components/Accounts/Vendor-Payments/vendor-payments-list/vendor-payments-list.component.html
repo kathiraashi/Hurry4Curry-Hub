@@ -7,7 +7,7 @@
                  <ul >
                    <li class="HeaderName">Accounts</li>
                   <li class="arrow">>></li>
-                   <li >Vendor Payments </li>
+                   <li >Supplier Payments </li>
                  </ul>
               </div>
            </div>
@@ -61,7 +61,7 @@
                         </span>
                      </td>
                      <td>
-                      <button mat-raised-button color="primary" [routerLink]="['/vendor_payment_view']"> Action </button>
+                      <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
                      </td>
                   </tr>
                   <tr>
@@ -90,7 +90,7 @@
                         </span>
                      </td>
                      <td>
-                      <button mat-raised-button color="primary" [routerLink]="['/vendor_payment_view']"> Action </button>
+                      <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
                      </td>
                   </tr>
                   <tr>
@@ -119,7 +119,7 @@
                         </span>
                      </td>
                      <td>
-                      <button mat-raised-button color="primary" [routerLink]="['/vendor_payment_view']"> Action </button>
+                      <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
                      </td>
                   </tr>
                   <tr>
@@ -148,7 +148,7 @@
                         </span>
                      </td>
                      <td>
-                      <button mat-raised-button color="primary" [routerLink]="['/vendor_payment_view']"> Action </button>
+                      <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
                      </td>
                   </tr>
                   <tr>
@@ -177,7 +177,7 @@
                         </span>
                      </td>
                      <td>
-                      <button mat-raised-button color="primary" [routerLink]="['/vendor_payment_view']"> Action </button>
+                      <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
                      </td>
                   </tr>
                   <tr>
@@ -206,7 +206,7 @@
                         </span>
                      </td>
                      <td>
-                      <button mat-raised-button color="primary" [routerLink]="['/vendor_payment_view']"> Action </button>
+                      <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
                      </td>
                   </tr>
                   <tr>
@@ -235,7 +235,7 @@
                         </span>
                      </td>
                      <td>
-                      <button mat-raised-button color="primary" [routerLink]="['/vendor_payment_view']"> Action </button>
+                      <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
                      </td>
                   </tr>
                   </tbody>
@@ -244,6 +244,16 @@
          </div>
       </div>
    </div>
+
+<!-- Dropdown menus -->
+<mat-menu #Action="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
+   <button mat-menu-item [routerLink]="['/vendor_payment_view']">
+      <span>View</span>
+   </button>
+   <button mat-menu-item [routerLink]="['/Register_Payments']">
+      <span>Register Payments</span>
+   </button>
+</mat-menu>
 
 
 

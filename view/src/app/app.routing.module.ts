@@ -33,8 +33,10 @@ import { ListReceiveproductsComponent } from './Components/Purchase/Receive-Prod
 import { ViewReceiveproductsComponent } from './Components/Purchase/Receive-Products/view-receiveproducts/view-receiveproducts.component';
 import { ListDeliverProductsComponent } from './Components/Purchase/Deliver-Products/list-deliver-products/list-deliver-products.component';
 import { ViewDeliverProductsComponent } from './Components/Purchase/Deliver-Products/view-deliver-products/view-deliver-products.component';
-
-
+import { RegisterPaymentsComponent } from './Components/Accounts/Payments/register-payments/register-payments.component';
+import { ListLogExpensesComponent } from './Components/Accounts/Log-Expenses/list-log-expenses/list-log-expenses.component';
+import { CreateLogExpensesComponent } from './Components/Accounts/Log-Expenses/create-log-expenses/create-log-expenses.component';
+import { ViewLogExpensesComponent } from './Components/Accounts/Log-Expenses/view-log-expenses/view-log-expenses.component';
 
 const appRoutes: Routes = [
    {
@@ -220,6 +222,30 @@ const appRoutes: Routes = [
     component: ViewChequeEntriesComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'View_Cheque_Entries'}   }
+},
+{
+   path: 'Register_Payments',
+   component: RegisterPaymentsComponent,
+   canActivate: [AuthGuard],
+   data: {   animation: { value: 'Register_Payments'}   }
+},
+{
+   path: 'List_Log_Expenses',
+   component: ListLogExpensesComponent,
+   canActivate: [AuthGuard],
+   data: {   animation: { value: 'List_Log_Expenses'}   }
+},
+{
+   path: 'Create_Log_Expenses',
+   component: CreateLogExpensesComponent,
+   canActivate: [AuthGuard],
+   data: {   animation: { value: 'Create_Log_Expenses'}   }
+},
+{
+   path: 'View_Log_Expenses',
+   component: ViewLogExpensesComponent,
+   canActivate: [AuthGuard],
+   data: {   animation: { value: 'View_Log_Expenses'}  }
 },
 {
     path: 'Main_Dashboard',

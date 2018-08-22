@@ -16,6 +16,7 @@
    import { ModalModule, AccordionModule} from 'ngx-bootstrap';
    import {CalendarModule} from 'primeng/calendar';
    import {MatButtonModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatMenuModule} from '@angular/material';
+   import {MatRadioModule} from '@angular/material/radio';
    import { NgSelectModule } from '@ng-select/ng-select';
 
 // Custom Modules
@@ -65,6 +66,10 @@ import { ViewReceiveproductsComponent } from './Components/Purchase/Receive-Prod
 import { ModelUpdateYieldComponent } from './models/Inventory/model-update-yield/model-update-yield.component';
 import { ListDeliverProductsComponent } from './Components/Purchase/Deliver-Products/list-deliver-products/list-deliver-products.component';
 import { ViewDeliverProductsComponent } from './Components/Purchase/Deliver-Products/view-deliver-products/view-deliver-products.component';
+import { RegisterPaymentsComponent } from './Components/Accounts/Payments/register-payments/register-payments.component';
+import { CreateLogExpensesComponent } from './Components/Accounts/Log-Expenses/create-log-expenses/create-log-expenses.component';
+import { ListLogExpensesComponent } from './Components/Accounts/Log-Expenses/list-log-expenses/list-log-expenses.component';
+import { ViewLogExpensesComponent } from './Components/Accounts/Log-Expenses/view-log-expenses/view-log-expenses.component';
 
 
 @NgModule({
@@ -112,7 +117,11 @@ import { ViewDeliverProductsComponent } from './Components/Purchase/Deliver-Prod
             ViewReceiveproductsComponent,
             ModelUpdateYieldComponent,
             ListDeliverProductsComponent,
-            ViewDeliverProductsComponent
+            ViewDeliverProductsComponent,
+            RegisterPaymentsComponent,
+            CreateLogExpensesComponent,
+            ListLogExpensesComponent,
+            ViewLogExpensesComponent
 
 
    ],
@@ -135,6 +144,7 @@ import { ViewDeliverProductsComponent } from './Components/Purchase/Deliver-Prod
          MatSelectModule,
          MatCheckboxModule,
          MatMenuModule,
+         MatRadioModule,
       // Custom Modules
          AppRoutingModule,
    ],
