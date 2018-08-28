@@ -1,3 +1,16 @@
+<div [ngClass]="{'Hide': !Loader}" class="DataLoaderStyle_1">
+   <div class="Loading">
+         <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+            <div class="rect6"></div>
+         </div>
+   </div>
+</div>
+<div class="LoadedDataStyle_1" [ngClass]="{'Show': !Loader}">
 <!-- Main Section -->
 <div class="Main_Section">
    <!-- Page Section -->
@@ -32,88 +45,28 @@
                   <tr>
                      <th>S.no</th>
                      <th>Name</th>
-                     <th>Contact No</th>
-                     <th>GST No</th>
+                     <th>phone Number</th>
                      <th>Email Id</th>
+                     <th>GST No</th>
                      <th>Action</th>
                   </tr>
                </thead>
                <tbody>
-                  <tr>
+                  <tr *ngFor="let Item of _List; let i=index">
                      <td>
-                        <span class="S_no"> 1 </span>
+                        <span class="S_no"> {{ i + 1}} </span>
                      </td>
                      <td>
-                        <span class="Style_1">Name</span>
+                        <span class="Style_1">{{Item.Name}}</span>
                      </td>
                      <td>
-                        <span class="Style_1"> +56456747</span>
+                        <span class="Style_1"> {{Item.PhoneNumber}}</span>
                      </td>
                      <td>
-                        <span class="Style_1">6554</span>
+                        <span class="Style_1">{{Item.EmailAddress}}</span>
                      </td>
                      <td>
-                        <span class="Style_1">sample@gmail.com</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 2 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> +56456747</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">6554</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">sample@gmail.com</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 3 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> +56456747</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">6554</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">sample@gmail.com</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 4 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> +56456747</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">6554</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">sample@gmail.com</span>
+                        <span class="Style_1">{{Item.GSTNo}}</span>
                      </td>
                      <td>
                         <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
@@ -125,6 +78,7 @@
       </div>
    </div>
 </div>
+</div>
 
 <!-- Dropdown menus -->
 <mat-menu class="MenuStyleOne" #Action="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below" class="MenuStyleOne">
@@ -133,9 +87,6 @@
    </button>
    <button mat-menu-item [routerLink]="['/View_Franchisee']">
       <span>View</span>
-   </button>
-   <button mat-menu-item (click)="DeleteFranchisee()">
-      <span>Delete</span>
    </button>
 </mat-menu>
    
