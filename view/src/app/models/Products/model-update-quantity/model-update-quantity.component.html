@@ -1,0 +1,30 @@
+<div class="Modal_Content">
+  <div class="Modal_Header">
+    <p>Update Stock Quantity</p>
+    <span data-dismiss="modal" (click)="bsModalRef.hide()">&times;</span>
+  </div>
+  <form [formGroup]="Form">
+    <div class="Model_Body">
+      <div class="row">
+        <div class="col-sm-6 Form_Input">
+          <label>Quantity:</label>
+          <input type="text" formControlName="Quantity">
+          <p class="error" *ngIf="Form.controls['Quantity'].errors && !Form.controls['Quantity'].pristine">
+            <span *ngIf="Form.controls['Quantity'].errors.required">Quantity is required</span>
+            <span *ngIf="Form.controls['Quantity'].errors.pattern">Invalid digits </span>
+          </p>
+        </div>
+        <div class="col-sm-6 Form_Input">
+          <label>Unit Of Measure:</label>
+          <p>{{ _UnitOfMeasure }}</p>
+        </div>
+        </div>
+        <br/>
+        <div class="row">
+        <div class="col-sm-12 text-right">
+         <button mat-raised-button type="button" [disabled]="Form.status !== 'VALID'" (click)="Update()">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

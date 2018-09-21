@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,7 +7,8 @@ import { map } from 'rxjs/operators';
 
 import { AdminService } from './../../../../services/Admin/admin.service';
 import { ToasterServiceService } from './../../../../services/common-services/Toaster-Service/toaster-service.service';
-import { FranchiseeService} from './../../../../services/Sales/Franchisee/franchisee.service';
+import { FranchiseeService } from './../../../../services/Sales/Franchisee/franchisee.service';
+
 
 @Component({
   selector: 'app-create-franchisee',
@@ -26,20 +26,21 @@ export class CreateFranchiseeComponent implements OnInit {
    ShopFloorAllCityOfState:  any[];
 
    ShopFloor_State;
+   Loader: Boolean = false;
 
    Form: FormGroup;
 
-   Company_Id = '5b3c66d01dd3ff14589602fe';
-   User_Id = '5b530ef333fc40064c0db31e';
+   User_Id;
 
 
    constructor(
       public Service: AdminService,
       private Toaster: ToasterServiceService,
-      public Sales_Service: FranchiseeService,
+      public Franchisee_Service: FranchiseeService,
       public router: Router
    ) {
-         const Data = { 'Company_Id': this.Company_Id, 'User_Id' : this.User_Id };
+      this.User_Id = this.Service.GetUserInfo()['_id'];
+      const Data = { 'User_Id' : this.User_Id };
           let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
           Info = Info.toString();
           // Get Country List
@@ -58,15 +59,20 @@ export class CreateFranchiseeComponent implements OnInit {
                this.Toaster.NewToastrMessage({ Type: 'Error', Message: 'Country Simple List Getting Error!, But not Identify!' });
             }
          });
-   }
+    }
 
    ngOnInit() {
       this.Form = new FormGroup({
-         Company_Id: new FormControl(this.Company_Id),
-         User_Id: new FormControl(this.User_Id),
+         User_Id: new FormControl(this.User_Id, Validators.required),
          Name: new FormControl('', Validators.required),
-         PhoneNumber: new FormControl('', Validators.required),
-         EmailAddress: new FormControl('', Validators.required),
+         User_Name: new FormControl('', {  validators: Validators.required,
+                                          asyncValidators: [this.UserName_AsyncValidate.bind(this)],
+                                          updateOn: 'blur' } ),
+         User_Password: new FormControl('', Validators.required),
+         Phone: new FormControl('', {  validators: Validators.required,
+                                       asyncValidators: [this.Phone_AsyncValidate.bind(this)],
+                                       updateOn: 'blur' } ),
+         Email: new FormControl('', Validators.required),
          Website: new FormControl(''),
          GSTNo: new FormControl(''),
          BillingStreet: new FormControl('', Validators.required),
@@ -84,13 +90,42 @@ export class CreateFranchiseeComponent implements OnInit {
          ShopFloorZipCode: new FormControl('', Validators.required),
       });
    }
+
+   UserName_AsyncValidate( control: AbstractControl ) {
+      const Data = { User_Name: control.value, User_Id: this.User_Id  };
+      let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+      Info = Info.toString();
+      return this.Franchisee_Service.SalesFranchisee_UserName_AsyncValidate({'Info': Info}).pipe(map( response => {
+         const ReceivingData = JSON.parse(response['_body']);
+         if (response['status'] === 200 && ReceivingData['Status'] && ReceivingData['Available']) {
+            return null;
+         } else {
+            return { UserName_NotAvailable: true};
+         }
+      }));
+   }
+
+   Phone_AsyncValidate( control: AbstractControl ) {
+      const Data = { Phone: control.value, User_Id: this.User_Id  };
+      let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+      Info = Info.toString();
+      return this.Franchisee_Service.SalesFranchisee_PhoneNumber_AsyncValidate({'Info': Info}).pipe(map( response => {
+         const ReceivingData = JSON.parse(response['_body']);
+         if (response['status'] === 200 && ReceivingData['Status'] && ReceivingData['Available']) {
+            return null;
+         } else {
+            return { Phone_NotAvailable: true};
+         }
+      }));
+   }
+
    BillingCountry_Change() {
       const SelectedCountry = this.Form.controls['BillingCountry'].value;
       if (SelectedCountry !== null && typeof SelectedCountry === 'object' && Object.keys(SelectedCountry).length > 0) {
-         const Data = {Country_Id: SelectedCountry._id, 'Company_Id': this.Company_Id, 'User_Id' : this.User_Id };
-          let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
-          Info = Info.toString();
-          // Get State List
+         const Data = {Country_Id: SelectedCountry._id, 'User_Id' : this.User_Id };
+         let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+         Info = Info.toString();
+         // Get State List
          this.Service.State_List({'Info': Info}).subscribe( response => {
             const ResponseData = JSON.parse(response['_body']);
             if (response['status'] === 200 && ResponseData['Status'] ) {
@@ -113,10 +148,10 @@ export class CreateFranchiseeComponent implements OnInit {
    BillingState_Change() {
       const SelectedState = this.Form.controls['BillingState'].value;
       if ( SelectedState !== null && typeof SelectedState === 'object' && Object.keys(SelectedState).length > 0) {
-         const Data = {State_Id: SelectedState._id, 'Company_Id': this.Company_Id, 'User_Id' : this.User_Id };
-          let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
-          Info = Info.toString();
-          // Get City List
+         const Data = {State_Id: SelectedState._id, 'User_Id' : this.User_Id };
+         let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+         Info = Info.toString();
+         // Get City List
          this.Service.City_List({'Info': Info}).subscribe( response => {
             const ResponseData = JSON.parse(response['_body']);
             if (response['status'] === 200 && ResponseData['Status'] ) {
@@ -138,10 +173,10 @@ export class CreateFranchiseeComponent implements OnInit {
    ShopFloorCountry_Change() {
       const SelectedCountry = this.Form.controls['ShopFloorCountry'].value;
       if (!this.Form.controls['SameAddresses'].value && SelectedCountry !== null && typeof SelectedCountry === 'object' && Object.keys(SelectedCountry).length > 0) {
-         const Data = {Country_Id: SelectedCountry._id, 'Company_Id': this.Company_Id, 'User_Id' : this.User_Id };
-          let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
-          Info = Info.toString();
-          // Get State List
+         const Data = {Country_Id: SelectedCountry._id, 'User_Id' : this.User_Id };
+         let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+         Info = Info.toString();
+         // Get State List
          this.Service.State_List({'Info': Info}).subscribe( response => {
             const ResponseData = JSON.parse(response['_body']);
             if (response['status'] === 200 && ResponseData['Status'] ) {
@@ -166,10 +201,10 @@ export class CreateFranchiseeComponent implements OnInit {
    ShopFloorState_Change() {
       const SelectedState = this.Form.controls['ShopFloorState'].value;
       if ( !this.Form.controls['SameAddresses'].value && SelectedState !== null && typeof SelectedState === 'object' && Object.keys(SelectedState).length > 0) {
-         const Data = {State_Id: SelectedState._id, 'Company_Id': this.Company_Id, 'User_Id' : this.User_Id };
-          let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
-          Info = Info.toString();
-          // Get City List
+         const Data = {State_Id: SelectedState._id, 'User_Id' : this.User_Id };
+         let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+         Info = Info.toString();
+         // Get City List
          this.Service.City_List({'Info': Info}).subscribe( response => {
             const ResponseData = JSON.parse(response['_body']);
             if (response['status'] === 200 && ResponseData['Status'] ) {
@@ -249,13 +284,15 @@ export class CreateFranchiseeComponent implements OnInit {
    }
 
    Submit() {
-      if (this.Form.valid) {
+      if (this.Form.valid && !this.Loader) {
+        this.Loader = true;
          let Info = CryptoJS.AES.encrypt(JSON.stringify(this.Form.getRawValue()), 'SecretKeyIn@123');
          Info = Info.toString();
-         this.Sales_Service.SalesFranchisee_Create({ 'Info': Info }).subscribe( response => {
+         this.Franchisee_Service.SalesFranchisee_Create({ 'Info': Info }).subscribe( response => {
             const ResponseData = JSON.parse(response['_body']);
+            this.Loader = false;
             if (response['status'] === 200 && ResponseData['Status'] ) {
-                this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'New Franchisee Successfully Created' });
+               this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'New Franchisee Successfully Created' });
                this.router.navigate(['/List_Franchisee']);
             } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
                this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });

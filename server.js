@@ -15,6 +15,8 @@ process.on('unhandledRejection', (reason, promise) => {
    console.error("'Un Handled Rejection' Error Log File - " + new Date().toLocaleDateString());
 });
 process.on('uncaughtException', function (err) {
+    console.log(err);
+    
    ErrorManagement.ErrorHandling.ErrorLogCreation('', '', '', err.toString());
    console.error(" 'Un Caught Exception' Error Log File - " + new Date().toLocaleDateString());
 });
@@ -37,9 +39,16 @@ app.use(bodyParser.json());
 
 // Admin
    require('./server/Web/Routes/Admin/AdminManagement.routes.js')(app);
-
+//Franchisee
+    require('./server/Web/Routes/Franchisee/Franchisee.route.js')(app);
+//Customer
+   require('./server/Web/Routes/Customer/Customer.route.js')(app);
+// Product
+   require('./server/Web/Routes/Product/product.routes.js')(app);
 // Settings
    require('./server/Web/Routes/Settings/ProductSettings.routes.js')(app);
+// Stock
+    require('./server/Web/Routes/Stock/stock.routes.js')(app);
 
 
 

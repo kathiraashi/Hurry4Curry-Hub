@@ -10,7 +10,7 @@ export class ModelUpdateYieldComponent implements OnInit {
 
   TodayDate = new Date().toLocaleDateString('en-GB');
 
-  Type: String;
+  Type: string;
   constructor(public bsModalRef: BsModalRef) {}
   ngOnInit() {
   }

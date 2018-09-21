@@ -37,6 +37,11 @@ import { RegisterPaymentsComponent } from './Components/Accounts/Payments/regist
 import { ListLogExpensesComponent } from './Components/Accounts/Log-Expenses/list-log-expenses/list-log-expenses.component';
 import { CreateLogExpensesComponent } from './Components/Accounts/Log-Expenses/create-log-expenses/create-log-expenses.component';
 import { ViewLogExpensesComponent } from './Components/Accounts/Log-Expenses/view-log-expenses/view-log-expenses.component';
+import { EditFranchiseeComponent } from './Components/Sales/Franchisee/edit-franchisee/edit-franchisee.component';
+import { ListCustomerComponent } from './Components/Sales/Customer/list-customer/list-customer.component';
+import { ViewCustomerComponent } from './Components/Sales/Customer/view-customer/view-customer.component';
+import { EditCustomerComponent } from './Components/Sales/Customer/edit-customer/edit-customer.component';
+import { CreateCustomerComponent } from './Components/Sales/Customer/create-customer/create-customer.component';
 
 const appRoutes: Routes = [
    {
@@ -50,10 +55,40 @@ const appRoutes: Routes = [
       data: { animation: { value: 'Login'}  }
    },
    {
+    path: 'List_Customer',
+    component: ListCustomerComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'List_Customer'}   }
+ },
+ {
+    path: 'Edit_Customer/:Customer_Id',
+    component: EditCustomerComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Edit_Customer'}   }
+ },
+ {
+    path: 'Create_Customer',
+    component: CreateCustomerComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Create_Customer'}   }
+ },
+ {
+    path: 'View_Customer/:Customer_Id',
+    component: ViewCustomerComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'View_Customer'}   }
+ },
+   {
     path: 'List_Franchisee',
     component: ListFranchiseeComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'List_Franchisee'}   }
+ },
+ {
+    path: 'Edit_Franchisee/:Franchisee_Id',
+    component: EditFranchiseeComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Edit_Franchisee'}   }
  },
  {
     path: 'Create_Franchisee',
@@ -62,7 +97,7 @@ const appRoutes: Routes = [
     data: {   animation: { value: 'Create_Franchisee'}   }
  },
  {
-    path: 'View_Franchisee',
+    path: 'View_Franchisee/:Franchisee_Id',
     component: ViewFranchiseeComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'View_Franchisee'}   }
@@ -176,13 +211,13 @@ const appRoutes: Routes = [
     data: {   animation: { value: 'List_Product'}   }
 },
 {
-    path: 'Create_Product',
+    path: 'Product_Create',
     component: CreateProductComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'Create_Product'}   }
 },
 {
-    path: 'View_Product',
+    path: 'Product_View',
     component: ViewProductComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'View_Product'}   }

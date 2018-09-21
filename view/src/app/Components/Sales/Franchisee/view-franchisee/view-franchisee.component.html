@@ -1,246 +1,152 @@
-<app-header></app-header>
-<div class="Main_Section">
-   <div class="container-fluid">
-      <!-- page Section -->
-      <div class="Page_Section">
-         <!-- Page Identity -->
-         <div class="Page_Identity">
-            <div class="Page_Track">
-               <ul>
-                  <li class="HeaderName">Sales</li>
-                  <li class="arrow">>></li>
-                  <li class="LinkName" [routerLink]="['/List_Franchisee']">Franchisee List</li>
-                  <li class="arrow">>></li>
-                  <li>Franchisee View</li>
-               </ul>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-sm-12">
-               <div class="row">
-                  <!-- Image section -->
-                  <div class="col-sm-3">
-                     <!-- Left Section -->
-                     <div class="left_section" style="background-color:#fff;border-radius: 5px;margin-bottom:150px;height: 100%;box-shadow: 2px 3px 2px #ada3a3;">
-                        <div class="row">
-                           <div class="col-sm-12 text-center">
-                              <img src="../../../../../assets/images/basic/H4C-logo.png" alt="Company Image" style="width:150px; height:150px; margin:10px; box-shadow:0 1px 5px 1px rgba(0,0,0,.2);">
-                           </div>
-                           <br>
-                           <br>
-                           <div class="col-sm-12 ">
-                              <div class="view_item">
-                                 <div class="Static">Name </div>
-                                 <div class="dots"> : </div>
-                                 <div class="Data"> Name</div>
-                              </div>
-                           </div>
-                           <div class="col-sm-12 ">
-                              <div class="view_item">
-                                 <div class="Static">Phone Number </div>
-                                 <div class="dots"> : </div>
-                                 <div class="Data"> +5634357436</div>
-                              </div>
-                           </div>
-                           <div class="col-sm-12 ">
-                              <div class="view_item">
-                                 <div class="Static">Email Id </div>
-                                 <div class="dots"> : </div>
-                                 <div class="Data"> company@gmail.com</div>
-                              </div>
-                           </div>
-                           <div class="col-sm-12 ">
-                              <div class="view_item">
-                                 <div class="Static">Website </div>
-                                 <div class="dots"> : </div>
-                                 <div class="Data"> www.company.in</div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- Card Section -->
-                  <div class="col-sm-9 ">
-                     <div class="row">
-                        <div class="col-sm-3">
-                           <div class="Card card_bg_Liner_1">
-                              <div class="Card_Body">
-                                 <div class="Card_Left">
-                                    <i class="material-icons assignment"> assignment </i>
-                                 </div>
-                                 <div class="Card_Right">
-                                    <h5 class="card_color_1"> Quotation </h5>
-                                    <h6> Rs.2,00,00,000.00 </h6>
-                                 </div>
-                              </div>
-                              <div class="Card_Footer card_bg_1">
-                                 <span class="Card_Info"> Rs.5,000.00 Last Added </span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-sm-3">
-                           <div class="Card card_bg_Liner_2">
-                              <div class="Card_Body">
-                                 <div class="Card_Left">
-                                    <!-- <i class="material-icons assignment"> assignment</i> -->
-                                 </div>
-                                 <div class="Card_Right">
-                                    <h5 class="card_color_2 "> Sale Order </h5>
-                                    <h6>25 Orders</h6>
-                                 </div>
-                              </div>
-                              <div class="Card_Footer card_bg_2">
-                                 <span class="Card_Info"> 45 Logs In last Day </span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-sm-3">
-                           <div class="Card card_bg_Liner_3">
-                              <div class="Card_Body">
-                                 <div class="Card_Left">
-                                    <i class="material-icons account_balance">account_balance_wallet</i>
-                                 </div>
-                                 <div class="Card_Right">
-                                    <h5 class="card_color_3"> Opening Balance</h5>
-                                    <h6> Rs.2,00,00,000.00 </h6>
-                                 </div>
-                              </div>
-                              <div class="Card_Footer card_bg_3">
-                                 <span class="Card_Info"> Rs.5,000.00 Last Added </span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-sm-3">
-                           <div class="Card card_bg_Liner_4">
-                              <div class="Card_Body">
-                                 <div class="Card_Left">
-                                    <i class="material-icons alarm"> alarm </i>
-                                 </div>
-                                 <div class="Card_Right">
-                                    <h5 class="card_color_4"> Remainders</h5>
-                                    <h6> 10 Remainders </h6>
-                                 </div>
-                              </div>
-                              <div class="Card_Footer card_bg_4">
-                                 <span class="Card_Info"> 10 Remainders In Last Day   </span>
-                              </div>
-                           </div>
-                        </div><br>
-                     </div><br><br>
-                     <div class="row">
-                        <div class="col-sm-12">
-                           <div class="Table_Section">
-                              <table>
-                                 <thead>
-                                    <tr>
-                                       <th>S.no</th>
-                                       <th>Product </th>
-                                       <th>On Hand Qty</th>
-                                       <th>Sales Qty</th>
-                                       <th>Total value</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td>
-                                          <span class="S_no"> 1 </span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">Mutton 1KG Box </span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">30</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">20</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">40,000.00</span>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td>
-                                          <span class="S_no"> 2 </span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">Chicken 1KG Box </span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">30</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">20</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">20,000.00</span>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td>
-                                          <span class="S_no"> 3 </span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">Fish-1 1KG Box</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">30</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">20</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">10,000.00</span>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td>
-                                          <span class="S_no"> 4 </span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">Fish-2 1KG Box</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">30</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">20</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">20,000.00</span>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td>
-                                          <span class="S_no"> 5 </span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">Fish-3 1KG Box</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">30</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">20</span>
-                                       </td>
-                                       <td>
-                                          <span class="Style_1">30,000.00</span>
-                                       </td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div> <br>                
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-
-
-  
-  
-   
-
+<div class="page" style="margin-top:100px;margin-bottom:100px;">
+    <div class="container-fluid">
+       <!-- page Identity -->
+       <div class="Page_Identity">
+          <div class="Page_Name">
+             <h5>FRANCHISEE VIEW</h5>
+          </div>
+          <div class="Page_Track">
+          <ul>
+             <li class="HeaderName">Franchisee</li>
+             <li class="arrow">>></li>
+             <li class="LinkName" [routerLink]="['/List_Franchisee']">Franchisee List</li>
+             <li class="arrow">>></li>
+             <li>Franchisee View</li>
+          </ul>
+          </div>
+       </div>
+       <div class="row">
+          <!-- Company details -->
+          <div class="col-sm-4">
+          <div class="Company_Details">
+             <div class="view_item">
+                <div class="Static">Franchisee Name </div>
+                <div class="dots"> : </div>
+                <div class="Data">  {{_Data['Name']}} </div>
+             </div>
+             <div class="view_item">
+                <div class="Static">User Name </div>
+                <div class="dots"> : </div>
+                <div class="Data"> {{_Data['User_Name']}} </div>
+             </div>
+             <div class="view_item">
+                <div class="Static">Phone Number</div>
+                <div class="dots"> : </div>
+                <div class="Data"> {{_Data['Phone']}}  </div>
+             </div>
+             <div class="view_item">
+                <div class="Static">Email Address </div>
+                <div class="dots"> : </div>
+                <div class="Data"> {{_Data['Email']}} </div>
+             </div>
+             <div class="view_item">
+                <div class="Static">Website </div>
+                <div class="dots"> : </div>
+                <div class="Data"> {{_Data['Website']}} </div>
+             </div>
+             <div class="view_item">
+                <div class="Static">GST NO </div>
+                <div class="dots"> : </div>
+                <div class="Data"> {{_Data['GSTNo']}} </div>
+             </div>
+             <div class="view_item">
+                <div class="Static">Billing Address </div>
+                <div class="dots"> : </div>
+                <div class="Data"> 
+                   <span> {{_Data['BillingAddress']?.Street}}, {{_Data['BillingAddress']?.Area}} </span>
+                   <span> {{_Data['BillingAddress']?.City?.City_Name}}, </span>
+                   <span> {{_Data['BillingAddress']?.State?.State_Name}},</span>
+                   <span> {{_Data['BillingAddress']?.Country?.Country_Name}} - {{_Data['BillingAddress']?.ZipCode}}.</span>
+                </div>
+             </div>
+             <div class="view_item">
+                <div class="Static">Shop floor Address </div>
+                <div class="dots"> : </div>
+                <div class="Data">
+                   <span> {{_Data['ShopFloorAddress']?.Street}}, {{_Data['ShopFloorAddress']?.Area}} </span>
+                   <span> {{_Data['ShopFloorAddress']?.City?.City_Name}}, </span>
+                   <span> {{_Data['ShopFloorAddress']?.State?.State_Name}}, </span>
+                   <span> {{_Data['ShopFloorAddress']?.Country?.Country_Name}} - {{_Data['ShopFloorAddress']?.ZipCode}}.</span>   
+                </div>
+             </div>
+          </div>
+          <br>
+          </div>
+          <div class="col-sm-8">
+             <div class="Table_Section">
+                <table>
+                   <thead>
+                      <tr>
+                         <th>S.no</th>
+                         <th>Order No</th>
+                         <th>Value</th>
+                         <th>Status</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                         <td>
+                            <span class="S_no"> 1 </span>
+                         </td>
+                         <td>
+                            <span class="Style_1">bill_123</span>
+                         </td>
+                         <td>
+                            <span class="Style_1">32300</span>
+                         </td>
+                        <td>
+                            <span class="Style_1">Process</span>
+                         </td>
+                      </tr>
+                      <tr>
+                         <td>
+                            <span class="S_no"> 2 </span>
+                         </td>
+                         <td>
+                            <span class="Style_1">bill_123</span>
+                         </td>
+                         <td>
+                            <span class="Style_1">32300</span>
+                         </td>
+                        <td>
+                            <span class="Style_1">Process</span>
+                         </td>
+                      </tr>
+                      <tr>
+                         <td>
+                            <span class="S_no"> 3 </span>
+                         </td>
+                         <td>
+                            <span class="Style_1">bill_123</span>
+                         </td>
+                         <td>
+                            <span class="Style_1">32300</span>
+                         </td>
+                         <td>
+                            <span class="Style_1">Process</span>
+                         </td>
+                      </tr>
+                      <tr>
+                         <td>
+                            <span class="S_no"> 4 </span>
+                         </td>
+                         <td>
+                            <span class="Style_1">bill_123</span>
+                         </td>
+                         <td>
+                            <span class="Style_1">32300</span>
+                         </td>
+                         <td>
+                            <span class="Style_1">Process</span>
+                         </td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+             <br>
+          </div>
+       </div>
+    </div>
+ </div>
+ 
+ 

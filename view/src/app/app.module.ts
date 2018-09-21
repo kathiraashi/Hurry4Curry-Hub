@@ -53,6 +53,7 @@ import { DashBoardComponent } from './Components/DashBoard/dash-board/dash-board
 import { CreateFranchiseeComponent } from './Components/Sales/Franchisee/create-franchisee/create-franchisee.component';
 import { ListFranchiseeComponent } from './Components/Sales/Franchisee/list-franchisee/list-franchisee.component';
 import { ViewFranchiseeComponent } from './Components/Sales/Franchisee/view-franchisee/view-franchisee.component';
+import { EditFranchiseeComponent } from './Components/Sales/Franchisee/edit-franchisee/edit-franchisee.component';
 import { CreateBillComponent } from './Components/Sales/Bill/create-bill/create-bill.component';
 import { ListBillComponent } from './Components/Sales/Bill/list-bill/list-bill.component';
 import { ViewBillComponent } from './Components/Sales/Bill/view-bill/view-bill.component';
@@ -70,6 +71,11 @@ import { RegisterPaymentsComponent } from './Components/Accounts/Payments/regist
 import { CreateLogExpensesComponent } from './Components/Accounts/Log-Expenses/create-log-expenses/create-log-expenses.component';
 import { ListLogExpensesComponent } from './Components/Accounts/Log-Expenses/list-log-expenses/list-log-expenses.component';
 import { ViewLogExpensesComponent } from './Components/Accounts/Log-Expenses/view-log-expenses/view-log-expenses.component';
+import { CreateCustomerComponent } from './Components/Sales/Customer/create-customer/create-customer.component';
+import { EditCustomerComponent } from './Components/Sales/Customer/edit-customer/edit-customer.component';
+import { ListCustomerComponent } from './Components/Sales/Customer/list-customer/list-customer.component';
+import { ViewCustomerComponent } from './Components/Sales/Customer/view-customer/view-customer.component';
+import { ModelUpdateQuantityComponent } from './models/Products/model-update-quantity/model-update-quantity.component';
 
 
 @NgModule({
@@ -121,8 +127,13 @@ import { ViewLogExpensesComponent } from './Components/Accounts/Log-Expenses/vie
             RegisterPaymentsComponent,
             CreateLogExpensesComponent,
             ListLogExpensesComponent,
-            ViewLogExpensesComponent
-
+            ViewLogExpensesComponent,
+            EditFranchiseeComponent,
+            CreateCustomerComponent,
+            EditCustomerComponent,
+            ListCustomerComponent,
+            ViewCustomerComponent,
+            ModelUpdateQuantityComponent
 
    ],
    imports: [
@@ -151,7 +162,8 @@ import { ViewLogExpensesComponent } from './Components/Accounts/Log-Expenses/vie
    providers: [AuthGuard],
    entryComponents: [
       DeleteConfirmationComponent,
-      ModelUpdateYieldComponent
+      ModelUpdateYieldComponent,
+      ModelUpdateQuantityComponent
     ],
    bootstrap: [AppComponent]
 })

@@ -4,119 +4,159 @@
     height:40px;
     width: 100%;
     margin-bottom: 5px;
-}
-.Page_Identity .Page_Track{
-    width:100%;
+ }
+ .Page_Identity .Page_Name{
+    width:50%;
+ }
+ .Page_Identity .Page_Name h5{
+    color: #4f6a7a;
     line-height: 35px;
-}
-.Page_Identity .Page_Track ul{
+    font-size: 18px;
+    margin: 0px;
+    font-weight: 700;
+ }
+ .Page_Identity .Page_Track{
+    width:50%;
+    line-height: 35px;
+ }
+ .Page_Identity .Page_Track ul{
     display: flex;
     list-style-type: none;
     padding: 0px;
     margin: 0px;
     align-items: center;
     float: right;
-}
-.Page_Identity .Page_Track ul li {
+ }
+ .Page_Identity .Page_Track ul li {
+    color: #a5adb1;
    font-size: 13px;
     font-weight: 500;
     margin-left: 5px;
-}
-.Page_Identity .Page_Track ul li.arrow{
+ }
+ .Page_Identity .Page_Track ul li.arrow{
     letter-spacing: -4px;
     font-size: 19px;
     transform: scale(.6, 1);
-}
-.Page_Identity .Page_Track ul li.arrowGreen{
+ }
+ .Page_Identity .Page_Track ul li.arrowGreen{
     letter-spacing: -4px;
     font-size: 19px;
     transform: scale(.6, 1);
     color: #4E6A7A;
-}
-.Page_Identity .Page_Track ul li.HeaderName{
+ }
+ .Page_Identity .Page_Track ul li.HeaderName{
     color: #4E6A7A;
-}
-.Page_Identity .Page_Track ul li.LinkName{
+ }
+ .Page_Identity .Page_Track ul li.LinkName{
     color: #4E6A7A;
     cursor: pointer;
-}
-/* Form designs  */
-.Form_Input label {
-   font-size: 14px;
-   margin-bottom: 5px;
-   font-weight: 700;
-   color: #4e6a7a;
-}
-.Form_Input input {
-   padding: 4px 10px;
-   width: 100%;
-   height: 37px;
-   outline: none;
-   margin-bottom: 20px;
-   border: 1px solid #e8e8e8;
-   color: rgb(79, 107, 123);
-   font-weight: 400;
-   font-size: 14px;
-   letter-spacing: 0.3px;
-}
-.Form_TextArea label {
-   font-size: 14px;
-   margin-bottom: 5px;
-   font-weight: 700;
-   color: #4e6a7a;
-}
-.Form_TextArea textarea {
-   padding: 4px 10px;
-   width: 100%;
-   outline: none;
-   margin-bottom: 20px;
-   border: 1px solid #e8e8e8;
-   color: rgb(79, 107, 123);
-   font-weight: 400;
-   font-size: 14px;
-   letter-spacing: 0.3px;
-}
-.Form_Input input:-moz-placeholder{
-   color: #999999;
-   font-weight: 400;
-}
-.Form_Input input::-moz-placeholder{
-   color: #999999;
-   font-weight: 400;
-}
-.Form_Input input::-webkit-input-placeholder{
-   color: #999999;
-   font-weight: 400;
-}
-.Form_Input input:-ms-input-placeholder{
-   color: #999999;
-   font-weight: 400;
-}
-.Form_Select label {
-   font-size: 14px;
-   margin-bottom: 5px;
-   font-weight: 700;
-   color: #4e6a7a;
-}
-.Form_Select select{
-   width: 100%;
-   height: 37px;
-   outline: none;
-   padding: 0px 10px;
-   border: 1px solid #e8e8e8;
-   color: rgb(79, 107, 123);
-   font-weight: 400;
-   font-size: 14px;
-   letter-spacing: 0.3px;
-}
-.Form_Select select option{
-   color: rgb(79, 107, 123);
-   width: 100%;
-}
-.checkbox{
+ }
+ /* Form designs  */
+ /* Form Style */
+ .Form_Input{
+    margin-bottom: 25px;
+ }
+ .Form_Input label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #4e6a7a;
+ }
+ .Form_Input input {
+    padding: 4px 10px;
+    width: 100%;
+    height: 37px;
+    outline: none;
+    border: 1px solid #e8e8e8;
+    color: rgb(79, 107, 123);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+ }
+ .Form_Input input:disabled {
+    background-color: #e6e6e6;
+ }
+ 
+ .Form_TextArea label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #4e6a7a;
+ }
+ .Form_TextArea textarea {
+    padding: 4px 10px;
+    width: 100%;
+    outline: none;
+    margin-bottom: 25px;
+    border: 1px solid #e8e8e8;
+    color: rgb(79, 107, 123);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+ }
+ .Form_Input input:-moz-placeholder{
+    color: #999999;
+    font-weight: 400;
+ }
+ .Form_Input input::-moz-placeholder{
+    color: #999999;
+    font-weight: 400;
+ }
+ .Form_Input input::-webkit-input-placeholder{
+    color: #999999;
+    font-weight: 400;
+ }
+ .Form_Input input:-ms-input-placeholder{
+    color: #999999;
+    font-weight: 400;
+ }
+ .Form_Select label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #4e6a7a;
+ }
+ .Form_Select select{
+    width: 100%;
+    height: 37px;
+    outline: none;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #e8e8e8;
+    color: rgb(79, 107, 123);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+ }
+ .Form_Select select option{
+    color: rgb(79, 107, 123);
+    width: 100%;
+ }
+ .error{
+    margin: 0px;
+    color: rgb(221, 10, 10);
+    font-weight: 500;
+    text-align: left;
+    font-size: 13px;
+    word-spacing: 1px;
+    letter-spacing: 0.4px;
+ }
+ .Form_Input.Form_Err input{
+   border-color: rgb(221, 10, 10);
+ }
+ .Form_Input.Form_Success input{
+   border-color: #4ab65f;
+ }
+ .Form_Select.Form_Err select{
+    border-color: rgb(221, 10, 10);
+ }
+ .Form_Select.Form_Success select{
+    border-color: #4ab65f;
+ }
+ .checkbox{
     margin-top: 35px;
-}
-.Left_Data{
+ }
+ .Left_Data{
     font-size: 16px;
     font-weight: 600;
     color: #4e6a7a;
@@ -128,8 +168,8 @@
     color: #486473;
     letter-spacing: 0.5px;
  }
-/* Company details */
-.Company_Details{
+ /* Company details */
+ .Company_Details{
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -137,12 +177,12 @@
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
     position: relative;
  }
-/* Tabs */
-.Tabs{
+ /* Tabs */
+ .Tabs{
     display: flex;
     width: 100%;
-}
-.Tabs .Tab{
+ }
+ .Tabs .Tab{
     color: #4d6a7a;
     width: 14%;
     line-height: 35px;
@@ -154,58 +194,58 @@
     font-weight: 600;
     letter-spacing: 0.4px;
     cursor: pointer;
-}
-.Tabs .Tab:hover{
+ }
+ .Tabs .Tab:hover{
     background-color: #80808048;
     border-bottom: 2px solid #80808068;
-}
-
-.Tabs .Tab.active{
+ }
+ 
+ .Tabs .Tab.active{
     border-bottom: 2px solid #4E6A7A;
     color: #4E6A7A;
     cursor: default;
-}
-
-
-
-
-/* table section */
-.table_section{
+ }
+ 
+ 
+ 
+ 
+ /* table section */
+ .table_section{
    border-collapse: collapse;
    width: 100%;
    table-layout: fixed;
-}
-.table_section .table_head{
+ }
+ .table_section .table_head{
    font-size:16px;
    color:#483737;
    cursor:pointer;
-}
-.table_section tr{
+ }
+ .table_section tr{
    border:1px solid #bdb5b5;
    height:50px;
-}
-.table_section thead th{
+ }
+ .table_section thead th{
    text-align:center;
-}
-.table_section thead .S_No{
+ }
+ .table_section thead .S_No{
    width:130px;
-}
-.table_section thead .Action{
+ }
+ .table_section thead .Action{
    width:60px;
-}
-.table_section tbody td{
+ }
+ .table_section tbody td{
    background-color:#F5F5F5;
    width:100%;
    text-align:center;
    padding:0px 10px;
-
-}
-.table_section tbody td span{
+ 
+ }
+ .table_section tbody td span{
    font-size:16px;
    font-weight:400;
    color:#6d6868;
-}
-.Table_Section table tbody tr td .Action_Section{
+ }
+ .Table_Section table tbody tr td .Action_Section{
    color: #ffffff;
    height: 35px;
    width: 35px;
@@ -215,13 +255,13 @@
    cursor: pointer;
    float: right;
    margin-right: 10px;
-}
-.Table_Section table tbody tr td .Action_Section i {
+ }
+ .Table_Section table tbody tr td .Action_Section i {
    width: 100%;
    line-height: 35px;
-}
-
-.FooterForBill {
+ }
+ 
+ .FooterForBill {
     position: fixed;
     bottom: 0px;
     width: 100%;
@@ -229,4 +269,14 @@
     background-color: rgba(0, 0, 0, 0.4);
     height: 45px;
     text-align: right
-}
+ }
+ 
+ 
+ .BoxHeader{
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #4f6a7a;
+    letter-spacing: 0.3px;
+    margin-top: -10px;
+ }
