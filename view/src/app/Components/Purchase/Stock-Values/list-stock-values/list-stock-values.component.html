@@ -38,94 +38,13 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 1 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">WareHouse1</span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> xxxx</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">20</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Chennai</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">25/05/2017</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 2 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">WareHouse1</span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> xxxx</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">20</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Chennai</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">25/05/2017</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 3 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">WareHouse1</span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> xxxx</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">20</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Chennai</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">25/05/2017</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 4 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">WareHouse1</span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> xxxx</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">20</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Chennai</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">25/05/2017</span>
-                     </td>
+                  <tr *ngFor="let item of _List; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>WareHouse</td>
+                    <td>{{item['Product_Id']?.Name_withAttribute}}</td>
+                    <td>{{item.Current_Quantity}}</td>
+                    <td>Chennai</td>
+                    <td>{{item.Date | date}}</td>
                      <td>
                         <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
                      </td>

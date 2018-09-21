@@ -103,7 +103,7 @@ exports.Customer_View = function(req, res) {
     var CryptoBytes  = CryptoJS.AES.decrypt(req.body.Info, 'SecretKeyIn@123');
     var ReceivingData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
 
-    if (!ReceivingData.User_Id || ReceivingData.User_Id === ''  ) {
+    if (!ReceivingData.User_Id || ReceivingData.User_Id === ''  ) { 
        res.status(400).send({Status: false, Message: "User Details can not be empty" });
     } else if (!ReceivingData.Customer_Id || ReceivingData.Customer_Id === ''  ) {
        res.status(400).send({Status: false, Message: "Customer Id Details can not be empty" });

@@ -42,6 +42,7 @@ import { ListCustomerComponent } from './Components/Sales/Customer/list-customer
 import { ViewCustomerComponent } from './Components/Sales/Customer/view-customer/view-customer.component';
 import { EditCustomerComponent } from './Components/Sales/Customer/edit-customer/edit-customer.component';
 import { CreateCustomerComponent } from './Components/Sales/Customer/create-customer/create-customer.component';
+import { CreatePurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/create-purchase-bills/create-purchase-bills.component';
 
 const appRoutes: Routes = [
    {
@@ -145,7 +146,7 @@ const appRoutes: Routes = [
     data: {   animation: { value: 'List_Receive_Products'}   }
  },
  {
-    path: 'View_Receive_Products',
+    path: 'View_Receive_Products/:SupplierBill_Id',
     component: ViewReceiveproductsComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'View_Receive_Products'}   }
@@ -173,6 +174,12 @@ const appRoutes: Routes = [
     component: ViewPurchaseBillsComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'Purchase_Bills_View'}   }
+ },
+ {
+    path: 'Purchase_Bills_Create',
+    component: CreatePurchaseBillsComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'Purchase_Bills_Create'}   }
  },
   {
     path: 'List_Franchisee_payments',

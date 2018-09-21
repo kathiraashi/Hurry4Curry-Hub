@@ -47,6 +47,9 @@ body {
      color: rgb(221, 10, 10) !important;
  }
 
+ body .bs-datepicker-container .bs-datepicker-head {
+  background-color: #4c6a7a;
+}
 
 
  /* Data Loading Styles */

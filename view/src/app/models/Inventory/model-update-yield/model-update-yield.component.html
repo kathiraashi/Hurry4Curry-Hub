@@ -4,10 +4,18 @@
       <span data-dismiss="modal" (click)="bsModalRef.hide()">&times;</span>
     </div>
     <div class="Model_Body">
+      <form [formGroup]="Form">
       <div class="row">
        <div class="col-sm-6 Form_Input">
           <label>Product Name:</label>
-          <input type="text" readonly="true">
+          <ng-select class="NgSelect ValueBold"
+            [items]="_Data"
+            [bindLabel]="'Product_Id.Name_withAttribute'"
+            [bindValue]="'_id'"
+            [searchable]="true"
+            (change)="ProductChange($event)"
+            placeholder="Select Product">
+          </ng-select>
        </div>
         <div class="col-sm-6 Form_Input">
           <label>Hub Name:</label>
@@ -19,19 +27,21 @@
         </div>
         <div class="col-sm-6 Form_Input">
           <label>Received Qty:</label>
-          <input type="text">
+          <input type="text" value="{{QuantityValue}}" readonly>
         </div>
         <div class="col-sm-6 Form_Input">
             <label>Yield Qty:</label>
-            <input type="text">
+            <input type="text" formControlName="YieldQty" (blur)="onTabQuantity()">
           </div>
           <div class="col-sm-6 Form_Input">
                <label>Wastage Qty:</label>
-               <input type="text">
+               <input type="text"  formControlName="WastageQty" readonly>
              </div>
-    </div>
+      </div>
+      </form>
+      </div>
     <div class="Model_Footer">
-      <button mat-raised-button color="primary"> Submit </button>
+      <button mat-raised-button color="primary" (click)="Submit()"> Submit </button>
     </div>
   </div>
   

@@ -1,4 +1,5 @@
 var CryptoJS = require("crypto-js");
+var StockModel = require('./../../Models/Stock/Stock.model.js');
 var ProductModel = require('./../../Models/Product/Product.model.js');
 var ErrorManagement = require('./../../../Handling/ErrorHandling.js');
 var mongoose = require('mongoose');
@@ -153,9 +154,32 @@ exports.Product_List = function(req, res) {
             ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Product List Find Query Error', 'Product.controller.js', err);
             res.status(417).send({status: false, Message: "Some error occurred while Find The Product List!."});
          } else {
-            var ReturnData = CryptoJS.AES.encrypt(JSON.stringify(result), 'SecretKeyOut@123');
-            ReturnData = ReturnData.toString();
-            res.status(200).send({Status: true, Response: ReturnData });
+            
+            const FindStock = (result) => Promise.all(
+                  result.map( obj => CurrentStock(obj) )
+             ).then(response => {
+                   
+                  var ReturnData = CryptoJS.AES.encrypt(JSON.stringify(response), 'SecretKeyOut@123');
+                  ReturnData = ReturnData.toString();
+                  res.status(200).send({Status: true, Response: ReturnData });
+             });
+
+             const CurrentStock = (info) => Promise.all([
+                  StockModel.StockSchema.findOne({ Product_Id: info._id})
+             ]).then(response => {
+                  info = JSON.parse(JSON.stringify(info));
+                  if (response[0] !== null ) {
+                        info.Current_Quantity = response[0].Current_Quantity;
+                        info.Stock_Id = response[0]._id;
+                  } else{
+                        info.Current_Quantity = 0;
+                        info.Stock_Id = '';
+                  }
+                  return info;
+             });
+
+             FindStock(result);
+
          }
       });
    }

@@ -1,0 +1,140 @@
+<!-- Page -->
+<div class="page" style="margin-top:100px;margin-bottom:100px;">
+    <div class="container-fluid">
+       <!-- Page Identity -->
+       <div class="Page_Identity">
+          <div class="Page_Track">
+             <ul>
+                <li class="HeaderName">Pruchase Bill</li>
+                <li class="arrow">>></li>
+                <li class="LinkName" [routerLink]="['/Purchase_Bills_List']">Purchase Bill List</li>
+                <li class="arrow">>></li>
+                <li>Pruchase Bill Create</li>
+             </ul>
+          </div>
+       </div>
+       <form [formGroup]="Form">
+          <div class="row">
+            <div class="col-sm-12">
+                <!-- Company details -->
+                <div class="Company_Details">
+                   <h5 class="SectionIdentity"> 
+                      <span class="Highlight"> Request </span> Details
+                   </h5>
+                   <br>
+                   <div class="row">
+                      <div class="col-sm-4 Form_Input">
+                         <label>Purchase Bill Ref No:</label>
+                         <input type="text" formControlName="PurchaseBill_RefNo">
+                         <p class="error" *ngIf="Form.controls['PurchaseBill_RefNo'].errors && Form.controls['PurchaseBill_RefNo'].touched">
+                            <span *ngIf="Form.controls['PurchaseBill_RefNo'].errors.PurchaseBill_RefNo_NotAvailable"> This Purchase Bill number is not available</span>
+                          </p>
+                        </div>
+                      <div class="col-sm-4 Form_Input">
+                         <label> Supplier:</label>
+                         <ng-select class="NgSelect ValueBold"
+                        [items]="_SupplierList"
+                        [bindLabel]="'Name'"
+                        [bindValue]="'_id'"
+                        formControlName="Supplier_Id"
+                        [searchable]="true"
+                        placeholder="Supplier Name">
+                        </ng-select>
+                        <p class="error" *ngIf="Form.controls['Supplier_Id'].errors && Form.controls['Supplier_Id'].touched">
+                        <span *ngIf="Form.controls['Supplier_Id'].errors.required">Supplier Name is required</span>
+                        </p>
+                      </div>
+                      <div class="col-sm-4 Form_Input">
+                         <label>Date:</label>
+                         <input placeholder="Bill date" formControlName="PurchaseBill_Date" (keypress)="DoNothing()" (keydown)="DoNothing()" bsDatepicker>
+                         <p class="error" *ngIf="Form.controls['PurchaseBill_Date'].errors && Form.controls['PurchaseBill_Date'].touched">
+                           <span *ngIf="Form.controls['PurchaseBill_Date'].errors.required"> Bill Date is required</span>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <!-- Section Identity -->
+             <div class="col-sm-12" style="margin-top:25px;">
+                <div class="Company_Details">
+                   <h5 class="SectionIdentity"> 
+                      <span class="Highlight"> Product </span> Details
+                   </h5>
+                   <span class="AddMoreButton">
+                        <button mat-raised-button color="primary" (click)="addItem()">Add Product</button>
+                    </span>
+                   <br>
+                            <!-- Table Section -->
+               <div class="Product_Details">
+                    <table class="table_section">
+                       <thead class="table_head">
+                          <tr>
+                             <th style="width: 80px">S.No</th>  
+                             <th>Product</th>  
+                             <th style="width: 200px">Unit Price</th>  
+                             <th style="width: 200px">Quantity</th>  
+                             <th style="width: 200px">Total</th> 
+                             <th style="width: 200px">Action</th> 
+                          </tr>
+                       </thead>
+                       <tbody>
+                          <ng-container formArrayName="items" *ngFor="let item of Form.get('items').controls; let i = index;" >
+                           
+                            <tr [formGroupName]="i" >
+                             
+                              <td class="Style_1">
+                                <span> {{i+1}} </span> 
+                             </td>
+                             <td>
+                                <ng-select class="NgSelect ValueBold Form_Select" 
+                                  [items]="_temProductList"
+                                  bindLabel="Name_withAttribute"
+                                  formControlName="Product"
+                                  [searchable]="true"
+                                  placeholder="Product">
+                                  </ng-select>                 
+                             </td>
+                              <td>
+                              <input type="text" formControlName="Price" (blur)="onTabQuantity(i)">
+                              </td>
+                              <td>
+                              <input type="text" formControlName="Quantity" (blur)="onTabQuantity(i)">
+                              </td>
+                              <td>
+                              <input type="text" readonly formControlName="Product_Total">
+                              </td>
+                              <td>
+                              <button class="Table_Action_mini Bg_Danger" mat-mini-fab color="primary" (click)="Delete(i)" *ngIf="items?.length > 1">
+                                  <i class="material-icons">delete_forever</i>
+                               </button>
+                              </td>
+                            </tr>                      
+  
+                          </ng-container>
+                       </tbody>
+                    </table>
+                    <br>
+                    <div class="row">
+                       <div class="col-sm-9">
+                       </div>
+                       <!-- Result Section -->
+                       <div class="col-sm-3">
+                          <div class="ResultSection">
+                             <span class="Title"> Net Amount </span>
+                             <span class="Split"> : </span>
+                             <span class="Value"> Rs.{{Total_Value}} </span>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                </div>
+             </div>
+          </div>
+       </form>
+    </div>
+ </div>
+ <!-- Footer -->
+ <div class="FooterForRequest">
+        <button mat-raised-button color="primary" style = "top: 5px;" [disabled]="!Form.valid" (click)="Submit()" class="pull-right"> Submit </button>
+</div>
+ 

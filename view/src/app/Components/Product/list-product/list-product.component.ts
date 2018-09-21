@@ -53,7 +53,6 @@ export class ListProductComponent implements OnInit {
           CryptoBytes.toString(CryptoJS.enc.Utf8)
         );
         this._List = DecryptedData;
-        console.log(DecryptedData);
       } else if (
         response['status'] === 400 ||
         (response['status'] === 417 && !ResponseData['Status'])
@@ -98,13 +97,11 @@ export class ListProductComponent implements OnInit {
   Update() {
     const initialState = { Type: 'Update', Data: this._List[this.ActionIndex] };
     // console.log(initialState);
-    console.log(this.ActionIndex);
     this.bsModalRef = this.bsModalService.show(ModelUpdateQuantityComponent, Object.assign({initialState}));
     this.bsModalRef.content.onClose.subscribe(response => {
-      if (response['Status']) {
-        this._List[this.ActionIndex]['Available'] = response['Response']['Current_Quantity'];
-        // this._List[this.ActionIndex] = response['Response'][''];
-        // console.log(response);
+      if (response['Status'] === true) {
+        this._List[this.ActionIndex]['Current_Quantity'] = response['Response']['Current_Quantity'];
+
       }
     });
   }

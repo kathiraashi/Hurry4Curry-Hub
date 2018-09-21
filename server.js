@@ -49,6 +49,12 @@ app.use(bodyParser.json());
    require('./server/Web/Routes/Settings/ProductSettings.routes.js')(app);
 // Stock
     require('./server/Web/Routes/Stock/stock.routes.js')(app);
+// Purchase
+    require('./server/Web/Routes/PurchaseBill/PurchaseBill.routes.js')(app);
+// Bill
+    require('./server/Web/Routes/Bill/Bill.routes.js')(app);
+// Supplier
+    require('./server/Web/Routes/Supplier/Supplier.routes.js')(app);
 
 
 

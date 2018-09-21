@@ -26,7 +26,7 @@ var Schema = mongoose.Schema;
 
 // Product With Variants Schema
    var ProductsSchema = mongoose.Schema({
-      Product_Id: { type : Schema.Types.ObjectId, ref: 'Products' },
+      Product_Id: { type : Schema.Types.ObjectId, ref: 'ProductGroups' },
       Name: { type : String , required : true},
       Name_withAttribute: { type : String , required : true},
       Item: { type : String },

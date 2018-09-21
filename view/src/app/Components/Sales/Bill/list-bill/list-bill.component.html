@@ -40,169 +40,25 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
+                  <tr *ngFor= "let item of _List; let i=index   ">
                      <td>
-                        <span class="S_no"> 1 </span>
+                        <span class="S_no">{{i+1}}</span>
                      </td>
                      <td>
-                        <span class="Style_2">Invoice-ddeb9b10
-                           <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
+                        <span class="Style_2">Invoice No: {{item.Bill_Number}}
+                           <h6 class="Style_3">Invoice Date : {{item.Bill_Date | date}}</h6>
                         </span>
                      </td>
                      <td>
-                        <span class="Style_2">Customer Name
-                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
+                        <span class="Style_2">{{item.Customer_Name}}
+                           <h6 class="Style_3">{{item.Phone_Number}}</h6>
                         </span>
                      </td>
                      <td>
-                        <span class="Style_3">Admin Name</span>
+                        <span class="Style_3">{{item.Created_By?.Name}}</span>
                      </td>
                      <td>
-                        <span class="Style_3">Rs.2500</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 2 </span>
-                     </td>
-                     <td>
-                        <span class="Style_2"> Invoice-aab227b7
-                           <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Customer Name
-                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Admin Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Rs.2500</span>
-                     </td>
-                     <td>
-                        <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 3 </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Invoice-ec229a92
-                           <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
-                        </span>
-                     </td>
-                    <td>
-                        <span class="Style_2">Customer Name
-                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Admin Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Rs.2500</span>
-                     </td>
-                     <td>
-                        <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 4 </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Invoice-7d2d22b0
-                           <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Customer Name
-                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Admin Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Rs.2500</span>
-                     </td>
-                     <td>
-                        <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 5 </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Invoice-ddeb9b10
-                           <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Customer Name
-                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Admin Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Rs.2500</span>
-                     </td>
-                     <td>
-                        <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-                     </td>
-                  </tr> 
-                  <tr>
-                     <td>
-                        <span class="S_no"> 6 </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Invoice-ddeb9b10
-                           <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
-                        </span>
-                     </td>
-                    <td>
-                        <span class="Style_2">Customer Name
-                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Admin Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Rs.2500</span>
-                     </td>
-                     <td>
-                        <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 7 </span>
-                     </td>
-                     <td>
-                        <span class="Style_2"> Invoice-a1653d4d
-                           <h6 class="Style_3">Invoice Date : 12/07/2017</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_2">Customer Name
-                           <h6 class="Style_3">ganapathy, coimboture, Tamil Nadu</h6>
-                        </span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Admin Name</span>
-                     </td>
-                     <td>
-                        <span class="Style_3">Rs.2500</span>
+                        <span class="Style_3">{{item.Net_Amount}}</span>
                      </td>
                      <td>
                         <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
@@ -221,8 +77,5 @@
    </button>
    <button mat-menu-item [routerLink]="['/View_Bill']">
       <span>View</span>
-   </button>
-   <button mat-menu-item (click)=" DeleteBill()">
-      <span>Delete</span>
    </button>
 </mat-menu>

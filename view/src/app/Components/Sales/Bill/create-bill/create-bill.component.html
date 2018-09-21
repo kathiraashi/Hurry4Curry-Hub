@@ -12,6 +12,7 @@
             </ul>
          </div>
       </div>
+      <form [formGroup]="Form">
       <div class="row">
          <div class="col-sm-12">
             <!-- Company details -->
@@ -20,22 +21,27 @@
                   <span class="Highlight"> Bill </span> Details
                </h5>
                <div class="row">
-                  <div class="col-sm-4 Form_Select">
-                     <ng-select class="NgSelect" [searchable]="true" placeholder="Franchisee">
-                        <ng-option *ngFor="let Franchisee of _Franchisee" [value]="Franchisee">{{Franchisee}}</ng-option>
+                  <div class="col-sm-4 Form_Select" >
+                     <ng-select class="NgSelect ValueBold"
+                     [items]="_CustomerList"
+                     [bindLabel]="'Customer_Search'"
+                     formControlName="CustomerName"
+                     [searchable]="true"
+                     (ngModelChange)="onSelectCustomer($event)"
+                     placeholder="Customer Name">
                      </ng-select>
+                     <p class="error" *ngIf="Form.controls['CustomerName'].errors && Form.controls['CustomerName'].touched">
+                      <span *ngIf="Form.controls['CustomerName'].errors.required"> Name is required</span>
+                    </p>
+                  </div>
+                  <div class="col-sm-4 Form_Input">
+                     <input type="text" placeholder="Email address (Optional)" formControlName="CustomerEmail" readonly>
                   </div>
                   <div class="col-sm-4 Form_Input" >
-                     <input type="text" placeholder="Bill Number"> 
-                  </div>
-                  <div class="col-sm-4 Form_Input" >
-                     <input type="text" placeholder="Bill date">
-                  </div>
-                  <div class="col-sm-4 Form_Input" >
-                     <input type="text" placeholder="Due date">
-                  </div>
-                 <div class="col-sm-4 Form_Input" >
-                     <input type="text" placeholder="Created By">
+                    <input placeholder="Bill date" formControlName="BillDate" (keypress)="DoNothing()" (keydown)="DoNothing()" bsDatepicker>
+                    <p class="error" *ngIf="Form.controls['BillDate'].errors && Form.controls['BillDate'].touched">
+                      <span *ngIf="Form.controls['BillDate'].errors.required"> Bill Date is required</span>
+                    </p>
                   </div>
                </div>
             </div>
@@ -47,7 +53,7 @@
                   <span class="Highlight"> Product </span> Details
                </h5>
                <span class="AddMoreButton">
-                  <button mat-raised-button color="primary" >Add Product</button>
+                  <button mat-raised-button color="primary" (click)="addItem()">Add Product</button>
                </span>
                <br>
                <!-- Table Section -->
@@ -57,35 +63,47 @@
                         <tr>
                            <th style="width: 80px">S.No</th>  
                            <th>Product</th>  
-                           <th>Price</th>  
-                           <th>Quantity</th>  
-                           <th>Total</th> 
-                           <th style="width: 100px">Action</th> 
+                           <th style="width: 200px">Price</th>  
+                           <th style="width: 200px">Quantity</th>  
+                           <th style="width: 200px">Total</th> 
+                           <th style="width: 200px">Action</th> 
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                           <td class="Style_1">
-                              <span> 1 </span> 
+                        <ng-container formArrayName="items" *ngFor="let item of Form.get('items').controls; let i = index;" >
+                         
+                          <tr [formGroupName]="i" >
+                           
+                            <td class="Style_1">
+                              <span> {{i+1}} </span> 
                            </td>
-                           <td class="Style_1">
-                              <input type="text">
+                           <td>
+                              <ng-select class="NgSelect ValueBold Form_Select" 
+                                [items]="_temProductList"
+                                bindLabel="Product_Search"
+                                formControlName="Product"
+                                [searchable]="true"
+                                placeholder="Product"
+                                (ngModelChange)="FilterProduct()">
+                                </ng-select>                 
                            </td>
-                           <td class="Style_1">
-                              <input type="text">
-                           </td>
-                           <td class="Style_1">
-                              <input type="text">
-                           </td>
-                           <td class="Style_1">
-                              <input type="text" readonly>
-                           </td>
-                           <td class="Style_1">
-                              <button class="Table_Action_mini Bg_Danger" mat-mini-fab color="primary">
-                                 <i class="material-icons">delete_forever</i>
-                              </button>
-                           </td>
-                        </tr>
+                            <td>
+                            <input type="text" formControlName="Price" (blur)="onTabQuantity(i)">
+                            </td>
+                            <td>
+                            <input type="text" formControlName="Quantity" (blur)="onTabQuantity(i)">
+                            </td>
+                            <td>
+                            <input type="text" readonly formControlName="Product_Total">
+                            </td>
+                            <td>
+                            <button class="Table_Action_mini Bg_Danger" mat-mini-fab color="primary" (click)="Delete(i)" *ngIf="items?.length > 1">
+                                <i class="material-icons">delete_forever</i>
+                             </button>
+                            </td>
+                          </tr>                      
+
+                        </ng-container>
                      </tbody>
                   </table>
                   <br>
@@ -95,19 +113,9 @@
                      <!-- Result Section -->
                      <div class="col-sm-3">
                         <div class="ResultSection">
-                           <span class="Title"> Sub Total </span>
+                           <span class="Title"> Net Amount </span>
                            <span class="Split"> : </span>
-                           <span class="Value"> Rs.0000 </span>
-                        </div>
-                        <div class="ResultSection">
-                           <span class="Title"> Total Tax</span>
-                           <span class="Split"> : </span>
-                           <span class="Value"> Rs.0000 </span>
-                        </div>
-                        <div class="ResultSection">
-                           <span class="Title"> Total </span>
-                           <span class="Split"> : </span>
-                           <span class="Value"> Rs.0000 </span>
+                           <span class="Value"> Rs.{{Total_Value}} </span>
                         </div>
                      </div>
                   </div>
@@ -115,10 +123,32 @@
             </div>
          </div>
       </div>
+      </form>
    </div>
 </div>
 <!-- Footer -->
 <div class="FooterForBill">
-   <button mat-raised-button color="primary" style = "top: 5px;"> Submit </button>
+   <button mat-raised-button color="primary" style = "top: 5px;" (click)="Next(template)"> Next </button>
 </div>
 
+<ng-template #template>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Payment method</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="Form">
+  <ng-select name="payment" 
+  (ngModelChange)="onChange($event)" 
+  [items]="options" bindLabel="paymentType" 
+  formControlName="PaymentType" 
+  class="NgSelect ValueBold Form_Select" placeholder="Select payment option">
+  </ng-select>
+  <br/>
+  <input type="text" *ngIf="referenceInput === true" class="Form_Input" formControlName="ReferenceNumber" placeholder="Reference Number" width="100%">
+  </form>
+  <button mat-raised-button color="primary" style = "top: 5px;" [disabled]="!Form.valid" (click)="Submit();bsModalRef.hide()" class="pull-right"> Submit </button>
+</div>
+</ng-template>

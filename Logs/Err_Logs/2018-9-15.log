@@ -1,0 +1,38 @@
+[2018-09-15T12:15:40.011] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: StockModel.StockHistorySchema.create(...).exec is not a function"}
+[2018-09-15T12:22:16.512] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: StockModel.StockHistorySchema.create(...).exec is not a function"}
+[2018-09-15T12:42:03.154] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":{}}
+[2018-09-15T13:43:06.128] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Added_Quantity' of null"}
+[2018-09-15T13:45:06.139] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Added_Quantity' of null"}
+[2018-09-15T16:44:48.523] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T16:46:48.357] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T16:52:11.400] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T16:53:46.680] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T16:53:48.494] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T16:55:47.812] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T16:57:52.391] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T16:59:52.369] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T17:02:28.630] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Product is not defined"}
+[2018-09-15T17:04:28.613] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Product is not defined"}
+[2018-09-15T18:20:09.642] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"SyntaxError: missing ) after argument list"}
+[2018-09-15T18:34:00.097] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Current_Quantity' of null"}
+[2018-09-15T18:35:31.836] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Current_Quantity' of null"}
+[2018-09-15T18:35:42.153] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Current_Quantity' of null"}
+[2018-09-15T18:36:09.429] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Current_Quantity' of null"}
+[2018-09-15T18:37:06.970] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Current_Quantity' of null"}
+[2018-09-15T18:39:06.965] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot read property 'Current_Quantity' of null"}
+[2018-09-15T18:39:43.562] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:40:58.144] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot set property 'Current_Quantity' of null"}
+[2018-09-15T18:41:19.786] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot set property 'Current_Quantity' of null"}
+[2018-09-15T18:43:19.768] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot set property 'Current_Quantity' of null"}
+[2018-09-15T18:44:58.851] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: Cannot set property 'Current_Quantity' of null"}
+[2018-09-15T18:46:31.684] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:46:31.695] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:46:40.210] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:46:54.174] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:47:26.293] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:47:41.292] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:47:43.065] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:54:33.145] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:55:55.808] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:56:02.852] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}
+[2018-09-15T18:58:02.850] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"ReferenceError: Current_Quantity is not defined"}

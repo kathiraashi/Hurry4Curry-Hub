@@ -1,0 +1,4 @@
+[2018-09-14T10:17:23.117] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: StockModel.StockHistorySchema.create(...).exec is not a function"}
+[2018-09-14T10:19:22.850] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: StockModel.StockHistorySchema.create(...).exec is not a function"}
+[2018-09-14T10:19:44.443] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: StockModel.StockHistorySchema.create(...).exec is not a function"}
+[2018-09-14T10:21:44.435] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"TypeError: StockModel.StockHistorySchema.create(...).exec is not a function"}

@@ -3,6 +3,7 @@
    border:0px;
    min-height: 0px;
    border-radius: 0;
+   text-align: left;
 }
 .ng-select.NgSelect .ng-select-container  {            
    min-height: 0px;

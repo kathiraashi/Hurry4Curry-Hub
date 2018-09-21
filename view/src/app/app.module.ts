@@ -14,8 +14,10 @@
 
 // Future Modules
    import { ModalModule, AccordionModule} from 'ngx-bootstrap';
+   import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
    import {CalendarModule} from 'primeng/calendar';
-   import {MatButtonModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatMenuModule} from '@angular/material';
+   import {MatButtonModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatMenuModule } from '@angular/material';
    import {MatRadioModule} from '@angular/material/radio';
    import { NgSelectModule } from '@ng-select/ng-select';
 
@@ -59,6 +61,7 @@ import { ListBillComponent } from './Components/Sales/Bill/list-bill/list-bill.c
 import { ViewBillComponent } from './Components/Sales/Bill/view-bill/view-bill.component';
 import { ListPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/list-purchase-bills/list-purchase-bills.component';
 import { ViewPurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/view-purchase-bills/view-purchase-bills.component';
+import { CreatePurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/create-purchase-bills/create-purchase-bills.component';
 import { CreateFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/create-franchisee-payments/create-franchisee-payments.component';
 import { ListFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/list-franchisee-payments/list-franchisee-payments.component';
 import { ViewFranchiseePaymentsComponent } from './Components/Accounts/Franchisee-Payments/view-franchisee-payments/view-franchisee-payments.component';
@@ -76,6 +79,7 @@ import { EditCustomerComponent } from './Components/Sales/Customer/edit-customer
 import { ListCustomerComponent } from './Components/Sales/Customer/list-customer/list-customer.component';
 import { ViewCustomerComponent } from './Components/Sales/Customer/view-customer/view-customer.component';
 import { ModelUpdateQuantityComponent } from './models/Products/model-update-quantity/model-update-quantity.component';
+import { ModelPaymentMethodComponent } from './models/Payment/model-payment-method/model-payment-method.component';
 
 
 @NgModule({
@@ -133,7 +137,9 @@ import { ModelUpdateQuantityComponent } from './models/Products/model-update-qua
             EditCustomerComponent,
             ListCustomerComponent,
             ViewCustomerComponent,
-            ModelUpdateQuantityComponent
+            ModelUpdateQuantityComponent,
+            ModelPaymentMethodComponent,
+            CreatePurchaseBillsComponent
 
    ],
    imports: [
@@ -158,6 +164,8 @@ import { ModelUpdateQuantityComponent } from './models/Products/model-update-qua
          MatRadioModule,
       // Custom Modules
          AppRoutingModule,
+      //  Material Date picker
+         BsDatepickerModule.forRoot(),
    ],
    providers: [AuthGuard],
    entryComponents: [

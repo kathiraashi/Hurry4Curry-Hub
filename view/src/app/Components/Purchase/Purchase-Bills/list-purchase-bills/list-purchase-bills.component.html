@@ -1,156 +1,85 @@
+<app-header></app-header>
+<!-- Main Section -->
 <div class="Main_Section">
-    <div class="page_section">
+  <!-- Page Section -->
+  <div class="Page_Section">
     <div class="container-fluid">
-         <div class="Page_Identity">
-               <div class="Page_Track">
-                  <ul >
-                    <li class="HeaderName">Inventory</li>
-                    <li class="arrow">>></li>
-                    <li >Purchase Bills List</li>
-                  </ul>
-               </div>
-            </div>
-            <div class="row header_part">
-                  <div class="col-sm-6">
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="Search_Section">
-                      <input type="text" placeholder="Search.." name="search">
-                      <i class="material-icons">search</i>
-                    </div>
-                  </div>
-                </div>
-<div class="Table_Section">
-    <table>
-       <thead>
-          <tr>
-             <th>S.no</th>
-             <th>Bill No</th>
-             <th>Bill Date</th>
-             <th>Company</th>
-             <th>Value</th>
-             <th>Added By</th>
-             <th>Status</th>
-             <th>Action</th>
-          </tr>
-       </thead>
-       <tbody>
-          <tr>
-             <td>
-                <span class="S_no"> 1 </span>
-             </td>
-             <td>
-                <span class="Style_1">bill_123</span>
-             </td>
-             <td>
-               <span class="Style_1">25.08.18</span>
-            </td>
-             <td>
-                <span class="Style_1">aashi</span>
-             </td>
-             <td>
-                <span class="Style_1">32300</span>
-             </td>
-             <td>
-                <span class="Style_1">Admin</span>
-             </td>
-             <td>
-                <span class="Style_1">Process</span>
-             </td>
-             <td>
-               <button color="primary" mat-raised-button [routerLink]="['/Purchase_Bills_View']">Action
-               </button>
-               </td>
-          </tr>
-          <tr>
-             <td>
-                <span class="S_no"> 2 </span>
-             </td>
-             <td>
-                <span class="Style_1">bill_123</span>
-             </td>
-             <td>
-               <span class="Style_1">25.08.18</span>
-            </td>
-             <td>
-                <span class="Style_1">aashi</span>
-             </td>
-             <td>
-                <span class="Style_1">32300</span>
-             </td>
-             <td>
-                <span class="Style_1">Admin</span>
-             </td>
-             <td>
-                <span class="Style_1">Process</span>
-             </td>
-             <td>
-               <button color="primary" mat-raised-button [routerLink]="['/Purchase_Bills_View']">Action
-               </button>
-               </td>
-          </tr>
-          <tr>
-             <td>
-                <span class="S_no"> 3 </span>
-             </td>
-             <td>
-                <span class="Style_1">bill_123</span>
-             </td>
-             <td>
-               <span class="Style_1">25.08.18</span>
-            </td>
-             <td>
-                <span class="Style_1">aashi</span>
-             </td>
-             <td>
-                <span class="Style_1">32300</span>
-             </td>
-             <td>
-                <span class="Style_1">Admin</span>
-             </td>
-             <td>
-                <span class="Style_1">Process</span>
-             </td>
-             <td>
-               <button color="primary" mat-raised-button [routerLink]="['/Purchase_Bills_View']">Action
-               </button>
-               </td>
-          </tr>
-          <tr>
-             <td>
-                <span class="S_no"> 4 </span>
-             </td>
-             <td>
-                <span class="Style_1">bill_123</span>
-             </td>
-             <td>
-               <span class="Style_1">25.08.18</span>
-            </td>
-             <td>
-                <span class="Style_1">aashi</span>
-             </td>
-             <td>
-                <span class="Style_1">32300</span>
-             </td>
-             <td>
-                <span class="Style_1">Admin</span>
-             </td>
-             <td>
-                <span class="Style_1">Process</span>
-             </td>
-             <td>
-               <button color="primary" mat-raised-button [routerLink]="['/Purchase_Bills_View']">Action
-               </button>
-               </td>
-          </tr>
-       </tbody>
-    </table>
- </div>
- </div>
- </div>
- </div>
- 
-    
-    
-     
-
+      <!-- Page identity -->
+      <div class="Page_Identity">
+        <div class="Page_Track">
+          <ul>
+            <li class="HeaderName">Inventory</li>
+            <li class="arrow">>></li>
+            <li>Purchase Bills List</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Header Part -->
+      <div class="row header_part">
+        <div class="col-sm-6">
+          <button class="Create_Button" mat-button [routerLink]="['/Purchase_Bills_Create']"> + Create </button>
+        </div>
+        <div class="col-sm-6">
+          <div class="Search_Section">
+            <input type="text" placeholder="Search.." name="search">
+            <i class="material-icons">search</i>
+          </div>
+        </div>
+      </div>
+      <!-- Table section -->
+      <div class="Table_Section">
+        <table>
+          <thead>
+            <tr>
+              <th>S.no</th>
+              <th>Purchase Bill Ref.No</th>
+              <th>Purchase Bill date</th>
+              <th>Supplier Details</th>
+              <th>Created By</th>
+              <th>Total Value</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of _List; let i=index   ">
+              <td>
+                <span class="S_no">{{i+1}}</span>
+              </td>
+              <td>
+                <span class="Style_3">{{item.PurchaseBill_RefNo}}
+                </span>
+              </td>
+              <td>
+                <span class="Style_3">{{item.PurchaseBill_Date | date}}
+                </span>
+              </td>
+              <td>
+                <span class="Style_2">{{item.Supplier_Id?.Name}}
+                    <h6 class="Style_3">Phone: {{item.Supplier_Id?.Phone}}</h6>
+                </span>
+              </td>
+              <td>
+                <span class="Style_3">{{item.Created_By?.Name}}</span>
+              </td>
+              <td>
+                <span class="Style_3">{{item.Net_Amount}}</span>
+              </td>
+              <td>
+                <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Dropdown menus -->
+<mat-menu class="MenuStyleOne" #Action="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below" class="MenuStyleOne">
+  <button mat-menu-item [routerLink]="['/Create_Bill']">
+    <span>Edit</span>
+  </button>
+  <button mat-menu-item [routerLink]="['/View_Bill']">
+    <span>View</span>
+  </button>
+</mat-menu>

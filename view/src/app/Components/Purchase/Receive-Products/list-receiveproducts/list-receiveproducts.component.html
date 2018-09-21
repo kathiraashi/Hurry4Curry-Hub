@@ -37,124 +37,24 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
+                  <tr *ngFor="let List of _List; let i=index">
                      <td>
-                        <span class="S_no"> 1 </span>
+                        <span class="S_no">{{i+1}}</span>
                      </td>
                      <td>
-                        <span class="Style_1"> Supplier One </span>
+                        <span class="Style_1">{{List.Supplier_Id?.Name}}</span>
                      </td>
                      <td>
-                        <span class="Style_1"> Ref-00123 </span>
+                        <span class="Style_1">{{List.PurchaseBill_Number}}</span>
                      </td>
                      <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Requested</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 2 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Supplier One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
+                        <span class="Style_1">{{List.Net_Amount}}</span>
                      </td>
                      <td>
                         <span class="Style_1">Requested</span>
                      </td>
                      <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 3 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Supplier One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Requested</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 4 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Supplier One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Requested</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 5 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Supplier One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Received</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="ActionOne">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 6 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Supplier One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Received</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="ActionOne">Action</button>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action" (click)="SetActionId(i)">Action</button>
                      </td>
                   </tr>
                </tbody>
@@ -165,27 +65,27 @@
 </div>
 <!-- Dropdown menus -->
    <mat-menu #Action="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
-      <button mat-menu-item [routerLink]="['/View_Receive_Products']">
+      <button mat-menu-item (click)="View()">
          <span>View</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="UpdateStock()" *ngIf="ButtonType === 'Receive'">
          <span> Receive </span>
       </button>
       <button mat-menu-item>
          <span> Return </span>
       </button>
-      <button mat-menu-item (click)="UpdateYield()">
+      <button mat-menu-item (click)="UpdateYield()" *ngIf="ButtonType === 'UpdateYield'">
          <span> Update Yield </span>
       </button>
    </mat-menu>
 
-   <mat-menu #ActionOne="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
-         <button mat-menu-item [routerLink]="['/View_Receive_Products']">
+   <!-- <mat-menu #ActionOne="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
+         <button mat-menu-item (click)="View()">
             <span>View</span>
          </button>
          <button mat-menu-item (click)="UpdateYield()">
             <span> Update Yield </span>
          </button>
       </mat-menu>
-      
+       -->
       

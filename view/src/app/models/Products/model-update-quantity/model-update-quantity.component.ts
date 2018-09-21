@@ -21,6 +21,7 @@ export class ModelUpdateQuantityComponent implements OnInit {
   _UnitOfMeasure;
   Form: FormGroup;
   Product_Id: any;
+  _List: any;
 
   constructor(public bsModalRef: BsModalRef,
     public Service: StockService,
@@ -31,24 +32,36 @@ export class ModelUpdateQuantityComponent implements OnInit {
 
   ngOnInit() {
    this.onClose = new Subject();
-   this.Form = new FormGroup({
-    User_Id: new FormControl(this.User_Id),
-    Product_Id: new FormControl(this.Data['Product_Id']),
-    UnitOfMeasure: new FormControl(this.Data['UnitOfMeasure']),
-    Quantity: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
-    Date: new FormControl(new Date())
-   });
-   // console.log(this.Form);
-   this._UnitOfMeasure = this.Data['UnitOfMeasure']['Product_UnitOfMeasure'];
-   //  console.log(this.Product_Id);
+
+    if (this.Data['Stock_Id'] === '') {
+      this.Form = new FormGroup({
+        User_Id: new FormControl(this.User_Id),
+        Product_Id: new FormControl(this.Data['_id']),
+        UnitOfMeasure: new FormControl(this.Data['UnitOfMeasure']),
+        Quantity: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
+        Date: new FormControl(new Date())
+      });
+    } else {
+      this.Form = new FormGroup({
+        User_Id: new FormControl(this.User_Id),
+        Product_Id: new FormControl(this.Data['_id']),
+        Stock_Id: new FormControl(this.Data['Stock_Id']),
+        Current_Quantity: new FormControl(this.Data['Current_Quantity']),
+        UnitOfMeasure: new FormControl(this.Data['UnitOfMeasure']),
+        Quantity: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
+        Date: new FormControl(new Date())
+       });
+    }
   }
   Update() {
     if (this.Form.valid) {
-      const _Data = this.Form.value;
-      // console.log(this._Data['Quantity']);
 
-      let Info = CryptoJS.AES.encrypt(JSON.stringify(_Data), 'SecretKeyIn@123');
+     // const StockId = this.Form.controls.Stock_Id.value;
+
+     console.log(this.Form.value);
+      let Info = CryptoJS.AES.encrypt(JSON.stringify(this.Form.value), 'SecretKeyIn@123');
       Info = Info.toString();
+      if (this.Data['Stock_Id'] === '') {
       this.Service.Stock_Create({'Info': Info}).subscribe(response => {
         const ReceivingData = JSON.parse(response['_body']);
         if (response['status'] === 200 && ReceivingData.Status) {
@@ -69,7 +82,28 @@ export class ModelUpdateQuantityComponent implements OnInit {
           this.bsModalRef.hide();
        }
       });
+    } else {
+      this.Service.Stock_Update({'Info': Info}).subscribe(response => {
+        const ReceivingData = JSON.parse(response['_body']);
+        if (response['status'] === 200 && ReceivingData.Status) {
+          const CryptoBytes  = CryptoJS.AES.decrypt(ReceivingData['Response'], 'SecretKeyOut@123');
+          const DecryptedData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
+          this.Toastr.NewToastrMessage({  Type: 'Success', Message: 'Product Variant Successfully Updated'});
+          this.onClose.next({Status: true, Response: DecryptedData});
+          this.bsModalRef.hide();
+       } else if (response['status'] === 400 || response['status'] === 417 && !ReceivingData.Status) {
+          this.Toastr.NewToastrMessage({  Type: 'Error', Message: ReceivingData['Message'] });
+          this.onClose.next({Status: false});
+          this.bsModalRef.hide();
+       }  else if (response['status'] === 401 && !ReceivingData['Status']) {
+        this.Toastr.NewToastrMessage( { Type: 'Error', Message: ReceivingData['Message'] } );
+     }  else {
+          this.Toastr.NewToastrMessage({  Type: 'Error', Message: 'Error Not Identify!, Updating Product Variant!'} );
+          this.onClose.next({Status: false});
+          this.bsModalRef.hide();
+       }
+    });
     }
   }
-
+}
 }

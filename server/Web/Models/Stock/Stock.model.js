@@ -5,6 +5,7 @@ var StockSchema = mongoose.Schema({
     Product_Id: { type: Schema.Types.ObjectId, ref: 'Products'},
     Current_Quantity: { type: String, require: true},
     Date: {type: Date, require: true },
+    UnitOfMeasure: { type : Schema.Types.ObjectId, ref: 'ProductUnitOfMeasures' },
     HubUser_Id: { type : Schema.Types.ObjectId, ref: 'Hub' },
     Active_Status: { type : Boolean , required : true},
     If_Deleted: { type : Boolean , required : true }
@@ -16,8 +17,10 @@ var StockHistorySchema = mongoose.Schema({
     Product_Id: {type: Schema.Types.ObjectId, ref: 'Products'},
     Previous_Quantity: { type: String, require: true},
     Current_Quantity: { type: String, require: true },
-    Total_Quantity: { type: String, require: true },
+    Added_Quantity: { type: String },
+    Removed_Quantity: { type: String },
     Date: {type: Date, require: true },
+    UnitOfMeasure: { type : Schema.Types.ObjectId, ref: 'ProductUnitOfMeasures' },
     HubUser_Id: { type: Schema.Types.ObjectId, ref: 'Hub'},
     Active_Status: { type: Boolean, require: true},
     If_Deleted: { type: Boolean, require: true}

@@ -1,0 +1,4 @@
+[2018-09-08T13:25:08.023] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"MongoError: E11000 duplicate key error index: hurry4curry.Bill_List.$Phone_Number_1 dup key: { : \"345\" }"}
+[2018-09-08T13:32:43.221] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"MongoError: E11000 duplicate key error index: hurry4curry.Bill_List.$Phone_Number_1 dup key: { : \"345\" }"}
+[2018-09-08T13:33:58.754] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"MongoError: E11000 duplicate key error index: hurry4curry.Bill_List.$Phone_Number_1 dup key: { : \"345\" }"}
+[2018-09-08T13:36:30.331] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"MongoError: E11000 duplicate key error index: hurry4curry.Bill_List.$Phone_Number_1 dup key: { : \"345\" }"}

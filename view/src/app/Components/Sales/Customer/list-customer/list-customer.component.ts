@@ -25,7 +25,7 @@ export class ListCustomerComponent implements OnInit {
      public Customer_Service: CustomerService,
      public Service: AdminService,
      public router: Router) {
-        this.User_Id = this.Service.GetUserInfo()['_id'];
+          this.User_Id = this.Service.GetUserInfo()['_id'];
       }
 
  ngOnInit() {
