@@ -1,6 +1,8 @@
 var CryptoJS = require("crypto-js");
 var StockModel = require('./../../Models/Stock/Stock.model.js');
+var FranchiseeModel = require('./../../Models/Franchisee/Franchisee.model.js');
 var ProductModel = require('./../../Models/Product/Product.model.js');
+
 var ErrorManagement = require('./../../../Handling/ErrorHandling.js');
 var mongoose = require('mongoose');
 
@@ -30,7 +32,6 @@ exports.ProductGroupName_AsyncValidate = function(req, res) {
    }
 };
 
-
 // Product Create
 exports.Product_Create = function(req, res) {
 
@@ -45,8 +46,6 @@ exports.Product_Create = function(req, res) {
       res.status(400).send({Status: false, Message: "Hsn Code can not be empty" });
    } else if(!ReceivingData.UnitOfMeasure && typeof ReceivingData.UnitOfMeasure !== 'object' && Object.keys(ReceivingData.UnitOfMeasure).length <= 0 ) {
       res.status(400).send({Status: false, Message: "Unit Of Measure not be empty" });
-   } else if(!ReceivingData.CreatedBy || ReceivingData.CreatedBy === '' ) {
-      res.status(400).send({Status: false, Message: "Created Info can not be empty" });
    } else {
 
       if (ReceivingData.UnitOfMeasure && typeof ReceivingData.UnitOfMeasure === 'object' && Object.keys(ReceivingData.UnitOfMeasure).length > 0 ) {
@@ -65,10 +64,10 @@ exports.Product_Create = function(req, res) {
          Hsn_Code: ReceivingData.Hsn_Code,
          UnitOfMeasure: ReceivingData.UnitOfMeasure,
          Description: ReceivingData.Description,
-         CreatedBy: ReceivingData.CreatedBy,
-         User_Id : mongoose.Types.ObjectId(ReceivingData.User_Id),
+         Creator_Type: 'Hub',
+         User_Id : null,
          Variants: ReceivingData.Variants_List,
-         HubUser_Id: null,
+         HubUser_Id: mongoose.Types.ObjectId(ReceivingData.User_Id),
          Franchisee_Id: null,
          If_Deleted: false,
          Active_Status : true,
@@ -81,14 +80,17 @@ exports.Product_Create = function(req, res) {
          } else {
             const output = [];
             if (result.Variants.length <= 0) {
-               const Obj = {  Product_Id: mongoose.Types.ObjectId(result._id),
+               const Obj = {  ProductGroup_Id: mongoose.Types.ObjectId(result._id),
                               Name: result.Name,
                               Name_withAttribute: result.Name,
                               Item: result.Item,
                               Hsn_Code: result.Hsn_Code,
                               UnitOfMeasure: mongoose.Types.ObjectId(result.UnitOfMeasure),
-                              Description: result.Description, 
-                              CreatedBy: result.CreatedBy,
+                              Description: result.Description,
+                              Creator_Type: 'Hub',
+                              User_Id : null,
+                              HubUser_Id: mongoose.Types.ObjectId(ReceivingData.User_Id),
+                              Franchisee_Id: null,
                               Variants: [],
                               Active_Status: true,
                               If_Deleted: false
@@ -100,14 +102,17 @@ exports.Product_Create = function(req, res) {
                   for (let r of remainder) for (let h of head) yield [h, ...r];
                }
                for (let product of cartesian(...result.Variants.map(i => i.Attribute_Values))) {
-                  const part = { Product_Id: mongoose.Types.ObjectId(result._id),
+                  const part = { ProductGroup_Id: mongoose.Types.ObjectId(result._id),
                                  Name: result.Name,
                                  Name_withAttribute: result.Name,
                                  Item: result.Item,
                                  Hsn_Code: result.Hsn_Code,
                                  UnitOfMeasure: mongoose.Types.ObjectId(result.UnitOfMeasure),
-                                 Description: result.Description, 
-                                 CreatedBy: result.CreatedBy,
+                                 Description: result.Description,
+                                 Creator_Type: 'Hub',
+                                 User_Id : null,
+                                 HubUser_Id: mongoose.Types.ObjectId(ReceivingData.User_Id),
+                                 Franchisee_Id: null,
                                  Variants: [],
                                  Active_Status: true,
                                  If_Deleted: false };
@@ -145,42 +150,41 @@ exports.Product_List = function(req, res) {
    if (!ReceivingData.User_Id || ReceivingData.User_Id === ''  ) {
       res.status(400).send({Status: false, Message: "User Details can not be empty" });
    }else {
-      ProductModel.ProductsSchema
-         .find({ If_Deleted: false }, {}, {sort: { Product_Id: -1 }}) 
-         .populate({ path: 'UnitOfMeasure', select: ['Product_UnitOfMeasure'] })
-         .populate({ path: 'Variants.Attribute', select: ['Product_Variant'] })
-         .exec(function(err, result) {
-         if(err) {
-            ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Product List Find Query Error', 'Product.controller.js', err);
-            res.status(417).send({status: false, Message: "Some error occurred while Find The Product List!."});
-         } else {
-            
-            const FindStock = (result) => Promise.all(
-                  result.map( obj => CurrentStock(obj) )
-             ).then(response => {
-                   
-                  var ReturnData = CryptoJS.AES.encrypt(JSON.stringify(response), 'SecretKeyOut@123');
-                  ReturnData = ReturnData.toString();
-                  res.status(200).send({Status: true, Response: ReturnData });
-             });
 
-             const CurrentStock = (info) => Promise.all([
-                  StockModel.StockSchema.findOne({ Product_Id: info._id})
-             ]).then(response => {
-                  info = JSON.parse(JSON.stringify(info));
-                  if (response[0] !== null ) {
-                        info.Current_Quantity = response[0].Current_Quantity;
-                        info.Stock_Id = response[0]._id;
-                  } else{
-                        info.Current_Quantity = 0;
-                        info.Stock_Id = '';
-                  }
-                  return info;
-             });
-
-             FindStock(result);
-
-         }
-      });
+         ProductModel.ProductsSchema
+            .find({ If_Deleted: false, $or: [ { Creator_Type: 'Admin' }, 
+                                                { HubUser_Id: mongoose.Types.ObjectId(ReceivingData.User_Id) }
+                                             ] }, {}, {sort: { ProductGroup_Id: -1 }}) 
+            .populate({ path: 'UnitOfMeasure', select: ['Product_UnitOfMeasure'] })
+            .populate({ path: 'Variants.Attribute', select: ['Product_Variant'] })
+            .exec(function(err, result) {
+            if(err) {
+               ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Product List Find Query Error', 'Product.controller.js', err);
+               res.status(417).send({status: false, Message: "Some error occurred while Find The Product List!."});
+            } else {
+               const FindStock = (result) => Promise.all(
+                     result.map( obj => CurrentStock(obj) )
+               ).then(response => {
+                     var ReturnData = CryptoJS.AES.encrypt(JSON.stringify(response), 'SecretKeyOut@123');
+                     ReturnData = ReturnData.toString();
+                     res.status(200).send({Status: true, Response: ReturnData });
+               });
+   
+               const CurrentStock = (info) => Promise.all([
+                     StockModel.StockSchema.findOne({ Product_Id: info._id})
+               ]).then(response => {
+                     info = JSON.parse(JSON.stringify(info));
+                     if (response[0] !== null ) {
+                           info.Current_Quantity = response[0].Current_Quantity;
+                           info.Stock_Id = response[0]._id;
+                     } else{
+                           info.Current_Quantity = 0;
+                           info.Stock_Id = '';
+                     }
+                     return info;
+               });
+               FindStock(result);
+            }
+         });
    }
 };

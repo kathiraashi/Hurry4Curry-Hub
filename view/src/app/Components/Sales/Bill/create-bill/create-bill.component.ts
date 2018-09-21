@@ -34,13 +34,12 @@ export class CreateBillComponent implements OnInit {
    User_Id: any;
    Customer_Id: any;
    price: any;
-  Price_Value: number;
-  Quantity_Value: number;
-  Total_Value;
-  items: FormArray;
-  bsModalRef: BsModalRef;
-  referenceInput;
-  today: number = Date.now();
+   Price_Value: number;
+   Quantity_Value: number;
+   Total_Value;
+   items: FormArray;
+   bsModalRef: BsModalRef;
+   referenceInput;
 
    constructor(private Toaster: ToasterServiceService,
     public Customer_Service: CustomerService,

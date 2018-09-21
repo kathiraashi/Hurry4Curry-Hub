@@ -62,11 +62,11 @@
                      <thead class="table_head">
                         <tr>
                            <th style="width: 80px">S.No</th>  
-                           <th>Product</th>  
+                           <th> Product </th>  
                            <th style="width: 200px">Price</th>  
                            <th style="width: 200px">Quantity</th>  
                            <th style="width: 200px">Total</th> 
-                           <th style="width: 200px">Action</th> 
+                           <th style="width: 100px">Action</th> 
                         </tr>
                      </thead>
                      <tbody>
@@ -78,23 +78,31 @@
                               <span> {{i+1}} </span> 
                            </td>
                            <td>
-                              <ng-select class="NgSelect ValueBold Form_Select" 
-                                [items]="_temProductList"
-                                bindLabel="Product_Search"
-                                formControlName="Product"
-                                [searchable]="true"
-                                placeholder="Product"
-                                (ngModelChange)="FilterProduct()">
-                                </ng-select>                 
+                              <div class="Form_Select">
+                                 <ng-select class="NgSelect ValueBold" 
+                                    [items]="_temProductList"
+                                    bindLabel="Product_Search"
+                                    formControlName="Product"
+                                    [searchable]="true"
+                                    placeholder="Product"
+                                    (ngModelChange)="FilterProduct()">
+                                 </ng-select>   
+                              </div>
                            </td>
                             <td>
-                            <input type="text" formControlName="Price" (blur)="onTabQuantity(i)">
+                              <div class="Form_Input">
+                                 <input type="text" formControlName="Price" (blur)="onTabQuantity(i)">
+                              </div>
                             </td>
                             <td>
-                            <input type="text" formControlName="Quantity" (blur)="onTabQuantity(i)">
+                              <div class="Form_Input">
+                                 <input type="text" formControlName="Quantity" (blur)="onTabQuantity(i)">
+                              </div>
                             </td>
                             <td>
-                            <input type="text" readonly formControlName="Product_Total">
+                              <div class="Form_Input">
+                                 <input type="text" readonly formControlName="Product_Total">
+                              </div>
                             </td>
                             <td>
                             <button class="Table_Action_mini Bg_Danger" mat-mini-fab color="primary" (click)="Delete(i)" *ngIf="items?.length > 1">

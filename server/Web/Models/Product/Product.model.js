@@ -8,14 +8,14 @@ var Schema = mongoose.Schema;
          Hsn_Code: { type : String },
          UnitOfMeasure: { type : Schema.Types.ObjectId, ref: 'ProductUnitOfMeasures' },
          Description: { type : String },
-         CreatedBy: { type : String },
          Variants: [{
             Attribute: { type : Schema.Types.ObjectId, ref: 'ProductVariants' },
             Attribute_Values: { type : Array },
          }],
+         Creator_Type: { type : String, required : true },
          User_Id: { type : Schema.Types.ObjectId, ref: 'User_Management' },
          HubUser_Id: { type : Schema.Types.ObjectId, ref: 'Hub' },
-         Franchisee_Id: { type : Schema.Types.ObjectId },
+         Franchisee_Id: { type : Schema.Types.ObjectId, ref: 'Franchisee' },
          Active_Status: { type : Boolean , required : true},
          If_Deleted: { type : Boolean , required : true }
       },
@@ -26,7 +26,7 @@ var Schema = mongoose.Schema;
 
 // Product With Variants Schema
    var ProductsSchema = mongoose.Schema({
-      Product_Id: { type : Schema.Types.ObjectId, ref: 'ProductGroups' },
+      ProductGroup_Id: { type : Schema.Types.ObjectId, ref: 'ProductGroups' },
       Name: { type : String , required : true},
       Name_withAttribute: { type : String , required : true},
       Item: { type : String },
@@ -37,6 +37,10 @@ var Schema = mongoose.Schema;
          Attribute: { type : Schema.Types.ObjectId, ref: 'ProductVariants'},
          Attribute_Value: { type : String}
       }],
+      Creator_Type: { type : String, required : true },
+      User_Id: { type : Schema.Types.ObjectId, ref: 'User_Management' },
+      HubUser_Id: { type : Schema.Types.ObjectId, ref: 'Hub' },
+      Franchisee_Id: { type : Schema.Types.ObjectId, ref: 'Franchisee'},
       CreatedBy: { type : String },
       Active_Status: { type : Boolean , required : true},
       If_Deleted: { type : Boolean , required : true }
