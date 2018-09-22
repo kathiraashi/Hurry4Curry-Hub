@@ -15,14 +15,14 @@
           </p>
         </div>
         <div class="col-sm-6 Form_Input">
-          <label>Unit Of Measure:</label>
-          <p>{{ _UnitOfMeasure }}</p>
+          <label></label>
+          <p style="margin-top: 8px; margin-left: -20px">{{ Data['UnitOfMeasure']?.Product_UnitOfMeasure }}</p>
         </div>
         </div>
         <br/>
         <div class="row">
         <div class="col-sm-12 text-right">
-         <button mat-raised-button type="button" [disabled]="Form.status !== 'VALID'" (click)="Update()">Update</button>
+         <button mat-raised-button type="button" color="primary" [disabled]="Form.status !== 'VALID'" (click)="Update()">Update</button>
         </div>
       </div>
     </div>

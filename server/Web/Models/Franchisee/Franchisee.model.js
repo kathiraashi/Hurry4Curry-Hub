@@ -31,8 +31,8 @@ var FranchiseeSchema = mongoose.Schema({
                                   State_Name: { type : String } },
                          City: { _id: { type: Schema.Types.ObjectId, ref: 'Global_City' },
                                   City_Name: { type : String } } },
-    Created_By : { type: Schema.Types.ObjectId, ref: 'User_Management', required : true },
-    Last_Modified_By: { type: Schema.Types.ObjectId, ref: 'User_Management', required : true },
+    Created_By : { type: Schema.Types.ObjectId, ref: 'Hub', required : true },
+    Last_Modified_By: { type: Schema.Types.ObjectId, ref: 'Hub', required : true },
     Active_Status: { type : Boolean , required : true},
     If_Deleted: { type : Boolean , required : true }
     },

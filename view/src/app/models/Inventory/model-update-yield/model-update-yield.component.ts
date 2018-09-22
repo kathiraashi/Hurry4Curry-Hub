@@ -23,9 +23,9 @@ export class ModelUpdateYieldComponent implements OnInit {
   _Data;
   Loader: Boolean = true;
   QuantityValue: any;
-  refrenceId;
   Product_Id: any;
-  SupplierBill_Id: any;
+  HubPurchaseBill_Id: any;
+  HubPurchaseBill_ProductId: any;
 
   constructor(public bsModalRef: BsModalRef,
     public PurchaseBill_Service: PurchaseBillService,
@@ -41,7 +41,7 @@ export class ModelUpdateYieldComponent implements OnInit {
      WastageQty: new FormControl(null)
    });
     // list the product details
-    const Data = { 'User_Id': this.User_Id, SupplierBill_Id: this.Data._id };
+    const Data = { 'User_Id': this.User_Id, HubPurchaseBill_Id: this.Data._id };
       let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
       Info = Info.toString();
       this.Loader = true;
@@ -52,7 +52,6 @@ export class ModelUpdateYieldComponent implements OnInit {
             const CryptoBytes  = CryptoJS.AES.decrypt(ResponseData['Response'], 'SecretKeyOut@123');
             const DecryptedData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
             this._Data = DecryptedData;
-            console.log(this._Data);
          } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
             this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
          } else if (response['status'] === 401 && !ResponseData['Status']) {
@@ -64,27 +63,25 @@ export class ModelUpdateYieldComponent implements OnInit {
   }
 
   ProductChange(value) {
-    console.log(value);
-    this.refrenceId = value._id;
+    this.HubPurchaseBill_ProductId = value._id;
     this.Product_Id = value.Product_Id._id;
     this.QuantityValue = value.Quantity;
-    this.SupplierBill_Id = value.SupplierBill_Id;
-    console.log(this.QuantityValue);
+    this.HubPurchaseBill_Id = value.HubPurchaseBill_Id;
   }
   onTabQuantity() {
     const YieldQtyValue: number = this.Form.controls.YieldQty.value;
     const WastageQtyValue: number = this.QuantityValue - YieldQtyValue;
-    this.Form.controls.WastageQty.setValue(WastageQtyValue);
+    this.Form.controls.WastageQty.setValue(WastageQtyValue.toString());
 
   }
   Submit() {
     const DataOut = { 'User_Id': this.User_Id,
-    'Reference_Id': this.refrenceId,
     'Product_Id': this.Product_Id,
     'WastageQty': this.Form.controls.WastageQty.value,
     'YieldQty': this.Form.controls.YieldQty.value,
-    'SupplierBill_Id': this.SupplierBill_Id };
-    console.log(DataOut);
+    'HubPurchaseBill_Id': this.HubPurchaseBill_Id,
+    'HubPurchaseBill_ProductId': this.HubPurchaseBill_ProductId
+    };
 
     let Info = CryptoJS.AES.encrypt(JSON.stringify(DataOut), 'SecretKeyIn@123');
     Info = Info.toString();

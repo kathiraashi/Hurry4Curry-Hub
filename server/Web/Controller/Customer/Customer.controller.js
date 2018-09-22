@@ -35,34 +35,29 @@ exports.Customer_Create = function(req, res) {
 
     var CryptoBytes  = CryptoJS.AES.decrypt(req.body.Info, 'SecretKeyIn@123');
     var ReceivingData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
-    console.log(ReceivingData);
     
-
     if(!ReceivingData.User_Id || ReceivingData.User_Id === '' ) {
        res.status(400).send({Status: false, Message: "User Details can not be empty" });
-    } 
-    else if(!ReceivingData.Name || ReceivingData.Name === '' ) {
+    } else if(!ReceivingData.Name || ReceivingData.Name === '' ) {
        res.status(400).send({Status: false, Message: "Name can not be empty" });
-    } 
-    else if(!ReceivingData.Phone || ReceivingData.Phone === '' ) {
+    } else if(!ReceivingData.Phone || ReceivingData.Phone === '' ) {
        res.status(400).send({Status: false, Message: "Phone Number can not be empty" });
     }else{
-          var Customer = new CustomerModel.CustomerSchema({
-          Name: ReceivingData.Name,
-          Phone: ReceivingData.Phone,
-          Email: ReceivingData.Email,
-          GSTNo: ReceivingData.GSTNo,
-          Address: ReceivingData.Address,
-          Created_By : mongoose.Types.ObjectId(ReceivingData.User_Id),
-          Last_Modified_By : mongoose.Types.ObjectId(ReceivingData.User_Id),
-          If_Deleted: false,
-          Active_Status : ReceivingData.Active_Status || true,
-       });
-       
+         var Customer = new CustomerModel.CustomerSchema({
+            Name: ReceivingData.Name,
+            Phone: ReceivingData.Phone,
+            Email: ReceivingData.Email,
+            GSTNo: ReceivingData.GSTNo,
+            Address: ReceivingData.Address,
+            Creator_Type: 'Hub',
+            Hub_Id: mongoose.Types.ObjectId(ReceivingData.User_Id),
+            Franchisee_Id: null,
+            If_Deleted: false,
+            Active_Status : ReceivingData.Active_Status || true,
+         });
+         
        Customer.save(function(err, result) {
           if(err) {
-             console.log(err);
-             
              ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Customer Creation Query Error', 'Customer.controller.js', err);
              res.status(400).send({Status: false, Message: "Some error occurred while creating the Customer!."});
           } else {
@@ -152,7 +147,7 @@ exports.Customer_View = function(req, res) {
              result.Website = ReceivingData.Website;
              result.GSTNo = ReceivingData.GSTNo;
              result.Address = ReceivingData.Address;
-             result.Last_Modified_By  = mongoose.Types.ObjectId(ReceivingData.User_Id);
+             result.Hub_Id = mongoose.Types.ObjectId(ReceivingData.User_Id);
              result.save(function(err_1, result_1) {
                 if(err) {
                    ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Customer Creation Query Error', 'Customer.controller.js', err_1);

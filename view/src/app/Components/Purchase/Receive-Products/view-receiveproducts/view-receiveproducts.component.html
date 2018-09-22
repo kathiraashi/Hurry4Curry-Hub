@@ -47,9 +47,9 @@
                </div>
                <br>
                <div> 
-                  <button *ngIf="_Data['Supplier_Detail']?.Received === false" mat-raised-button color="primary" style ="margin-left: 10px;" (click)="UpdateStock()"> Receive </button>
+                  <button *ngIf="!_Data['Supplier_Detail']?.If_Received" mat-raised-button color="primary" style ="margin-left: 10px;" (click)="UpdateStock()"> Receive </button>
                   <button mat-raised-button color="primary" style ="margin-left: 10px;"> Return </button>
-                  <button mat-raised-button color="primary" style ="margin-left: 10px;"> Back </button>
+                  <!-- <button mat-raised-button color="primary" style ="margin-left: 10px;"> Back </button> -->
                </div>
             </div>
             <br>

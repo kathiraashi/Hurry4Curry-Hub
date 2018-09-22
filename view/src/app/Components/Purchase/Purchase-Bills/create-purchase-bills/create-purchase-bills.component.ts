@@ -52,7 +52,7 @@ export class CreatePurchaseBillsComponent implements OnInit {
       User_Id: new FormControl(this.User_Id, Validators.required),
       Supplier_Id: new FormControl(null, Validators.required),
       PurchaseBill_RefNo: new FormControl(null, { asyncValidators: [this.PurchaseBillRefNo_AsyncValidate.bind(this)], updateOn: 'blur'}),
-      PurchaseBill_Date: new FormControl(null, [Validators.required]),
+      PurchaseBill_Date: new FormControl(new Date(), [Validators.required]),
       items: this.formBuilder.array([this.createItems()]),
       Net_Amount: new FormControl(null),
       Date: new FormControl(new Date())

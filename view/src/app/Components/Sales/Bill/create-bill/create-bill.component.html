@@ -23,15 +23,16 @@
                <div class="row">
                   <div class="col-sm-4 Form_Select" >
                      <ng-select class="NgSelect ValueBold"
-                     [items]="_CustomerList"
-                     [bindLabel]="'Customer_Search'"
-                     formControlName="CustomerName"
-                     [searchable]="true"
-                     (ngModelChange)="onSelectCustomer($event)"
-                     placeholder="Customer Name">
+                                 [items]="_CustomerList"
+                                 [bindLabel]="'Customer_Search'"
+                                 [bindValue]="'_id'"
+                                 formControlName="Customer"
+                                 [searchable]="true"
+                                 (ngModelChange)="onSelectCustomer($event)"
+                                 placeholder="Customer Name">
                      </ng-select>
-                     <p class="error" *ngIf="Form.controls['CustomerName'].errors && Form.controls['CustomerName'].touched">
-                      <span *ngIf="Form.controls['CustomerName'].errors.required"> Name is required</span>
+                     <p class="error" *ngIf="Form.controls['Customer'].errors && Form.controls['Customer'].touched">
+                      <span *ngIf="Form.controls['Customer'].errors.required"> Customer is required</span>
                     </p>
                   </div>
                   <div class="col-sm-4 Form_Input">
@@ -140,23 +141,25 @@
 </div>
 
 <ng-template #template>
-<div class="modal-header">
-  <h4 class="modal-title pull-left">Payment method</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <form [formGroup]="Form">
-  <ng-select name="payment" 
-  (ngModelChange)="onChange($event)" 
-  [items]="options" bindLabel="paymentType" 
-  formControlName="PaymentType" 
-  class="NgSelect ValueBold Form_Select" placeholder="Select payment option">
-  </ng-select>
-  <br/>
-  <input type="text" *ngIf="referenceInput === true" class="Form_Input" formControlName="ReferenceNumber" placeholder="Reference Number" width="100%">
-  </form>
-  <button mat-raised-button color="primary" style = "top: 5px;" [disabled]="!Form.valid" (click)="Submit();bsModalRef.hide()" class="pull-right"> Submit </button>
-</div>
+   <div class="modal-header">
+      <h4 class="modal-title pull-left">Payment method</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+         <span aria-hidden="true">&times;</span>
+      </button>
+   </div>
+   <div class="modal-body">
+      <form [formGroup]="Form">
+         <ng-select name="payment"
+                  (ngModelChange)="onChange($event)"
+                  [items]="options"
+                  bindLabel="paymentType"
+                  formControlName="PaymentType"
+                  class="NgSelect ValueBold Form_Select"
+                  placeholder="Select payment option">
+         </ng-select>
+         <br/>
+         <input type="text" *ngIf="referenceInput === true" class="Form_Input" formControlName="ReferenceNumber" placeholder="Reference Number" width="100%">
+      </form>
+      <button mat-raised-button color="primary" style="top: 5px;" [disabled]="!Form.valid" (click)="Submit();bsModalRef.hide()" class="pull-right"> Submit </button>
+   </div>
 </ng-template>

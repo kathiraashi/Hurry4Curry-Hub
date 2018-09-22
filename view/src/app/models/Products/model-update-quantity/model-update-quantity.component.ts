@@ -14,51 +14,45 @@ import { ToasterServiceService } from './../../../services/common-services/Toast
   styleUrls: ['./model-update-quantity.component.css']
 })
 export class ModelUpdateQuantityComponent implements OnInit {
-  onClose: Subject<any>;
-  Type: String;
-  User_Id;
-  Data;
-  _UnitOfMeasure;
-  Form: FormGroup;
-  Product_Id: any;
-  _List: any;
 
-  constructor(public bsModalRef: BsModalRef,
-    public Service: StockService,
-    private Toastr: ToasterServiceService,
-    private Admin_Service: AdminService) {
+   onClose: Subject<any>;
+   Type: String;
+   User_Id;
+   Data;
+   Form: FormGroup;
+
+   constructor(public bsModalRef: BsModalRef,
+      public Service: StockService,
+      private Toastr: ToasterServiceService,
+      private Admin_Service: AdminService
+   ) {
       this.User_Id = this.Admin_Service.GetUserInfo()['_id'];
-    }
+   }
 
-  ngOnInit() {
-   this.onClose = new Subject();
+   ngOnInit() {
+      this.onClose = new Subject();
 
-    if (this.Data['Stock_Id'] === '') {
-      this.Form = new FormGroup({
-        User_Id: new FormControl(this.User_Id),
-        Product_Id: new FormControl(this.Data['_id']),
-        UnitOfMeasure: new FormControl(this.Data['UnitOfMeasure']),
-        Quantity: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
-        Date: new FormControl(new Date())
-      });
-    } else {
-      this.Form = new FormGroup({
-        User_Id: new FormControl(this.User_Id),
-        Product_Id: new FormControl(this.Data['_id']),
-        Stock_Id: new FormControl(this.Data['Stock_Id']),
-        Current_Quantity: new FormControl(this.Data['Current_Quantity']),
-        UnitOfMeasure: new FormControl(this.Data['UnitOfMeasure']),
-        Quantity: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
-        Date: new FormControl(new Date())
-       });
-    }
-  }
+      if (this.Data['Stock_Id'] === '') {
+         this.Form = new FormGroup({
+         User_Id: new FormControl(this.User_Id),
+         Product_Id: new FormControl(this.Data['_id']),
+         UnitOfMeasure: new FormControl(this.Data['UnitOfMeasure']._id),
+         Quantity: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')])
+         });
+      } else {
+         this.Form = new FormGroup({
+         User_Id: new FormControl(this.User_Id),
+         Product_Id: new FormControl(this.Data['_id']),
+         Stock_Id: new FormControl(this.Data['Stock_Id']),
+         Current_Quantity: new FormControl(this.Data['Current_Quantity']),
+         UnitOfMeasure: new FormControl(this.Data['UnitOfMeasure']._id),
+         Quantity: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')])
+         });
+      }
+   }
+
   Update() {
     if (this.Form.valid) {
-
-     // const StockId = this.Form.controls.Stock_Id.value;
-
-     console.log(this.Form.value);
       let Info = CryptoJS.AES.encrypt(JSON.stringify(this.Form.value), 'SecretKeyIn@123');
       Info = Info.toString();
       if (this.Data['Stock_Id'] === '') {
@@ -67,17 +61,17 @@ export class ModelUpdateQuantityComponent implements OnInit {
         if (response['status'] === 200 && ReceivingData.Status) {
           const CryptoBytes  = CryptoJS.AES.decrypt(ReceivingData['Response'], 'SecretKeyOut@123');
           const DecryptedData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
-          this.Toastr.NewToastrMessage({  Type: 'Success', Message: 'Product Variant Successfully Updated'});
+          this.Toastr.NewToastrMessage({ Type: 'Success', Message: 'Product Variant Successfully Updated'});
           this.onClose.next({Status: true, Response: DecryptedData});
           this.bsModalRef.hide();
        } else if (response['status'] === 400 || response['status'] === 417 && !ReceivingData.Status) {
-          this.Toastr.NewToastrMessage({  Type: 'Error', Message: ReceivingData['Message'] });
+          this.Toastr.NewToastrMessage({ Type: 'Error', Message: ReceivingData['Message'] });
           this.onClose.next({Status: false});
           this.bsModalRef.hide();
        }  else if (response['status'] === 401 && !ReceivingData['Status']) {
-        this.Toastr.NewToastrMessage( { Type: 'Error', Message: ReceivingData['Message'] } );
+        this.Toastr.NewToastrMessage({ Type: 'Error', Message: ReceivingData['Message'] } );
      }  else {
-          this.Toastr.NewToastrMessage({  Type: 'Error', Message: 'Error Not Identify!, Updating Product Variant!'} );
+          this.Toastr.NewToastrMessage({ Type: 'Error', Message: 'Error Not Identify!, Updating Product Variant!'} );
           this.onClose.next({Status: false});
           this.bsModalRef.hide();
        }
@@ -88,17 +82,17 @@ export class ModelUpdateQuantityComponent implements OnInit {
         if (response['status'] === 200 && ReceivingData.Status) {
           const CryptoBytes  = CryptoJS.AES.decrypt(ReceivingData['Response'], 'SecretKeyOut@123');
           const DecryptedData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
-          this.Toastr.NewToastrMessage({  Type: 'Success', Message: 'Product Variant Successfully Updated'});
+          this.Toastr.NewToastrMessage({ Type: 'Success', Message: 'Product Variant Successfully Updated'});
           this.onClose.next({Status: true, Response: DecryptedData});
           this.bsModalRef.hide();
        } else if (response['status'] === 400 || response['status'] === 417 && !ReceivingData.Status) {
-          this.Toastr.NewToastrMessage({  Type: 'Error', Message: ReceivingData['Message'] });
+          this.Toastr.NewToastrMessage({ Type: 'Error', Message: ReceivingData['Message'] });
           this.onClose.next({Status: false});
           this.bsModalRef.hide();
        }  else if (response['status'] === 401 && !ReceivingData['Status']) {
         this.Toastr.NewToastrMessage( { Type: 'Error', Message: ReceivingData['Message'] } );
      }  else {
-          this.Toastr.NewToastrMessage({  Type: 'Error', Message: 'Error Not Identify!, Updating Product Variant!'} );
+          this.Toastr.NewToastrMessage({ Type: 'Error', Message: 'Error Not Identify!, Updating Product Variant!'} );
           this.onClose.next({Status: false});
           this.bsModalRef.hide();
        }

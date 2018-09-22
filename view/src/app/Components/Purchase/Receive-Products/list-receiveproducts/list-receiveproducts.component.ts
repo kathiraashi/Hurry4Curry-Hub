@@ -16,79 +16,86 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-receiveproducts.component.css']
 })
 export class ListReceiveproductsComponent implements OnInit {
-  User_Id: any;
-  _List: any[] = [];
-  ActionIndex: number;
-  ButtonType;
 
-  bsModalRef: BsModalRef;
+   User_Id: any;
+   _List: any[] = [];
+   ActionIndex: number;
+   ButtonType;
+   bsModalRef: BsModalRef;
+   Show_Received: Boolean = false;
+   Show_UpdateYield: Boolean = false;
+
   constructor( private modalService: BsModalService,
-    public PurchaseBill_Service: PurchaseBillService,
-    public Service: AdminService,
-    public Toaster: ToasterServiceService,
-    public router: Router) { this.User_Id = this.Service.GetUserInfo()['_id']; }
-
-
-  ngOnInit() {
-    const Data = { 'User_Id': this.User_Id };
-    let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
-    Info = Info.toString();
-    this.PurchaseBill_Service.PurchaseBill_List({'Info': Info}).subscribe(response => {
-      const ResponseData = JSON.parse(response['_body']);
-       if (response['status'] === 200 && ResponseData['Status'] ) {
-          const CryptoBytes  = CryptoJS.AES.decrypt(ResponseData['Response'], 'SecretKeyOut@123');
-          const DecryptedData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
-          this._List = DecryptedData;
-
-       } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
-          this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
-       } else if (response['status'] === 401 && !ResponseData['Status']) {
-          this.Toaster.NewToastrMessage({ Type: 'Error',  Message: ResponseData['Message'] });
-       } else {
-          this.Toaster.NewToastrMessage({ Type: 'Error', Message: 'Customer List Getting Error!, But not Identify!' });
-       }
-    });
-  }
-
-  SetActionId(_index) {
-    this.ActionIndex = _index;
-    if (this._List[this.ActionIndex].Received === true) {
-      this.ButtonType = 'UpdateYield';
-    } else {
-      this.ButtonType = 'Receive';
-    }
+      public PurchaseBill_Service: PurchaseBillService,
+      public Service: AdminService,
+      public Toaster: ToasterServiceService,
+      public router: Router
+      ) {
+         this.User_Id = this.Service.GetUserInfo()['_id'];
    }
 
-  UpdateYield() {
-    const initialState = {
-      Type: 'Create',
-      Data: this._List[this.ActionIndex]
-    };
-    this.bsModalRef = this.modalService.show(ModelUpdateYieldComponent, Object.assign({initialState}, { class: 'modal-lg' }));
-  }
 
- View() {
-  this.router.navigate(['/View_Receive_Products', this._List[this.ActionIndex]['_id'] ]);
-  }
+   ngOnInit() {
+      const Data = { 'User_Id': this.User_Id };
+      let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+      Info = Info.toString();
+      this.PurchaseBill_Service.PurchaseBill_List({'Info': Info}).subscribe(response => {
+         const ResponseData = JSON.parse(response['_body']);
+         if (response['status'] === 200 && ResponseData['Status'] ) {
+            const CryptoBytes  = CryptoJS.AES.decrypt(ResponseData['Response'], 'SecretKeyOut@123');
+            const DecryptedData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8));
+            this._List = DecryptedData;
+         } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
+            this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
+         } else if (response['status'] === 401 && !ResponseData['Status']) {
+            this.Toaster.NewToastrMessage({ Type: 'Error',  Message: ResponseData['Message'] });
+         } else {
+            this.Toaster.NewToastrMessage({ Type: 'Error', Message: 'Customer List Getting Error!, But not Identify!' });
+         }
+      });
+   }
 
-  UpdateStock() {
-    const Data = { 'User_Id': this.User_Id, 'SupplierBill_Id': this._List[this.ActionIndex]._id};
-    let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
-    Info = Info.toString();
-    this.PurchaseBill_Service.PurchaseBill_UpdateStock({'Info': Info}).subscribe(response => {
-      const ResponseData = JSON.parse(response['_body']);
-      if (response['status'] === 200 && ResponseData['Status'] ) {
-        this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'Bill Successfully Created' });
-        this.router.navigate(['/List_Stock_Values']);
-     } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
-        this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
-     } else if (response['status'] === 401 && !ResponseData['Status']) {
-        this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
-     } else {
-        this.Toaster.NewToastrMessage({ Type: 'Error', Message: 'Creating Customer Getting Error!, But not Identify!' });
-     }
-    });
-  }
+   SetActionId(_index) {
+      this.ActionIndex = _index;
+      this.Show_Received = !this._List[this.ActionIndex]['If_Received'];
+      this.Show_UpdateYield = !this._List[this.ActionIndex]['If_YieldUpdated'];
+      if (this._List[this.ActionIndex].Received === true) {
+         this.ButtonType = 'UpdateYield';
+      } else {
+         this.ButtonType = 'Receive';
+      }
+   }
+
+   UpdateYield() {
+      const initialState = {
+         Type: 'Create',
+         Data: this._List[this.ActionIndex]
+      };
+      this.bsModalRef = this.modalService.show(ModelUpdateYieldComponent, Object.assign({initialState}, { class: 'modal-lg' }));
+   }
+
+   View() {
+      this.router.navigate(['/View_Receive_Products', this._List[this.ActionIndex]['_id'] ]);
+   }
+
+   UpdateStock() {
+      const Data = { 'User_Id': this.User_Id, 'HubPurchaseBill_Id': this._List[this.ActionIndex]._id};
+      let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
+      Info = Info.toString();
+      this.PurchaseBill_Service.PurchaseBill_Received({'Info': Info}).subscribe(response => {
+         const ResponseData = JSON.parse(response['_body']);
+         if (response['status'] === 200 && ResponseData['Status'] ) {
+            this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'Bill Successfully Created' });
+            this.router.navigate(['/List_Stock_Values']);
+         } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
+            this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
+         } else if (response['status'] === 401 && !ResponseData['Status']) {
+            this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
+         } else {
+            this.Toaster.NewToastrMessage({ Type: 'Error', Message: 'Creating Customer Getting Error!, But not Identify!' });
+         }
+      });
+   }
 
 
 }

@@ -46,11 +46,11 @@
                 <span class="S_no">{{i+1}}</span>
               </td>
               <td>
-                <span class="Style_3">{{item.PurchaseBill_RefNo}}
+                <span class="Style_2">{{item.PurchaseBill_RefNo}}
                 </span>
               </td>
               <td>
-                <span class="Style_3">{{item.PurchaseBill_Date | date}}
+                <span class="Style_2">{{item.PurchaseBill_Date | date}}
                 </span>
               </td>
               <td>
@@ -59,7 +59,9 @@
                 </span>
               </td>
               <td>
-                <span class="Style_3">{{item.Created_By?.Name}}</span>
+                <span class="Style_2">{{item.Created_By?.Name}}
+                     <h6 class="Style_3">Phone: {{item.createdAt | date:'medium'}}</h6>
+                </span>
               </td>
               <td>
                 <span class="Style_3">{{item.Net_Amount}}</span>

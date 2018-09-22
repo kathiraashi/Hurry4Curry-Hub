@@ -51,7 +51,9 @@
                         <span class="Style_1">{{List.Net_Amount}}</span>
                      </td>
                      <td>
-                        <span class="Style_1">Requested</span>
+                        <span class="Style_1" *ngIf="!List.If_Received && !List.If_YieldUpdated" > Requested </span>
+                        <span class="Style_1" *ngIf="List.If_Received && !List.If_YieldUpdated" > Received </span>
+                        <span class="Style_1" *ngIf="List.If_Received && List.If_YieldUpdated" > Yield Updated </span>
                      </td>
                      <td>
                         <button color="primary" mat-raised-button [matMenuTriggerFor]="Action" (click)="SetActionId(i)">Action</button>
@@ -68,24 +70,14 @@
       <button mat-menu-item (click)="View()">
          <span>View</span>
       </button>
-      <button mat-menu-item (click)="UpdateStock()" *ngIf="ButtonType === 'Receive'">
+      <button *ngIf="Show_Received" mat-menu-item (click)="UpdateStock()">
          <span> Receive </span>
       </button>
       <button mat-menu-item>
          <span> Return </span>
       </button>
-      <button mat-menu-item (click)="UpdateYield()" *ngIf="ButtonType === 'UpdateYield'">
+      <button *ngIf="Show_UpdateYield" mat-menu-item (click)="UpdateYield()">
          <span> Update Yield </span>
       </button>
    </mat-menu>
-
-   <!-- <mat-menu #ActionOne="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
-         <button mat-menu-item (click)="View()">
-            <span>View</span>
-         </button>
-         <button mat-menu-item (click)="UpdateYield()">
-            <span> Update Yield </span>
-         </button>
-      </mat-menu>
-       -->
       

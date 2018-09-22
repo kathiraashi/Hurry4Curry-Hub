@@ -29,22 +29,26 @@
                <thead>
                   <tr>
                      <th>S.no</th>
-                     <th>WareHouse</th>
                      <th>Product</th>
                      <th>Quantity</th>
-                     <th>Location</th>
-                     <th>Incoming Date</th>
+                     <th>Updated Date</th>
                      <th>Action</th>
                   </tr>
                </thead>
                <tbody>
                   <tr *ngFor="let item of _List; let i = index">
-                    <td>{{i+1}}</td>
-                    <td>WareHouse</td>
-                    <td>{{item['Product_Id']?.Name_withAttribute}}</td>
-                    <td>{{item.Current_Quantity}}</td>
-                    <td>Chennai</td>
-                    <td>{{item.Date | date}}</td>
+                    <td>
+                        <span class="S_no">{{i+1}}</span>
+                     </td>
+                    <td>
+                        <span class="Style_1"> {{item['Product_Id']?.Name_withAttribute}} </span>
+                     </td>
+                    <td>
+                        <span class="Style_1"> {{item.Current_Quantity}} </span>
+                     </td>
+                    <td>
+                        <span class="Style_1"> {{item.updatedAt | date:'medium' }} </span>
+                     </td>
                      <td>
                         <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
                      </td>

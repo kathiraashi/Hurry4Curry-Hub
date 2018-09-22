@@ -1,6 +1,5 @@
 var CryptoJS = require("crypto-js");
-var StockModel = require('./../../Models/Stock/Stock.model.js');
-var FranchiseeModel = require('./../../Models/Franchisee/Franchisee.model.js');
+var HubStockModel = require('./../../Models/Stock/HubStock.model.js');
 var ProductModel = require('./../../Models/Product/Product.model.js');
 
 var ErrorManagement = require('./../../../Handling/ErrorHandling.js');
@@ -171,7 +170,7 @@ exports.Product_List = function(req, res) {
                });
    
                const CurrentStock = (info) => Promise.all([
-                     StockModel.StockSchema.findOne({ Product_Id: info._id})
+                  HubStockModel.HubStockSchema.findOne({ Product_Id: info._id})
                ]).then(response => {
                      info = JSON.parse(JSON.stringify(info));
                      if (response[0] !== null ) {

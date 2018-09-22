@@ -127,8 +127,6 @@ exports.Franchisee_UserName_AsyncValidate = function(req, res) {
        
        Franchisee.save(function(err, result) {
           if(err) {
-             console.log(err);
-             
              ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Franchisee Creation Query Error', 'Franchisee.controller.js', err);
              res.status(400).send({Status: false, Message: "Some error occurred while creating the Franchisee!."});
           } else {

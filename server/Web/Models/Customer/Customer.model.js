@@ -9,8 +9,9 @@ var CustomerSchema = mongoose.Schema({
     Email: { type : String },
     GSTNo: { type : String },
     Address: { type: String },
-    Created_By : { type: Schema.Types.ObjectId, ref: 'User_Management', required : true },
-    Last_Modified_By: { type: Schema.Types.ObjectId, ref: 'User_Management', required : true },
+    Creator_Type: { type: String, required : true},
+    Hub_Id: { type: Schema.Types.ObjectId, ref: 'Hub' },
+    Franchisee_Id : { type: Schema.Types.ObjectId, ref: 'Franchisee' },
     Active_Status: { type : Boolean , required : true},
     If_Deleted: { type : Boolean , required : true }
     },

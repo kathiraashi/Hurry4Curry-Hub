@@ -1,0 +1,8 @@
+[2018-09-21T12:17:39.708] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"Error: Cannot find module './../../Models/Bill/Bill.model.js'"}
+[2018-09-21T12:17:58.549] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"Error: Cannot find module './server/Web/Routes/Bill/Bill.routes.js'"}
+[2018-09-21T12:18:08.397] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"Error: Cannot find module './server/Web/Routes/Bill/Bill.routes.js'"}
+[2018-09-21T18:32:35.702] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"Error: Route.post() requires a callback function but got a [object Undefined]"}
+[2018-09-21T18:33:23.652] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"Error: Cannot find module './../../Models/Stock/Stock.model.js'"}
+[2018-09-21T18:33:24.008] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":{"name":"MongoNetworkError","message":"failed to connect to server [ds129153.mlab.com:29153] on first connect [MongoNetworkError: getaddrinfo EAI_AGAIN ds129153.mlab.com:29153]"}}
+[2018-09-21T18:33:24.007] [ERROR] Error - {"Error_Name":"Mongodb Connection Error","Error_Address":"Server.js","Error_Message":{"name":"MongoNetworkError","message":"failed to connect to server [ds129153.mlab.com:29153] on first connect [MongoNetworkError: getaddrinfo EAI_AGAIN ds129153.mlab.com:29153]"}}
+[2018-09-21T19:30:26.842] [ERROR] Error - {"Error_Name":"","Error_Address":"","Error_Message":"Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters"}
