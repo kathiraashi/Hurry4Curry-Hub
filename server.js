@@ -47,14 +47,19 @@ app.use(bodyParser.json());
    require('./server/Web/Routes/Product/product.routes.js')(app);
 // Settings
    require('./server/Web/Routes/Settings/ProductSettings.routes.js')(app);
+   require('./server/Web/Routes/Settings/AccountSettings.routes.js')(app);
 // Stock
     require('./server/Web/Routes/Stock/HubStock.routes.js')(app);
 // Purchase
     require('./server/Web/Routes/PurchaseBill/HubPurchaseBill.routes.js')(app);
 // Bill
     require('./server/Web/Routes/Bill/CustomerBill.routes.js')(app);
+// Franchisee Bill
+    require('./server/Web/Routes/Bill/FranchiseeBill.routes.js')(app);
 // Supplier
     require('./server/Web/Routes/Supplier/Supplier.routes.js')(app);
+// Accounts
+    require('./server/Web/Routes/Accounts/LogExpenses.routes.js')(app);
 
 
 

@@ -10,5 +10,7 @@ module.exports = function(app) {
     app.post('/API/HubPurchaseBill/HubPurchaseBill_Received', Controller.HubPurchaseBill_Received);
     app.post('/API/HubPurchaseBill/HubPurchaseBill_YieldUpdate_List', Controller.HubPurchaseBill_YieldUpdate_List);
     app.post('/API/HubPurchaseBill/HubPurchaseBill_Yield_Update', Controller.HubPurchaseBill_Yield_Update);
+    app.post('/API/HubPurchaseBill/HubPurchaseBill_PaymentUpdate', Controller.HubPurchaseBill_PaymentUpdate);
+    
 
  };

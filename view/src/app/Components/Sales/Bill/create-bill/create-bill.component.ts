@@ -28,9 +28,7 @@ export class CreateBillComponent implements OnInit {
    _ProductList: any[] = [];
    _temProductList: any[] = [];
    selectedOption: string;
-   options = [{ paymentType: 'Cash', value: 1},
-              { paymentType: 'Credit', value: 2},
-              { paymentType: 'Debit', value: 3}];
+   options = ['Cash', 'Credit', 'Card'];
    User_Id: any;
    Customer_Id: any;
    price: any;
@@ -167,7 +165,7 @@ export class CreateBillComponent implements OnInit {
   }
 
    onChange(paymentMethod: any) {
-      if (paymentMethod['value'] === 3) {
+      if (paymentMethod === 'Card') {
          this.Form.addControl('ReferenceNumber', new FormControl(null, Validators.required));
          this.referenceInput = true;
       } else {

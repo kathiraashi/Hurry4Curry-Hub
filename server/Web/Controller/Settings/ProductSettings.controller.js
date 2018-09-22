@@ -1,5 +1,5 @@
 var CryptoJS = require("crypto-js");
-var SettingsModel = require('./../../models/Settings/Settings.model.js');
+var SettingsModel = require('./../../models/Settings/ProductSettings.model.js');
 var ErrorManagement = require('./../../../handling/ErrorHandling.js');
 var mongoose = require('mongoose');
 

@@ -7,6 +7,7 @@ var HubPurchaseBillSchema = mongoose.Schema({
     PurchaseBill_Date: { type: Date },
     PurchaseBill_Number: {type: String},
     PurchaseBill_Number_Length: {type: Number},
+    Payment_Status: {type: String},
     Net_Amount: {type: String},
     If_Received: {type: Boolean, require: true},
     If_YieldUpdated: {type: Boolean, require: true},

@@ -44,6 +44,13 @@ import { EditCustomerComponent } from './Components/Sales/Customer/edit-customer
 import { CreateCustomerComponent } from './Components/Sales/Customer/create-customer/create-customer.component';
 import { CreatePurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/create-purchase-bills/create-purchase-bills.component';
 
+import { FranchiseeBillCreateComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-create/franchisee-bill-create.component';
+import { FranchiseeBillListComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-list/franchisee-bill-list.component';
+import { FranchiseeBillViewComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-view/franchisee-bill-view.component';
+
+import { AccountSettingsMainComponent } from './Components/settings/AccountSettings/account-settings-main/account-settings-main.component';
+
+
 const appRoutes: Routes = [
    {
       path: '',
@@ -295,8 +302,30 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     data: {   animation: { value: 'Main_Dashboard'}   }
 },
-
-
+{
+   path: 'FranchiseeBill_List',
+   component: FranchiseeBillListComponent,
+   canActivate: [AuthGuard],
+   data: { animation: { value: 'FranchiseeBill_List'} }
+},
+{
+   path: 'FranchiseeBill_Create',
+   component: FranchiseeBillCreateComponent,
+   canActivate: [AuthGuard],
+   data: { animation: { value: 'FranchiseeBill_Create'} }
+},
+{
+   path: 'FranchiseeBill_View',
+   component: FranchiseeBillViewComponent,
+   canActivate: [AuthGuard],
+   data: { animation: { value: 'FranchiseeBill_View'} }
+},
+{
+   path: 'Settings_Account',
+   component: AccountSettingsMainComponent,
+   canActivate: [AuthGuard],
+   data: { animation: { value: 'Settings_Account'} }
+},
 
 
 

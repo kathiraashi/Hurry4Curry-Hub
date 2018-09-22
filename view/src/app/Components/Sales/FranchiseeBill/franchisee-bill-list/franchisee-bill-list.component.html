@@ -1,0 +1,86 @@
+<app-header></app-header>
+<!-- Main Section -->
+<div class="Main_Section">
+   <!-- Page Section -->
+   <div class="Page_Section">
+      <div class="container-fluid">
+         <!-- Page identity -->
+         <div class="Page_Identity">
+            <div class="Page_Name">
+               <h5>FRANCHISEE BILL LIST</h5>
+            </div>
+            <div class="Page_Track">
+               <ul>
+                  <li class="HeaderName">Sales</li>
+                  <li class="arrow">>></li>
+                  <li> Franchisee Bill List</li>
+               </ul>
+            </div>
+         </div>
+         <!-- Header Part -->
+         <div class="row header_part">
+            <div class="col-sm-6">
+               <button class="Create_Button" mat-button [routerLink]="['/FranchiseeBill_Create']"> + Create </button>
+            </div>
+            <div class="col-sm-6">
+               <div class="Search_Section">
+                  <input type="text" placeholder="Search.." name="search">
+                  <i class="material-icons">search</i>
+               </div>
+            </div>
+         </div>
+         <!-- Table section -->
+         <div class="Table_Section">
+            <table>
+               <thead>
+                  <tr>
+                     <th>S.no </th>
+                     <th> Bill Details </th>
+                     <th> Franchisee Details </th>
+                     <th> Created By </th>
+                     <th> Total Value </th>
+                     <th> Action </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor= "let item of _List; let i=index">
+                     <td>
+                        <span class="S_no">{{i+1}}</span>
+                     </td>
+                     <td>
+                        <span class="Style_2">Bill No: {{item.Bill_Number}}
+                           <h6 class="Style_3">Bill Date : {{item.Bill_Date | date:'d/M/yyyy'}}</h6>
+                        </span>
+                     </td>
+                     <td>
+                        <span class="Style_2">{{item.Franchisee_Id?.Name}}
+                           <h6 class="Style_3">{{item.Franchisee_Id?.Phone}}</h6>
+                        </span>
+                     </td>
+                     <td>
+                        <span class="Style_2">{{item.Created_By?.Name}}
+                           <h6 class="Style_3">{{item.createdAt | date:'medium'}}</h6>
+                        </span>
+                     </td>
+                     <td>
+                        <span class="Style_2">{{item.Net_Amount}}</span>
+                     </td>
+                     <td>
+                        <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
+                     </td>
+                  </tr> 
+               </tbody>
+            </table> 
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Dropdown menus -->
+<mat-menu class="MenuStyleOne" #Action="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below" class="MenuStyleOne">
+   <button mat-menu-item [routerLink]="['/FranchiseeBill_Create']">
+      <span>Edit</span>
+   </button>
+   <button mat-menu-item [routerLink]="['/FranchiseeBill_View']">
+      <span>View</span>
+   </button>
+</mat-menu>

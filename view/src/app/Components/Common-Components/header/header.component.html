@@ -19,64 +19,77 @@
    <div class="Header_Two">
       <ul class="Menus">
          <!-- DashBoard -->
-         <li [routerLinkActive]="['active']" class="Menu_List" [routerLink]="['/Main_Dashboard']">
+         <li [routerLinkActive]="'active'" class="Menu_List" [routerLink]="['/Main_Dashboard']">
             <span class="Menu">
                <i class="material-icons">dashboard</i>
                <span> &nbsp; Dashboard </span> 
             </span>
          </li>
          <!-- CRM -->
-         <li [routerLinkActive]="['active']" class="Menu_List">
+         <li [routerLinkActive]="'active'" class="Menu_List">
             <span class="Menu_Tree">
                <span class="Menu">
                   <i class="material-icons">people</i>
                   <span> &nbsp; Sales </span> 
                </span>
                <ul class="Menu_Tree_View">
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Customer']"><a> Customer </a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Franchisee']"><a> Franchisee </a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Bill']"><a> Bill  </a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Customer']"><a> Customer </a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Franchisee']"><a> Franchisee </a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Bill']"><a> Customer Bill  </a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/FranchiseeBill_List']"><a> Franchisee Bill</a></li>
                </ul>
             </span>
          </li>
          <!-- Purchase -->
-         <li [routerLinkActive]="['active']" class="Menu_List">
+         <li [routerLinkActive]="'active'" class="Menu_List">
             <span class="Menu_Tree">
                <span class="Menu">
                   <i class="material-icons">people</i>
                   <span> &nbsp; Inventory </span> 
                </span>
                <ul class="Menu_Tree_View">
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/purchase_request_list']"><a> Purchase Orders </a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Receive_Products']"><a> Receive Products </a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Deliver_Products']"><a> Deliver Products </a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Stock_Values']"><a> stock values </a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/Purchase_Bills_List']"><a> Purchase Bills </a></li>
+                  <!-- <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/purchase_request_list']"><a> Purchase Orders </a></li> -->
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Receive_Products']"><a> Receive Products </a></li>
+                  <!-- <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Deliver_Products']"><a> Deliver Products </a></li> -->
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Stock_Values']"><a> stock values </a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/Purchase_Bills_List']"><a> Purchase Bills </a></li>
                </ul>
             </span>
          </li>
         <!-- Accounts -->
-         <li [routerLinkActive]="['active']" class="Menu_List" >
+         <li [routerLinkActive]="'active'" class="Menu_List" >
             <span class="Menu_Tree">
                <span class="Menu">
                   <i class="material-icons">people</i>
                   <span> &nbsp; Accounts </span> 
                </span>
                <ul class="Menu_Tree_View">
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Franchisee_payments']"><a> Franchisee Payments </a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/vendor_payment_list']"><a>Supplier Payments</a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Log_Expenses']"><a>Log Expenses</a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Bank_Register']"><a>Bank Registers</a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Cash_Register']"><a>Cash Registers</a></li>
-                  <li [routerLinkActive]="['active']" class="Menu_Tree_List" [routerLink]="['/List_Cheque_Entries']"><a>Cheque Entries</a></li>
+                  <!-- <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Franchisee_payments']"><a> Franchisee Payments </a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/vendor_payment_list']"><a>Supplier Payments</a></li> -->
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Log_Expenses']"><a>Log Expenses</a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Bank_Register']"><a>Bank Registers</a></li>
+                  <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Cash_Register']"><a>Cash Registers</a></li>
+                  <!-- <li [routerLinkActive]="'active'" class="Menu_Tree_List" [routerLink]="['/List_Cheque_Entries']"><a>Cheque Entries</a></li> -->
                </ul>
             </span>
          </li>
          <!-- Product -->
-         <li [routerLinkActive]="['active']" class="Menu_List" [routerLink]="['/List_Product']" style="outline:none;">
+         <li [routerLinkActive]="'active'" class="Menu_List" [routerLink]="['/List_Product']" style="outline:none;">
             <span class="Menu">
                <i class="material-icons">people</i>
                <span > &nbsp; Product </span> 
+            </span>
+         </li>
+         <!-- Settings -->
+         <li class="Menu_List" routerLinkActive="active" >
+            <span class="Menu_Tree">
+               <span class="Menu">
+                  <i class="material-icons">settings</i>
+                  <span> &nbsp; Settings </span> 
+               </span>
+               <ul class="Menu_Tree_View">
+                  <li class="Menu_Tree_List" routerLinkActive="active" [routerLink]="['/Settings_Account']"><a> Account Settings </a></li>
+               </ul>
             </span>
          </li>
      </ul>

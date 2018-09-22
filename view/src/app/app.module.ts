@@ -80,6 +80,14 @@ import { ListCustomerComponent } from './Components/Sales/Customer/list-customer
 import { ViewCustomerComponent } from './Components/Sales/Customer/view-customer/view-customer.component';
 import { ModelUpdateQuantityComponent } from './models/Products/model-update-quantity/model-update-quantity.component';
 import { ModelPaymentMethodComponent } from './models/Payment/model-payment-method/model-payment-method.component';
+import { FranchiseeBillCreateComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-create/franchisee-bill-create.component';
+import { FranchiseeBillListComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-list/franchisee-bill-list.component';
+import { FranchiseeBillViewComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-view/franchisee-bill-view.component';
+import { AccountSettingsMainComponent } from './Components/settings/AccountSettings/account-settings-main/account-settings-main.component';
+import { BankComponent } from './Components/settings/AccountSettings/SubComponents/bank/bank.component';
+import { ExpenseTypeComponent } from './Components/settings/AccountSettings/SubComponents/expense-type/expense-type.component';
+import { ModelBankComponent } from './models/settings/Accounts/model-bank/model-bank.component';
+import { ModelExpenseTypeComponent } from './models/settings/Accounts/model-expense-type/model-expense-type.component';
 
 
 @NgModule({
@@ -139,7 +147,15 @@ import { ModelPaymentMethodComponent } from './models/Payment/model-payment-meth
             ViewCustomerComponent,
             ModelUpdateQuantityComponent,
             ModelPaymentMethodComponent,
-            CreatePurchaseBillsComponent
+            CreatePurchaseBillsComponent,
+            FranchiseeBillCreateComponent,
+            FranchiseeBillListComponent,
+            FranchiseeBillViewComponent,
+            AccountSettingsMainComponent,
+            BankComponent,
+            ExpenseTypeComponent,
+            ModelBankComponent,
+            ModelExpenseTypeComponent
 
    ],
    imports: [
@@ -171,7 +187,9 @@ import { ModelPaymentMethodComponent } from './models/Payment/model-payment-meth
    entryComponents: [
       DeleteConfirmationComponent,
       ModelUpdateYieldComponent,
-      ModelUpdateQuantityComponent
+      ModelUpdateQuantityComponent,
+      ModelBankComponent,
+      ModelExpenseTypeComponent
     ],
    bootstrap: [AppComponent]
 })

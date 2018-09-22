@@ -149,17 +149,21 @@
    </div>
    <div class="modal-body">
       <form [formGroup]="Form">
-         <ng-select name="payment"
-                  (ngModelChange)="onChange($event)"
-                  [items]="options"
-                  bindLabel="paymentType"
-                  formControlName="PaymentType"
-                  class="NgSelect ValueBold Form_Select"
-                  placeholder="Select payment option">
-         </ng-select>
+         <div class="Form_Select">
+            <ng-select name="payment"
+                     (ngModelChange)="onChange($event)"
+                     [items]="options"
+                     formControlName="PaymentType"
+                     class="NgSelect ValueBold Form_Select"
+                     placeholder="Select payment option">
+            </ng-select>
+         </div>
          <br/>
-         <input type="text" *ngIf="referenceInput === true" class="Form_Input" formControlName="ReferenceNumber" placeholder="Reference Number" width="100%">
+         <div class="Form_Input">
+            <input type="text" *ngIf="referenceInput === true" class="Form_Input" formControlName="ReferenceNumber" placeholder="Reference Number" width="100%">
+         </div>
+         <br>
+         <button mat-raised-button color="primary" style="top: 5px;" [disabled]="!Form.valid" (click)="Submit();bsModalRef.hide()" class="pull-right"> Submit </button>
       </form>
-      <button mat-raised-button color="primary" style="top: 5px;" [disabled]="!Form.valid" (click)="Submit();bsModalRef.hide()" class="pull-right"> Submit </button>
    </div>
 </ng-template>

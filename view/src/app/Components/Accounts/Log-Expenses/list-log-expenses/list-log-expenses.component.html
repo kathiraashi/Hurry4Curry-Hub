@@ -29,99 +29,36 @@
          <table>
             <thead>
                <tr>
-                  <th>S.no</th>
-                  <th>Type Of Expense</th>
-                  <th>Expence Date</th>
-                  <th>Expence</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th> S.no </th>
+                  <th> Type Of Expense </th>
+                  <th> Expense Date </th>
+                  <th> Expense </th>
+                  <th> Amount </th>
+                  <th> Status </th>
+                  <th> Action </th>
                </tr>
             </thead>
             <tbody>
-               <tr>
+               <tr *ngFor="let Item of _List; let i=index">
                   <td>
-                     <span class="S_no"> 1 </span>
+                     <span class="S_no"> {{ i + 1 }} </span>
                   </td>
                   <td>
-                     <span class="Style_1">Vegical expence</span>
+                     <span class="Style_1"> {{ Item['Expenses_Type']?.Expense_Type }}</span>
                   </td>
                   <td>
-                     <span class="Style_1"> 31/08/18</span>
+                     <span class="Style_1"> {{ Item['Date'] | date:'d/M/yyyy' }} </span>
                   </td>
                   <td>
-                     <span class="Style_1">Expence</span>
+                     <span class="Style_1"> {{ Item['Expenses'] }} </span>
                   </td>
                   <td>
-                     <span class="Style_1">10,000</span>
+                     <span class="Style_1"> {{ Item['Amount'] }} </span>
                   </td>
                   <td>
-                     <span class="Style_1">Waiting For Approved</span>
+                     <span class="Style_1"> {{ Item['Current_Status'] }} </span>
                   </td>
-                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-               </tr>
-               <tr>
-                  <td>
-                     <span class="S_no"> 2 </span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Vegical expence</span>
-                  </td>
-                  <td>
-                     <span class="Style_1"> 31/08/18</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Expence</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">10,000</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Waiting For Approved</span>
-                  </td>
-                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-               </tr>
-               <tr>
-                  <td>
-                     <span class="S_no"> 3 </span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Vegical expence</span>
-                  </td>
-                  <td>
-                     <span class="Style_1"> 31/08/18</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Expence</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">10,000</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Waiting For Approved</span>
-                  </td>
-                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
-               </tr>
-               <tr>
-                  <td>
-                     <span class="S_no"> 4 </span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Vegical expence</span>
-                  </td>
-                  <td>
-                     <span class="Style_1"> 31/08/18</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Expence</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">10,000</span>
-                  </td>
-                  <td>
-                     <span class="Style_1">Waiting For Approved</span>
-                  </td>
-                  <button mat-raised-button color="primary" [matMenuTriggerFor]="Action"> Action </button>
+                  <button mat-raised-button color="primary" (click)="SetActiveId(i)" [matMenuTriggerFor]="Action"> Action </button>
                </tr>
             </tbody>
          </table>
@@ -132,10 +69,40 @@
 <!-- Dropdown menus -->
 <mat-menu #Action="matMenu" class="MenuStyleOne" [overlapTrigger]="false" yPosition="below" xPosition="after">
    <button mat-menu-item [routerLink]="['/View_Log_Expenses']">
-      <span>View</span>
+      <span> View </span>
    </button>
-   <button mat-menu-item >
-      <span>Register Payment</span>
+   <button *ngIf="ShowRegisterPayment" mat-menu-item (click)="RegisterPayment(template)">
+      <span> Register Payment </span>
    </button>
 </mat-menu>
+
+
+
+
+
+
+
+<ng-template #template>
+   <div class="modal-header">
+      <h4 class="modal-title pull-left">Payment method</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+         <span aria-hidden="true">&times;</span>
+      </button>
+   </div>
+   <div class="modal-body ">
+      <div class="Form_Select">
+            <ng-select class="NgSelect ValueBold"
+                        [items]="_PaymentOptions"
+                        [(ngModel)]="PaymentType"
+                        placeholder="Select payment option">
+            </ng-select>
+      </div>
+      <br>
+      <div class="Form_Input">
+         <input type="text" *ngIf="PaymentType === 'Card'" [(ngModel)]="Reference_No" placeholder="Reference Number" width="100%">
+      </div>
+      <br>
+      <button mat-raised-button color="primary" style="top: 5px;" (click)="Update();bsModalRef.hide()" class="pull-right"> Submit </button>
+   </div>
+</ng-template>
 

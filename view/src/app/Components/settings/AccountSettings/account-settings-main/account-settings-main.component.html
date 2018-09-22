@@ -1,0 +1,39 @@
+<div class="Page_Section">
+   <div class="container-fluid">
+      <div class="Page_Identity">
+         <div class="Page_Name">
+               <h5>ACCOUNT SETTINGS</h5>
+         </div>
+         <div class="Page_Track">
+            <ul >
+               <li class="HeaderName">Settings</li>
+               <li class="arrow">>></li>
+               <li>Account Settings</li>
+            </ul>
+         </div>
+      </div>
+      <div class="Page_Content Product_Settings">
+         <div class="Main_Section">
+            <div class="Left_Section">
+               <ul class="Tabs">
+                  <li class="Tab" [ngClass]="{'active':Active_Tab === 'Bank'}" (click)="Active_Tab_Change('Bank')">
+                     <span class="Tab_Content"> Bank </span>
+                  </li>
+                  <li class="Tab" [ngClass]="{'active':Active_Tab === 'Expense_Type'}" (click)="Active_Tab_Change('Expense_Type')">
+                     <span class="Tab_Content"> Expense Type </span>
+                  </li>
+              </ul>
+            </div>
+            <div class="Right_Section">
+               <div *ngIf="Active_Tab === 'Bank'">
+                  <app-bank></app-bank>
+               </div>
+               <div *ngIf="Active_Tab === 'Expense_Type'">
+                  <app-expense-type></app-expense-type>
+               </div>
+           </div>
+         </div>
+      </div>
+   </div>
+</div>
+

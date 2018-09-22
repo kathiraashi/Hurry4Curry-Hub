@@ -25,8 +25,8 @@ var Schema = mongoose.Schema;
    );
    var VarProductUnitOfMeasures = mongoose.model('ProductUnitOfMeasures', ProductUnitOfMeasuresSchema, 'Product_UnitOfMeasures');
 
-      
+
 module.exports = {
    ProductVariantsSchema : VarProductVariants,
-   ProductUnitOfMeasuresSchema : VarProductUnitOfMeasures,
+   ProductUnitOfMeasuresSchema : VarProductUnitOfMeasures
 };

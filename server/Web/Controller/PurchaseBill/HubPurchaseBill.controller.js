@@ -60,6 +60,7 @@ exports.HubPurchaseBill_Create = function(req, res) {
                PurchaseBill_Number: PurchaseBillNumber,
                PurchaseBill_Number_Length: PurchaseBill_Last_Number,
                Net_Amount: ReceivingData.Net_Amount,
+               Payment_Status: 'Unpaid',
                If_Received: false,
                If_YieldUpdated: false, 
                Created_By : mongoose.Types.ObjectId(ReceivingData.User_Id),
@@ -403,5 +404,33 @@ exports.HubPurchaseBill_Received = function(req, res) {
     });
 
     }
-
 };
+
+
+
+
+
+//Purchase Bill Payment stock update
+exports.HubPurchaseBill_PaymentUpdate = function(req, res) {
+   var CryptoBytes = CryptoJS.AES.decrypt(req.body.Info, 'SecretKeyIn@123');
+   var ReceivingData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8)); 
+
+   if(!ReceivingData.User_Id || ReceivingData.User_Id === '') {
+      res.status(400).send({Status: false , Message: "User detail cannot be empty"});
+   } else if(!ReceivingData.HubPurchaseBill_Id || ReceivingData.HubPurchaseBill_Id === '') {
+      res.status(400).send({Status: false, Message: "Hub Purchase Bill details cannot be empty"});
+   } else {
+         HubPurchaseBillModel.HubPurchaseBillSchema.update(
+            { _id: mongoose.Types.ObjectId(ReceivingData.HubPurchaseBill_Id)},
+            { $set: { Payment_Status: 'Paid' } }
+         ).exec(function(err_3, result_3){
+            if(err_3){
+               ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Hub Purchase Bill Update Query Error', 'HubPurchaseBill.controller.js', err);
+               res.status(417).send({Status: false, Message: "Some error occurred while update The Hub Purchase Bill!."});            
+            } else {
+               res.status(200).send({Status: true, Message: 'Successfully Updated' });
+            }
+         });
+    }
+};
+

@@ -17,38 +17,53 @@
             <!-- Company details -->
             <div class="col-sm-12">
                <div class="Company_Details">
-                  <div class="row">
-                     <div class="col-sm-4 Form_Select">
-                        <label>Type Of Expense:</label>
-                        <select>
-                           <option checked>Type Of Expense</option>
-                           <option> Expense</option>
-                           <option> Expense</option>
-                           <option> Expense</option>
-                           <option> Expense</option>
-                        </select>
+                     <form [formGroup]="Form">
+                     <div class="row">
+                        <div class="col-sm-4 Form_Select">
+                           <label> Type Of Expense: </label>
+                           <ng-select class="NgSelect ValueBold"
+                                       [items]="_ExpensesTypes"
+                                       [bindLabel]="'Expense_Type'"
+                                       [bindValue]="'_id'"
+                                       formControlName="Expenses_Type"
+                                       [searchable]="true">
+                           </ng-select>
+                           <p class="error" *ngIf="Form.controls['Expenses_Type'].errors && Form.controls['Expenses_Type'].touched">
+                              <span *ngIf="Form.controls['Expenses_Type'].errors.required"> Expense Type is required</span>
+                           </p>
+                        </div>
+                        <div class="col-sm-4 Form_Input">
+                           <label> Date: </label>
+                           <input type="text" formControlName="Date" (keypress)="DoNothing()" (keydown)="DoNothing()" bsDatepicker>
+                           <p class="error" *ngIf="Form.controls['Date'].errors && Form.controls['Date'].touched">
+                              <span *ngIf="Form.controls['Date'].errors.required"> Date is required</span>
+                           </p>
+                        </div>
+                        <div class="col-sm-4 Form_Input">
+                           <label> Amount: </label>
+                           <input type="number" formControlName="Amount">
+                           <p class="error" *ngIf="Form.controls['Amount'].errors && Form.controls['Amount'].touched">
+                              <span *ngIf="Form.controls['Amount'].errors.required"> Amount is required</span>
+                           </p>
+                        </div>
+                        <div class="col-sm-4 Form_TextArea">
+                           <label> Expense: </label>
+                           <textarea formControlName="Expenses" row="4"></textarea>
+                           <p class="error" *ngIf="Form.controls['Expenses'].errors && Form.controls['Expenses'].touched">
+                              <span *ngIf="Form.controls['Expenses'].errors.required"> Expenses is required</span>
+                           </p>
+                        </div>
                      </div>
-                     <div class="col-sm-4 Form_Input">
-                        <label>Date:</label>
-                        <input type="text">
-                     </div>
-                     <div class="col-sm-4 Form_Input">
-                        <label>Amount:</label>
-                        <input type="text">
-                     </div>
-                     <div class="col-sm-4 Form_TextArea">
-                        <label>Comments:</label>
-                        <textarea type="text" row="4"></textarea>
+                  </form>
+                  <div class="row" style="margin-top:30px;"> 
+                     <div class="col-sm-12 text-right">
+                        <button mat-raised-button color="primary" [disabled]="!Form.valid || Uploading" (click)="submit()" style="bottom: 20px;"> Submit </button>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         <div class="row" style="margin-top:30px;"> 
-            <div class="col-sm-12 text-right">
-                  <button mat-raised-button color="primary" style = "bottom: 20px;"> Submit </button>
-            </div>
-         </div>
+
       </div>
    </div>
    
