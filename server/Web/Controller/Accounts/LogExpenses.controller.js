@@ -1,6 +1,6 @@
 var CryptoJS = require("crypto-js");
-var LogExpensesModel = require('./../../models/Accounts/LogExpenses.model.js');
-var ErrorManagement = require('./../../../handling/ErrorHandling.js');
+var LogExpensesModel = require('./../../Models/Accounts/LogExpenses.model.js');
+var ErrorManagement = require('./../../../Handling/ErrorHandling.js');
 var mongoose = require('mongoose');
 
 
