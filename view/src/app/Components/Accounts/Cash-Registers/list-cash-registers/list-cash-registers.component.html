@@ -27,93 +27,38 @@
             <table>
                <thead>
                   <tr>
-                     <th>S.no</th>
-                     <th>Date</th>
-                     <th>Particulars</th>
-                     <th>Debit</th>
-                     <th>Credit</th>
-                     <th>Balance</th>
+                     <th> S.no </th>
+                     <th> Date </th>
+                     <th> Particulars </th>
+                     <th> Credit </th>
+                     <th> Debit </th>
+                     <th> Balance </th>
                   </tr>
                </thead>
                <tbody>
-                  <tr>
+                  <tr *ngFor="let item of _List; let i=index">
                      <td>
-                        <span class="S_no"> 1 </span>
+                        <span class="S_no"> {{i + 1}} </span>
                      </td>
                      <td>
-                        <span class="Style_1">27/06/18</span>
+                        <span class="Style_1"> {{item.Date | date:'medium'}} </span>
                      </td>
                      <td>
-                        <span class="Style_1">Particulars</span>
+                        <span class="Style_1"> 
+                           <span *ngIf="item.Reference_Type === 'CustomerBill_Credit'"> From Customer </span>
+                           <span *ngIf="item.Reference_Type === 'FranchiseeBill_Credit'"> From Franchisee </span>
+                           <span *ngIf="item.Reference_Type === 'LogExpense_Debit'"> To Log Expense </span>
+                           <span *ngIf="item.Reference_Type === 'PurchaseBill_Debit'"> To Purchase </span>
+                        </span>
                      </td>
                      <td>
-                        <span class="Style_1">Debit</span>
+                        <span class="Style_1" *ngIf="item.Type === 'Credit'"> {{item.Amount}} </span>
                      </td>
                      <td>
-                       <span class="Style_1">Credit</span>
-                    </td>
+                        <span class="Style_1" *ngIf="item.Type === 'Debit'"> {{item.Amount}} </span>
+                     </td>
                     <td>
-                       <span class="Style_1">5000</span>
-                    </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 2 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">27/06/18</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Particulars</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Debit</span>
-                     </td>
-                     <td>
-                       <span class="Style_1">Credit</span>
-                    </td>
-                    <td>
-                       <span class="Style_1">5000</span>
-                    </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 3 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">27/06/18</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Particulars</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Debit</span>
-                     </td>
-                     <td>
-                       <span class="Style_1">Credit</span>
-                    </td>
-                    <td>
-                       <span class="Style_1">5000</span>
-                    </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 4 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">27/06/18</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Particulars</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Debit</span>
-                     </td>
-                     <td>
-                       <span class="Style_1">Credit</span>
-                    </td>
-                    <td>
-                       <span class="Style_1">5000</span>
+                       <span class="Style_1"> {{item.Available_Amount}} </span>
                     </td>
                   </tr>
                </tbody>

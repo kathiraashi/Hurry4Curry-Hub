@@ -4,5 +4,6 @@ module.exports = function(app) {
 
    app.post('/API/FranchiseeBill/FranchiseeBill_Create', Controller.FranchiseeBill_Create);
    app.post('/API/FranchiseeBill/FranchiseeBill_List', Controller.FranchiseeBill_List);
+   app.post('/API/FranchiseeBill/FranchiseeBill_PaymentUpdate', Controller.FranchiseeBill_PaymentUpdate);
  
 };

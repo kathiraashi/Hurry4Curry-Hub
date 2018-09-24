@@ -11,6 +11,7 @@ var app = express();
 // Process On Every Error
 process.setMaxListeners(0);
 process.on('unhandledRejection', (reason, promise) => {
+   console.log(reason);
    ErrorManagement.ErrorHandling.ErrorLogCreation('', '', '', reason);
    console.error("'Un Handled Rejection' Error Log File - " + new Date().toLocaleDateString());
 });
@@ -60,6 +61,8 @@ app.use(bodyParser.json());
     require('./server/Web/Routes/Supplier/Supplier.routes.js')(app);
 // Accounts
     require('./server/Web/Routes/Accounts/LogExpenses.routes.js')(app);
+    require('./server/Web/Routes/Accounts/BankRegister.routes.js')(app);
+    require('./server/Web/Routes/Accounts/CashRegister.routes.js')(app);
 
 
 

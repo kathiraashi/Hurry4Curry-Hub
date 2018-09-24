@@ -24,7 +24,7 @@ export class ListPurchaseBillsComponent implements OnInit {
    ActionIndex: number;
    ShowPayments: Boolean = false;
 
-   _PaymentOptions = ['Cash', 'Card'];
+   _PaymentOptions = ['Cash', 'NEFT/RTGS'];
    PaymentType = 'Cash';
    Reference_No = '';
 
@@ -78,10 +78,11 @@ export class ListPurchaseBillsComponent implements OnInit {
    }
 
    Update() {
+
       const Data = { HubPurchaseBill_Id: this._List[this.Active_Id]._id,
                      User_Id : this.User_Id,
                      PaymentType : this.PaymentType,
-                     Reference_No : this.Reference_No };
+                     ReferenceNumber : this.Reference_No };
       let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
       Info = Info.toString();
       this.PurchaseBill_Service.PurchaseBill_PaymentUpdate({'Info': Info}).subscribe( response => {

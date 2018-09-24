@@ -21,6 +21,10 @@ export class BillService {
       return this.http.post(API_URL + 'CustomerBill/CustomerBill_List', Info).pipe( map(response => response),  catchError(error => of(error)));
    }
 
+   public CustomerBill_PaymentUpdate(Info: any): Observable<any[]> {
+      sessionStorage.setItem('SessionKey', btoa(Date()));
+      return this.http.post(API_URL + 'CustomerBill/CustomerBill_PaymentUpdate', Info).pipe( map(response => response),  catchError(error => of(error)));
+   }
 
 
 
@@ -32,6 +36,12 @@ export class BillService {
       sessionStorage.setItem('SessionKey', btoa(Date()));
       return this.http.post(API_URL + 'FranchiseeBill/FranchiseeBill_List', Info).pipe( map(response => response),  catchError(error => of(error)));
    }
+
+   public FranchiseeBill_PaymentUpdate(Info: any): Observable<any[]> {
+      sessionStorage.setItem('SessionKey', btoa(Date()));
+      return this.http.post(API_URL + 'FranchiseeBill/FranchiseeBill_PaymentUpdate', Info).pipe( map(response => response),  catchError(error => of(error)));
+   }
+
 
 }
 

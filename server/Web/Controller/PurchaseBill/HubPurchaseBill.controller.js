@@ -2,6 +2,9 @@ var CryptoJS = require("crypto-js");
 var HubPurchaseBillModel = require('./../../Models/PurchaseBill/HubPurchaseBill.model');
 var ErrorManagement = require('./../../../Handling/ErrorHandling.js');
 var HubStockModel = require('./../../Models/Stock/HubStock.model');
+var HubCashRegisterModel = require('./../../Models/Accounts/CashRegister.model.js');
+var HubBankRegisterModel = require('./../../Models/Accounts/BankRegister.model.js');
+var HubAccountSettingsModel = require('./../../Models/Settings/AccountSettings.model.js');
 var mongoose = require('mongoose');
 
 // Supplier Purchase bill Number Unique Validate
@@ -420,17 +423,142 @@ exports.HubPurchaseBill_PaymentUpdate = function(req, res) {
    } else if(!ReceivingData.HubPurchaseBill_Id || ReceivingData.HubPurchaseBill_Id === '') {
       res.status(400).send({Status: false, Message: "Hub Purchase Bill details cannot be empty"});
    } else {
-         HubPurchaseBillModel.HubPurchaseBillSchema.update(
-            { _id: mongoose.Types.ObjectId(ReceivingData.HubPurchaseBill_Id)},
-            { $set: { Payment_Status: 'Paid' } }
-         ).exec(function(err_3, result_3){
-            if(err_3){
-               ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Hub Purchase Bill Update Query Error', 'HubPurchaseBill.controller.js', err);
-               res.status(417).send({Status: false, Message: "Some error occurred while update The Hub Purchase Bill!."});            
+      HubPurchaseBillModel.HubPurchaseBillSchema.findOne({ _id: mongoose.Types.ObjectId(ReceivingData.HubPurchaseBill_Id)}
+      ).exec(function(err, result){
+         if(err){
+            ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Hub Purchase Bill Find Query Error', 'HubPurchaseBill.controller.js', err);
+            res.status(417).send({Status: false, Message: "Some error occurred while Find The Hub Purchase Bill!."});            
+         } else {
+            if (result !== null) {
+               // ************************* Payment Update Start ***************      
+               async function PaymentUpdate() {
+                  let Output = await PaymentHandling(ReceivingData.PaymentType, 'Debit', result.Net_Amount, new Date(), result._id, 'PurchaseBill_Debit', ReceivingData.User_Id,  ReceivingData.ReferenceNumber);
+                  if (Output) {
+                     result.Payment_Status = 'Paid';
+                     result.Payment_Date = new Date();
+                     result.save(function(err_1, result_1) { // Hub Purchase Bill Update Query
+                        if(err_1) {
+                           ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Hub Purchase Bill Update Query Error', 'HubPurchaseBill.controller.js');
+                           res.status(417).send({Status: false, Error: err_1, Message: "Some error occurred while Update the Hub Purchase Bill!."});
+                        } else {
+                           res.status(200).send({Status: true, Message: 'Successfully Updated' });
+                        }
+                     });
+                  }else{
+                     ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Hub Purchase Bill Payment Update Query Error', 'HubPurchaseBill.controller.js');
+                     res.status(417).send({Status: false, Message: "Some error occurred while Update The Payment Details" }); 
+                  }
+               }
+               PaymentUpdate();
+            // ************************* Payment Update End ***************
             } else {
-               res.status(200).send({Status: true, Message: 'Successfully Updated' });
+               res.status(400).send({Status: false, Message: "HubPurchase Bill Details can not be valid!" });
             }
-         });
-    }
+         }
+      });
+   }
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function PaymentHandling(PaymentMode, PaymentType, PaymentAmount, PaymentDate, Reference_Id, Reference_Type, User_Id, ReferenceNumber) {
+   return new Promise((resolve, reject) => {
+      if (PaymentMode === 'NEFT/RTGS') {
+         HubBankRegisterModel.Hub_BankRegisterSchema.find(
+            { Created_By: mongoose.Types.ObjectId(User_Id), If_Deleted: false },
+            { Available_Amount: 1 },
+            { sort: { createdAt: -1 }, length: 1 } 
+         ).exec(function(PayErr, PayResult) {
+            if (!PayErr) {
+               var Available_Amount = PaymentAmount;
+               if (PayResult.length > 0) {
+                  Available_Amount = parseInt(PayResult[0].Available_Amount) - parseInt(PaymentAmount);
+               }
+               HubAccountSettingsModel.BanksSchema.findOne(
+                  { Creator_Type: 'Hub', Created_By: mongoose.Types.ObjectId(User_Id), If_Deleted: false, If_Default: true  }, {}, {} 
+               ).exec(function(PayErr_1, PayResult_1) {
+                  if (!PayErr_1) {
+                     var Bank = null;
+                     if (PayResult_1 !== null) {
+                        Bank = PayResult_1._id;
+                     }
+                     var BankRegister = new HubBankRegisterModel.Hub_BankRegisterSchema({
+                        Bank: Bank,
+                        Amount: PaymentAmount,
+                        Date: PaymentDate,
+                        Type: PaymentType,
+                        Reference_Id: Reference_Id,
+                        Reference_Type: Reference_Type,
+                        ReferenceNumber: ReferenceNumber,
+                        Available_Amount: Available_Amount,
+                        Created_By: mongoose.Types.ObjectId(User_Id),
+                        Active_Status:  true,
+                        If_Deleted: false
+                     });
+                     BankRegister.save(function(PayErr_1, PayResult_1) {
+                        if (!PayErr_1) {
+                           resolve(true);
+                        }else{
+                           resolve(false);
+                        }
+                     });
+                  }else{
+                     resolve(false);
+                  }
+               });
+            }else{
+               resolve(false);
+            }
+         });
+      } else if(PaymentMode === 'Cash') {
+         HubCashRegisterModel.Hub_CashRegisterSchema.find(
+            { Created_By:mongoose.Types.ObjectId(User_Id), If_Deleted: false },
+            { Available_Amount: 1 },
+            { sort: { createdAt: -1 }, length: 1 } 
+         ).exec(function(PayErr, PayResult) {
+            if (!PayErr) {
+               var Available_Amount = PaymentAmount;
+               if (PayResult.length > 0) {
+                  Available_Amount = parseInt(PayResult[0].Available_Amount) - parseInt(PaymentAmount);
+               }
+               var CashRegister = new HubCashRegisterModel.Hub_CashRegisterSchema({
+                  Amount: PaymentAmount,
+                  Date: PaymentDate,
+                  Type: PaymentType,
+                  Reference_Id: Reference_Id,
+                  Reference_Type: Reference_Type,
+                  Available_Amount: Available_Amount, 
+                  Created_By: mongoose.Types.ObjectId(User_Id),
+                  Active_Status: true,
+                  If_Deleted: false
+               });
+               CashRegister.save(function(PayErr_1, PayResult_1) {
+                  if (!PayErr_1) {
+                     resolve(true);
+                  }else{
+                     resolve(false);
+                  }
+               });
+            }else{
+               resolve(false);
+            }
+         });
+      } else {
+         resolve(false);
+      }
+   });
+}

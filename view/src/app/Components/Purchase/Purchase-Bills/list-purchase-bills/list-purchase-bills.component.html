@@ -61,7 +61,7 @@
               </td>
               <td>
                 <span class="Style_2">{{item.Created_By?.Name}}
-                     <h6 class="Style_3">Phone: {{item.createdAt | date:'medium'}}</h6>
+                     <h6 class="Style_3">{{item.createdAt | date:'medium'}}</h6>
                 </span>
               </td>
               <td>
@@ -114,7 +114,7 @@
          </div>
          <br>
          <div class="Form_Input">
-            <input type="text" *ngIf="PaymentType === 'Card'" [(ngModel)]="Reference_No" placeholder="Reference Number" width="100%">
+            <input type="text" *ngIf="PaymentType === 'NEFT/RTGS'" [(ngModel)]="Reference_No" placeholder="Reference Number" width="100%">
          </div>
          <br>
          <button mat-raised-button color="primary" style="top: 5px;" (click)="Update();bsModalRef.hide()" class="pull-right"> Submit </button>
