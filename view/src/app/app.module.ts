@@ -20,6 +20,7 @@
    import {MatButtonModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatMenuModule } from '@angular/material';
    import {MatRadioModule} from '@angular/material/radio';
    import { NgSelectModule } from '@ng-select/ng-select';
+   import { ChipsModule } from 'primeng/chips';
 
 // Custom Modules
    import { AppRoutingModule } from './app.routing.module';
@@ -178,6 +179,7 @@ import { ModelExpenseTypeComponent } from './models/settings/Accounts/model-expe
          MatCheckboxModule,
          MatMenuModule,
          MatRadioModule,
+         ChipsModule,
       // Custom Modules
          AppRoutingModule,
       //  Material Date picker

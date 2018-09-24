@@ -85,20 +85,18 @@
   cursor: pointer;
 }
 
-
-
-/* .error {
- margin: 0px;
- color: rgb(221, 10, 10);
- font-weight: 500;
- text-align: left;
- font-size: 13px;
- word-spacing: 1px;
- letter-spacing: 0.4px;
+.error {
+  margin: 0px;
+  color: rgb(221, 10, 10);
+  font-weight: 500;
+  text-align: left;
+  font-size: 13px;
+  word-spacing: 1px;
+  letter-spacing: 0.4px;
 }
 .Form_Field.Form_Err{
- border-color: rgb(221, 10, 10);
+  border-color: rgb(221, 10, 10);
 }
 .Form_Field.Form_Success{
- border-color: #4ab65f;
-} */
+  border-color: #4ab65f;
+}

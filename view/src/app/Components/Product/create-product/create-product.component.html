@@ -1,134 +1,109 @@
 
 <div class="page" style="margin-top:100px;margin-bottom:100px;">
-   <div class="container-fluid">
-      <!-- page identity -->
-      <div class="Page_Identity">
-         <div class="Page_Track">
-            <ul>
-               <li class="HeaderName">Products</li>
-               <li class="arrow">>></li>
-               <li class="LinkName" [routerLink]="['/List_Product']">Products List</li>
-               <li class="arrow">>></li>
-               <li> Product Create </li>
-            </ul>
+    <div class="container-fluid">
+       <!-- page identity -->
+       <div class="Page_Identity">
+          <div class="Page_Name">
+             <h5>PRODUCT CREATE</h5>
+          </div>
+          <div class="Page_Track">
+             <ul>
+                <li class="HeaderName">Products</li>
+                <li class="arrow">>></li>
+                <li class="LinkName" [routerLink]="['/List_Product']">Products List</li>
+                <li class="arrow">>></li>
+                <li> Product Create </li>
+             </ul>
+          </div>
+       </div>
+       <div class="row">
+          <!-- Company details -->
+          <div class="col-sm-12">
+             <div class="Company_Details">
+                <form [formGroup]="Form" >
+                   <div class="row">
+                      <div class="col-sm-4 Form_Input" [ngClass]="{'Form_Err': !Form.controls['Name'].pristine && Form.controls['Name'].errors, 'Form_Success': Form.controls['Name'].valid && !Form.controls['Name'].pristine }">
+                         <label>Name:</label>
+                         <input formControlName="Name" type="text">
+                         <p class="error" *ngIf="Form.controls['Name'].errors && !Form.controls['Name'].pristine">
+                            <span *ngIf="Form.controls['Name'].errors.required"> Name is required</span>
+                            <span *ngIf="Form.controls['Name'].errors.UserName_NotAvailable"> Name Already Exist!</span>
+                         </p>
+                      </div>
+                      <div class="col-sm-4 Form_Input">
+                         <label>Item Code:</label>
+                         <input formControlName="Item" type="text">
+                      </div>
+                      <div class="col-sm-4 Form_Input" [ngClass]="{'Form_Err': !Form.controls['Hsn_Code'].pristine && Form.controls['Hsn_Code'].errors, 'Form_Success': Form.controls['Hsn_Code'].valid && !Form.controls['Hsn_Code'].pristine }">
+                         <label>HSN Code:</label>
+                         <input formControlName="Hsn_Code" type="text">
+                         <p class="error" *ngIf="Form.controls['Hsn_Code'].errors && !Form.controls['Hsn_Code'].pristine">
+                            <span *ngIf="Form.controls['Hsn_Code'].errors.required"> Hsn Code is required</span>
+                         </p>
+                      </div>
+                      <div class="col-sm-4 Form_Input" [ngClass]="{'Form_Err': !Form.controls['UnitOfMeasure'].pristine && Form.controls['UnitOfMeasure'].errors, 'Form_Success': Form.controls['UnitOfMeasure'].valid && !Form.controls['UnitOfMeasure'].pristine }">
+                         <label>Unit of Measure:</label>
+                         <ng-select class="NgSelect"
+                                  [items]="_UnitOfMeasures"
+                                  bindLabel="Product_UnitOfMeasure"
+                                  [searchable]="true"
+                                  formControlName="UnitOfMeasure">
+                         </ng-select>
+                         <p class="error" *ngIf="Form.controls['UnitOfMeasure'].errors && !Form.controls['UnitOfMeasure'].pristine">
+                            <span *ngIf="Form.controls['UnitOfMeasure'].errors.required"> Unit Of Measure is required</span>
+                         </p>
+                      </div>
+                      <div class="col-sm-4 Form_TextArea">
+                         <label>Description:</label>
+                         <textarea formControlName="Description" type="text" row="4"></textarea>
+                      </div>
+                   </div>
+                </form>
+             </div>
          </div>
-      </div>
-      <div class="row">
-         <!-- Company details -->
-         <div class="col-sm-12">
-            <div class="Company_Details">
-               <div class="row">
-                  <div class="col-sm-4 Form_Input">
-                      <label>Name:</label>
-                      <input type="text">
-                  </div>
-                  <div class="col-sm-4 Form_Input">
-                       <label>Item:</label>
-                       <input type="text">
+          <!-- Tab -->
+          <div class="col-sm-12" style="margin-top: 30px;">
+             <div class="Company_Details">
+                <h5 class="BoxHeader"> Product Variants 
+                   <button style="float: right" mat-raised-button color="primary" (click)="AddVariant()"> Add Variant </button> 
+                </h5>
+                <!-- Table Section -->
+                <form [formGroup]="Form">
+                   <div formArrayName="Variants_List" *ngFor="let item of Form.controls['Variants_List'].controls; let i = index;" class="Product_Details" >
+                      <div class="row" [formGroupName]="i">
+                         <div class="col-sm-1 Form_Input">
+                            <label style="line-height: 78px; text-align: center; width: 100%;"> {{i + 1}} ) </label>
+                         </div>
+                         <div class="col-sm-4 Form_Select">
+                            <label>Attribute:</label>
+                            <ng-select class="NgSelect"
+                                     [items]="_Filtered_Variants"
+                                     bindLabel="Product_Variant"
+                                     [searchable]="true"
+                                     (ngModelChange)="VariantChange(i)"
+                                     formControlName="Attribute">
+                            </ng-select>
+                         </div>
+                         <div class="col-sm-4 Form_Input">
+                            <label>value:</label>
+                            <p-chips formControlName="Attribute_Values" [allowDuplicate]="false" Class="ChipStyle_One" >
+                               <ng-template let-item pTemplate="item">{{item}}</ng-template>
+                            </p-chips>
+                         </div>
+                         <div class="col-sm-2 Form_Input">
+                            <button class="Table_Action_mini" (click)="Remove_Variant(i)" mat-mini-fab color="primary" style="margin-top: 28px;">
+                               <i class="material-icons">remove</i>
+                            </button>
+                         </div>
+                      </div>
                    </div>
-                   <div class="col-sm-4 Form_Input">
-                       <label>HSN Code:</label>
-                       <input type="text">
-                   </div>
-                   <div class="col-sm-4 Form_Input">
-                       <label>Price:</label>
-                       <input type="text">
-                   </div>
-                   <div class="col-sm-4 Form_TextArea">
-                       <label>Description:</label>
-                       <textarea type="text" row="4"></textarea>
-                   </div>
-                </div>
-            </div>
-        </div>
-            <!-- Tab -->
-         <div class="col-sm-12">
-            <div class="Company_Details">
-                  <div class="Tabs">
-                     <div class="Tab" [ngClass]="{'active': Active_Tab === 'Product_Variants'}" (click)="Active_Tab_Change('Product_Variants')">
-                        <span >Product Variants</span>
-                     </div>
-                     <div class="Tab" [ngClass]="{'active': Active_Tab === 'Price_List'}" (click)="Active_Tab_Change('Price_List')">
-                        <span >Price List</span>
-                     </div>
-                     <div class="Tab" [ngClass]="{'active': Active_Tab === 'Offers_Promotions'}" (click)="Active_Tab_Change('Offers_Promotions')">
-                        <span >Offers & Promotions</span>
-                     </div>
-                  </div>
-                  <br>
-                  <!-- Table Section -->
-                  <div class="Product_Details" *ngIf="Active_Tab === 'Product_Variants'">
-                     <div class="row">
-                        <div class="col-sm-1 Form_Input">
-                           <label style="line-height: 78px; text-align: center; width: 100%;"> 1 ) </label>
-                        </div>
-                        <div class="col-sm-4 Form_Select">
-                           <label>Variants:</label>
-                           <ng-select class="NgSelect" [searchable]="true">
-                              <ng-option *ngFor="let Variant of _Variants" [value]="Variant">{{Variant}}</ng-option>
-                           </ng-select>
-                        </div>
-                        <div class="col-sm-4 Form_Input">
-                           <label>value:</label>
-                           <input type="text">
-                        </div>
-                        <div class="col-sm-2 Form_Input">
-                           <button class="Table_Action_mini" mat-mini-fab color="primary" style="margin-top: 28px;">
-                              <i class="material-icons">add</i>
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="Done_Section" *ngIf="Active_Tab === 'Price_List'">
-                     <div class="row">
-                        <div class="col-sm-4 Form_Select">
-                           <label> Segments:</label>
-                           <ng-select class="NgSelect" [searchable]="true">
-                              <ng-option *ngFor="let Segment of _Segments" [value]="Segment">{{Segment}}</ng-option>
-                           </ng-select>
-                        </div>
-                        <div class="col-sm-4 Form_Select">
-                           <label>Location:</label>
-                           <ng-select class="NgSelect" [searchable]="true">
-                              <ng-option *ngFor="let Location of _Locations" [value]="Location">{{Location}}</ng-option>
-                           </ng-select>
-                        </div>
-                        <div class="col-sm-4 Form_Input">
-                           <label>Amount:</label>
-                           <input type="text">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="Done_Section" *ngIf="Active_Tab === 'Offers_Promotions'">
-                     <div class="row">
-                        <div class="col-sm-4 Form_Input">
-                           <label>Offer Name:</label>
-                           <input type="text">
-                        </div>
-                        <div class="col-sm-4 Form_Input">
-                           <label>Validity:</label>
-                           <input type="text">
-                        </div>
-                        <div class="col-sm-4 Form_Input">
-                           <label>Location:</label>
-                           <input type="text">
-                        </div>
-                        <div class="col-sm-4 Form_Input">
-                           <label>Product Price Above:</label>
-                           <input type="text">
-                        </div>
-                     </div>
-                  </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<div class="FooterForBill">
-   <button mat-raised-button color="primary" style = "top: 5px;"> Submit </button>
-</div>
-
-            
-         
-   
-   
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="FooterForBill">
+    <button [disabled]="Form.status !== 'VALID'" (click)="Submit()" mat-raised-button color="primary" style = "top: 5px;"> Submit </button>
+ </div>
+ 
