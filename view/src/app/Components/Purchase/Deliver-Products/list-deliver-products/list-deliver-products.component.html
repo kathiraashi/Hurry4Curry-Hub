@@ -31,130 +31,34 @@
                      <th> S.no </th>
                      <th> Franchisee Name</th>
                      <th> Outward Ref </th>
-                     <th> Total Value </th>
+                     <th> Requested Date </th>
+                     <th> Excepted Date </th>
                      <th> Status </th>
                      <th> Action </th>
                   </tr>
                </thead>
                <tbody>
-                  <tr>
+                  <tr *ngFor="let item of _List; let i = index">
                      <td>
-                        <span class="S_no"> 1 </span>
+                        <span class="S_no"> {{i+1}} </span>
                      </td>
                      <td>
-                        <span class="Style_1"> Franchisee One </span>
+                        <span class="Style_1"> {{item?.Franchisee_Id['Name']}} </span>
                      </td>
                      <td>
-                        <span class="Style_1"> Ref-00123 </span>
+                        <span class="Style_1"> {{item?.PurchaseRequest_RefNo}} </span>
                      </td>
                      <td>
-                        <span class="Style_1">35000</span>
+                        <span class="Style_1">{{item?.PurchaseRequest_Date | date}}</span>
                      </td>
                      <td>
-                        <span class="Style_1">Requested</span>
+                        <span class="Style_1">{{item?.Expected_Date | date}}</span>
                      </td>
                      <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 2 </span>
+                        <span class="Style_1">{{item?.DeliverCurrent_Status}}</span>
                      </td>
                      <td>
-                        <span class="Style_1"> Franchisee One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Requested</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 3 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Franchisee One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Requested</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 4 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Franchisee One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Requested</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 5 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Franchisee One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Received</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <span class="S_no"> 6 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Franchisee One </span>
-                     </td>
-                     <td>
-                        <span class="Style_1"> Ref-00123 </span>
-                     </td>
-                     <td>
-                        <span class="Style_1">35000</span>
-                     </td>
-                     <td>
-                        <span class="Style_1">Received</span>
-                     </td>
-                     <td>
-                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action">Action</button>
+                        <button color="primary" mat-raised-button [matMenuTriggerFor]="Action" (click)="SetActionId(i)">Action</button>
                      </td>
                   </tr>
                </tbody>
@@ -165,7 +69,7 @@
 </div>
 <!-- Dropdown menus -->
 <mat-menu #Action="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
-   <button mat-menu-item [routerLink]="['/View_Deliver_Products']">
+   <button mat-menu-item (click)="View()">
       <span>View</span>
    </button>
    <button mat-menu-item>

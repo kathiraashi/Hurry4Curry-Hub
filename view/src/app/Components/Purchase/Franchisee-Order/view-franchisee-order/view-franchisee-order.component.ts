@@ -2,23 +2,22 @@ import { Component, OnInit } from '@angular/core';
 
 import { ToasterServiceService } from './../../../../services/common-services/Toaster-Service/toaster-service.service';
 import * as CryptoJS from 'crypto-js';
-import { DeliverProductsService } from './../../../../services/DeliverProducts/deliver-products.service';
+import { FranshiseOrderService } from './../../../../services/FranchiseeOrder/franshise-order.service';
 import { AdminService } from './../../../../services/Admin/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
 @Component({
-  selector: 'app-view-deliver-products',
-  templateUrl: './view-deliver-products.component.html',
-  styleUrls: ['./view-deliver-products.component.css']
+  selector: 'app-view-franchisee-order',
+  templateUrl: './view-franchisee-order.component.html',
+  styleUrls: ['./view-franchisee-order.component.css']
 })
-export class ViewDeliverProductsComponent implements OnInit {
+export class ViewFranchiseeOrderComponent implements OnInit {
   User_Id: any;
+  _Data;
   FranchiseeOrder_Id: any;
   Loader: Boolean = false;
-  _Data: any;
 
   constructor(
-    public DeliverProducts_Service: DeliverProductsService,
+    public FranshiseOrder_Service: FranshiseOrderService,
     public Service: AdminService,
     public Toaster: ToasterServiceService,
     private active_route: ActivatedRoute,
@@ -33,7 +32,7 @@ export class ViewDeliverProductsComponent implements OnInit {
       let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
       Info = Info.toString();
       this.Loader = true;
-      this.DeliverProducts_Service.DeliverProducts_View({'Info': Info}).subscribe(response => {
+      this.FranshiseOrder_Service.FranchiseePurchaseOrder_View({'Info': Info}).subscribe(response => {
         const ResponseData = JSON.parse(response['_body']);
         this.Loader = false;
         if (response['status'] === 200 && ResponseData['Status'] ) {
@@ -51,17 +50,17 @@ export class ViewDeliverProductsComponent implements OnInit {
     });
   }
 
-  DeliverProducts() {
+  CreateDeliver() {
     const Data = { 'User_Id': this.User_Id, 'FranchiseeOrder_Id': this.FranchiseeOrder_Id };
     let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
     Info = Info.toString();
     this.Loader = true;
-    this.DeliverProducts_Service.DeliverProducts_Deliver({'Info': Info}).subscribe(response => {
+    this.FranshiseOrder_Service.FranchiseePurchaseOrder_CreateDeliver({'Info': Info}).subscribe(response => {
       const ResponseData = JSON.parse(response['_body']);
       this.Loader = false;
       if (response['status'] === 200 && ResponseData['Status'] ) {
-        this.router.navigate(['/List_Deliver_Products']);
-        this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'Successfully Product out for Deliver' });
+        this.router.navigate(['/List_Franchisee_Order']);
+        this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'Successfully Deliver Create' });
      } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
         this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
      } else if (response['status'] === 401 && !ResponseData['Status']) {

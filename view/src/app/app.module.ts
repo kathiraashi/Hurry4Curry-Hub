@@ -89,6 +89,8 @@ import { BankComponent } from './Components/settings/AccountSettings/SubComponen
 import { ExpenseTypeComponent } from './Components/settings/AccountSettings/SubComponents/expense-type/expense-type.component';
 import { ModelBankComponent } from './models/settings/Accounts/model-bank/model-bank.component';
 import { ModelExpenseTypeComponent } from './models/settings/Accounts/model-expense-type/model-expense-type.component';
+import { ListFranchiseeOrderComponent } from './Components/Purchase/Franchisee-Order/list-franchisee-order/list-franchisee-order.component';
+import { ViewFranchiseeOrderComponent } from './Components/Purchase/Franchisee-Order/view-franchisee-order/view-franchisee-order.component';
 
 
 @NgModule({
@@ -156,7 +158,9 @@ import { ModelExpenseTypeComponent } from './models/settings/Accounts/model-expe
             BankComponent,
             ExpenseTypeComponent,
             ModelBankComponent,
-            ModelExpenseTypeComponent
+            ModelExpenseTypeComponent,
+            ListFranchiseeOrderComponent,
+            ViewFranchiseeOrderComponent
 
    ],
    imports: [

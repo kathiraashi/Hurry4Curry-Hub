@@ -43,6 +43,8 @@ import { ViewCustomerComponent } from './Components/Sales/Customer/view-customer
 import { EditCustomerComponent } from './Components/Sales/Customer/edit-customer/edit-customer.component';
 import { CreateCustomerComponent } from './Components/Sales/Customer/create-customer/create-customer.component';
 import { CreatePurchaseBillsComponent } from './Components/Purchase/Purchase-Bills/create-purchase-bills/create-purchase-bills.component';
+import { ListFranchiseeOrderComponent } from './Components/Purchase/Franchisee-Order/list-franchisee-order/list-franchisee-order.component';
+import { ViewFranchiseeOrderComponent } from './Components/Purchase/Franchisee-Order/view-franchisee-order/view-franchisee-order.component';
 
 import { FranchiseeBillCreateComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-create/franchisee-bill-create.component';
 import { FranchiseeBillListComponent } from './Components/Sales/FranchiseeBill/franchisee-bill-list/franchisee-bill-list.component';
@@ -165,11 +167,24 @@ const appRoutes: Routes = [
     data: {   animation: { value: 'List_Deliver_Products'}   }
  },
  {
-    path: 'View_Deliver_Products',
+    path: 'View_Deliver_Products/:FranchiseeOrder_Id',
     component: ViewDeliverProductsComponent,
     canActivate: [AuthGuard],
     data: {   animation: { value: 'View_Deliver_Products'}   }
  },
+ {
+    path: 'List_Franchisee_Order',
+    component: ListFranchiseeOrderComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'List_Franchisee_Order'}   }
+ },
+ {
+    path: 'View_Franchisee_Order/:FranchiseeOrder_Id',
+    component: ViewFranchiseeOrderComponent,
+    canActivate: [AuthGuard],
+    data: {   animation: { value: 'View_Franchisee_Order'}   }
+ },
+
    {
     path: 'Purchase_Bills_List',
     component: ListPurchaseBillsComponent,

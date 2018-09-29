@@ -1,18 +1,18 @@
 <div class="page" style="margin-top:100px;margin-bottom:100px;">
-   <div class="container-fluid">
-      <!-- page Identity -->
-      <div class="Page_Identity">
-         <div class="Page_Track">
-            <ul>
-               <li class="HeaderName">Inventory</li>
-               <li class="arrow">>></li>
-               <li class="LinkName" [routerLink]="['/List_Deliver_Products']">Deliver Products List</li>
-               <li class="arrow">>></li>
-               <li>Deliver Products View</li>
-            </ul>
-         </div>
-      </div>
-      <div class="row">
+  <div class="container-fluid">
+     <!-- page Identity -->
+     <div class="Page_Identity">
+        <div class="Page_Track">
+           <ul>
+              <li class="HeaderName">Inventory</li>
+              <li class="arrow">>></li>
+              <li class="LinkName" [routerLink]="['/List_Franchisee_Order']">Franchisee Order List</li>
+              <li class="arrow">>></li>
+              <li>Franchisee Order View</li>
+           </ul>
+        </div>
+     </div>
+     <div class="row">
         <div class="col-sm-4">
            <!-- Company details -->
            <div class="Company_Details">
@@ -41,7 +41,7 @@
               </div>
               <br>
               <div> 
-                 <button *ngIf="_Data?.FranchiseeOrder_Details['Current_Status'] === 'Deliver Created'" mat-raised-button color="primary" style ="margin-left: 10px;" (click)="DeliverProducts()"> Deliver </button>
+                 <button *ngIf="_Data?.FranchiseeOrder_Details['Current_Status'] === 'Request'" mat-raised-button color="primary" style ="margin-left: 10px;" (click)="CreateDeliver()"> Create Deliver </button>
               </div>
            </div>
            <br>
@@ -102,7 +102,7 @@
            <br>
         </div>
      </div>
-   </div>
+  </div>
 </div>
- 
 
+ 

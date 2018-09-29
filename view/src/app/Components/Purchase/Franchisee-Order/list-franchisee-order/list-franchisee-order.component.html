@@ -1,0 +1,80 @@
+<!-- Maim Section -->
+<div class="Main_Section">
+  <div class="page_section">
+     <div class="container-fluid">
+        <!-- Page Identity -->
+        <div class="Page_Identity">
+           <div class="Page_Track">
+              <ul >
+                 <li class="HeaderName">Inventory</li>
+                 <li class="arrow">>></li>
+                 <li > Franchisee Order List </li>
+              </ul>
+           </div>
+        </div>
+        <!-- Header Part -->
+        <div class="row header_part">
+           <div class="col-sm-6">
+           </div>
+           <div class="col-sm-6">
+              <div class="Search_Section">
+                 <input type="text" placeholder="Search.." name="search">
+                 <i class="material-icons">search</i>
+              </div>
+           </div>
+        </div>
+        <!-- Table section -->
+        <div class="Table_Section">
+           <table>
+              <thead>
+                 <tr>
+                    <th> S.no </th>
+                    <th> Franchisee Name</th>
+                    <th> Outward Ref </th>
+                    <th> Requested Date </th>
+                    <th> Excepted Date </th>
+                    <th> Status </th>
+                    <th> Action </th>
+                 </tr>
+              </thead>
+              <tbody>
+                 <tr *ngFor="let item of _List; let i = index">
+                    <td>
+                       <span class="S_no"> {{i+1}} </span>
+                    </td>
+                    <td>
+                       <span class="Style_1"> {{item?.Franchisee_Id['Name']}} </span>
+                    </td>
+                    <td>
+                       <span class="Style_1"> {{item?.PurchaseRequest_RefNo}} </span>
+                    </td> 
+                    <td>
+                       <span class="Style_1">{{item?.PurchaseRequest_Date | date}}</span>
+                    </td>
+                    <td>
+                       <span class="Style_1">{{item?.Expected_Date | date}}</span>
+                    </td>
+                    <td>
+                       <span class="Style_1">{{item?.Current_Status}}</span>
+                    </td>
+                    <td>
+                       <button color="primary" mat-raised-button [matMenuTriggerFor]="Action" (click)="SetActionId(i)" >Action</button>
+                    </td>
+                 </tr>
+              </tbody>
+           </table>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- Dropdown menus -->
+<mat-menu #Action="matMenu" class="MenuStyleOne" [overlapTrigger]="false" xPosition="after" yPosition="below">
+  <button mat-menu-item (click)="View()">
+     <span>View</span>
+  </button>
+  <!-- <button *ngIf="ShowBill" mat-menu-item (click)="Bill()">
+     <span> Bill </span>
+  </button> -->
+</mat-menu>
+     
+     

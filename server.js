@@ -13,6 +13,9 @@ process.setMaxListeners(0);
 process.on('unhandledRejection', (reason, promise) => {
    ErrorManagement.ErrorHandling.ErrorLogCreation('', '', '', reason);
    console.error("'Un Handled Rejection' Error Log File - " + new Date().toLocaleDateString());
+   console.log(reason);
+
+   
 });
 process.on('uncaughtException', function (err) {
     console.log(err);
@@ -60,7 +63,10 @@ app.use(bodyParser.json());
     require('./server/Web/Routes/Supplier/Supplier.routes.js')(app);
 // Accounts
     require('./server/Web/Routes/Accounts/LogExpenses.routes.js')(app);
-
+// Purchase Order
+    require('./server/Web/Routes/PurchaseOrder/PurchaseOrder.routes.js')(app);
+// Deliver products Order
+    require('./server/Web/Routes/DeliverProducts/DeliverProducts.routes.js')(app);
 
 
 app.get('*', function(req, res){
