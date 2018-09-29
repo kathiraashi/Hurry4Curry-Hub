@@ -10,6 +10,7 @@ var HubCustomer_BillSchema = mongoose.Schema({
    Payment_Method: {type: String},
    Reference_Number: { type: String },
    Date: {type: Date },
+   Payment_Status: {type: String},
    Created_By : { type: Schema.Types.ObjectId, ref: 'Hub'},
    Last_Modified_By: { type: Schema.Types.ObjectId, ref: 'Hub'},
    Active_Status: { type : Boolean , required : true},

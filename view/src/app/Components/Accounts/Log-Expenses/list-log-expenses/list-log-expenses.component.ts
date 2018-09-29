@@ -24,7 +24,7 @@ export class ListLogExpensesComponent implements OnInit {
 
    PaymentType = 'Cash';
    Reference_No = '';
-   _PaymentOptions = ['Cash', 'Card'];
+   _PaymentOptions = ['Cash', 'NEFT/RTGS'];
 
    bsModalRef: BsModalRef;
 
@@ -76,7 +76,7 @@ export class ListLogExpensesComponent implements OnInit {
       const Data = { LogExpenses_Id: this._List[this.Active_Id]._id,
                      User_Id : this.User_Id,
                      PaymentType : this.PaymentType,
-                     Reference_No : this.Reference_No};
+                     ReferenceNumber : this.Reference_No};
       let Info = CryptoJS.AES.encrypt(JSON.stringify(Data), 'SecretKeyIn@123');
       Info = Info.toString();
       this.LogExpenses_Service.LogExpenses_Update({'Info': Info}).subscribe( response => {

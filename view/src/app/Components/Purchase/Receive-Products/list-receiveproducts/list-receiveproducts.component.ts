@@ -85,8 +85,8 @@ export class ListReceiveproductsComponent implements OnInit {
       this.PurchaseBill_Service.PurchaseBill_Received({'Info': Info}).subscribe(response => {
          const ResponseData = JSON.parse(response['_body']);
          if (response['status'] === 200 && ResponseData['Status'] ) {
-            this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'Bill Successfully Created' });
-            this.router.navigate(['/List_Stock_Values']);
+            this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'Purchase Received Successfully Updated' });
+            this._List[this.ActionIndex].If_Received = true;
          } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
             this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
          } else if (response['status'] === 401 && !ResponseData['Status']) {

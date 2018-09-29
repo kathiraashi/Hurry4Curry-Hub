@@ -1,6 +1,9 @@
 var CryptoJS = require("crypto-js");
 var HubFranchiseeBillModel = require('./../../Models/Bill/FranchiseeBill.model.js');
 var HubStockModel = require('./../../Models/Stock/HubStock.model');
+var HubCashRegisterModel = require('./../../Models/Accounts/CashRegister.model.js');
+var HubBankRegisterModel = require('./../../Models/Accounts/BankRegister.model.js');
+var HubAccountSettingsModel = require('./../../Models/Settings/AccountSettings.model.js');
 var ErrorManagement = require('./../../../Handling/ErrorHandling.js');
 var mongoose = require('mongoose');
 
@@ -36,11 +39,10 @@ exports.FranchiseeBill_Create = function(req, res) {
                Bill_Number_Length: Bill_Last_Number,
                Bill_Date: ReceivingData.BillDate,
                Net_Amount: ReceivingData.Net_Amount,
-               Payment_Method: ReceivingData.PaymentType.paymentType,
-               Reference_Number: ReceivingData.ReferenceNumber,
                Created_By : mongoose.Types.ObjectId(ReceivingData.User_Id),
                Last_Modified_By : mongoose.Types.ObjectId(ReceivingData.User_Id),
                Date: ReceivingData.Date,
+               Payment_Status: 'Unpaid',
                If_Deleted: false,
                Active_Status : ReceivingData.Active_Status || true,
             });
@@ -134,3 +136,150 @@ exports.FranchiseeBill_List = function(req, res){
       });
    }
 };
+
+
+
+
+
+
+//Franchisee Bill Payment update
+exports.FranchiseeBill_PaymentUpdate = function(req, res) {
+   var CryptoBytes = CryptoJS.AES.decrypt(req.body.Info, 'SecretKeyIn@123');
+   var ReceivingData = JSON.parse(CryptoBytes.toString(CryptoJS.enc.Utf8)); 
+   
+   if(!ReceivingData.User_Id || ReceivingData.User_Id === '') {
+      res.status(400).send({Status: false , Message: "User detail cannot be empty"});
+   } else if(!ReceivingData.FranchiseeBill_Id || ReceivingData.FranchiseeBill_Id === '') {
+      res.status(400).send({Status: false, Message: " Franchisee Bill details cannot be empty"});
+   } else {
+      HubFranchiseeBillModel.HubFranchisee_BillSchema.findOne({ _id: mongoose.Types.ObjectId(ReceivingData.FranchiseeBill_Id)}
+      ).exec(function(err, result){
+         if(err){
+            ErrorManagement.ErrorHandling.ErrorLogCreation(req, ' Franchisee Bill Find Query Error', 'FranchiseeBill.controller.js', err);
+            res.status(417).send({Status: false, Message: "Some error occurred while Find The Franchisee Bill!."});            
+         } else {
+            if (result !== null) {
+               // ************************* Payment Update Start ***************      
+               async function PaymentUpdate() {
+                  let Output = await PaymentHandling(ReceivingData.PaymentType, 'Credit', result.Net_Amount, new Date(), result._id, 'FranchiseeBill_Credit', ReceivingData.User_Id,  ReceivingData.ReferenceNumber);
+                  if (Output) {
+                     result.Payment_Method = ReceivingData.PaymentType;
+                     result.Reference_Number = ReceivingData.ReferenceNumber;
+                     result.Payment_Status = 'Paid';
+                     result.Payment_Date = new Date();
+                     result.save(function(err_1, result_1) { // Franchisee Bill Update Query
+                        if(err_1) {
+                           ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Franchisee Bill Update Query Error', 'FranchiseeBill.controller.js');
+                           res.status(417).send({Status: false, Error: err_1, Message: "Some error occurred while Update the Franchisee Bill!."});
+                        } else {
+                           res.status(200).send({Status: true, Message: 'Successfully Updated' });
+                        }
+                     });
+                  }else{
+                     ErrorManagement.ErrorHandling.ErrorLogCreation(req, 'Franchisee Bill Payment Update Query Error', 'FranchiseeBill.controller.js');
+                     res.status(417).send({Status: false, Message: "Some error occurred while Update The Payment Details" }); 
+                  }
+               }
+               PaymentUpdate();
+            // ************************* Payment Update End ***************
+            } else {
+               res.status(400).send({Status: false, Message: "Franchisee Bill Details can not be valid!" });
+            }
+         }
+      });
+   }
+};
+
+
+
+
+
+
+
+function PaymentHandling(PaymentMode, PaymentType, PaymentAmount, PaymentDate, Reference_Id, Reference_Type, User_Id, ReferenceNumber) {
+   return new Promise((resolve, reject) => {
+      if (PaymentMode === 'NEFT/RTGS') {
+         HubBankRegisterModel.Hub_BankRegisterSchema.find(
+            { Created_By: mongoose.Types.ObjectId(User_Id), If_Deleted: false },
+            { Available_Amount: 1 },
+            { sort: { createdAt: -1 }, length: 1 } 
+         ).exec(function(PayErr, PayResult) {
+            if (!PayErr) {
+               var Available_Amount = PaymentAmount;
+               if (PayResult.length > 0) {
+                  Available_Amount = parseInt(PayResult[0].Available_Amount) + parseInt(PaymentAmount);
+               }
+               HubAccountSettingsModel.BanksSchema.findOne(
+                  { Creator_Type: 'Hub', Created_By: mongoose.Types.ObjectId(User_Id), If_Deleted: false, If_Default: true  }, {}, {} 
+               ).exec(function(PayErr_1, PayResult_1) {
+                  if (!PayErr_1) {
+                     var Bank = null;
+                     if (PayResult_1 !== null) {
+                        Bank = PayResult_1._id;
+                     }
+                     var BankRegister = new HubBankRegisterModel.Hub_BankRegisterSchema({
+                        Bank: Bank,
+                        Amount: PaymentAmount,
+                        Date: PaymentDate,
+                        Type: PaymentType,
+                        Reference_Id: Reference_Id,
+                        Reference_Type: Reference_Type,
+                        ReferenceNumber: ReferenceNumber,
+                        Available_Amount: Available_Amount,
+                        Created_By: mongoose.Types.ObjectId(User_Id),
+                        Active_Status:  true,
+                        If_Deleted: false
+                     });
+                     BankRegister.save(function(PayErr_1, PayResult_1) {
+                        if (!PayErr_1) {
+                           resolve(true);
+                        }else{
+                           resolve(false);
+                        }
+                     });
+                  }else{
+                     resolve(false);
+                  }
+               });
+            }else{
+               resolve(false);
+            }
+         });
+      } else if(PaymentMode === 'Cash') {
+         HubCashRegisterModel.Hub_CashRegisterSchema.find(
+            { Created_By:mongoose.Types.ObjectId(User_Id), If_Deleted: false },
+            { Available_Amount: 1 },
+            { sort: { createdAt: -1 }, length: 1 } 
+         ).exec(function(PayErr, PayResult) {
+            if (!PayErr) {
+               var Available_Amount = PaymentAmount;
+               if (PayResult.length > 0) {
+                  Available_Amount = parseInt(PayResult[0].Available_Amount) + parseInt(PaymentAmount);
+               }
+               var CashRegister = new HubCashRegisterModel.Hub_CashRegisterSchema({
+                  Amount: PaymentAmount,
+                  Date: PaymentDate,
+                  Type: PaymentType,
+                  Reference_Id: Reference_Id,
+                  Reference_Type: Reference_Type,
+                  Available_Amount: Available_Amount, 
+                  Created_By: mongoose.Types.ObjectId(User_Id),
+                  Active_Status: true,
+                  If_Deleted: false
+               });
+               CashRegister.save(function(PayErr_1, PayResult_1) {
+                  if (!PayErr_1) {
+                     resolve(true);
+                  }else{
+                     resolve(false);
+                  }
+               });
+            }else{
+               resolve(false);
+            }
+         });
+      } else {
+         resolve(false);
+      }
+   });
+}

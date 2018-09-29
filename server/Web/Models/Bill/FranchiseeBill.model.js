@@ -10,6 +10,8 @@ var HubFranchisee_BillSchema = mongoose.Schema({
    Net_Amount: {type: String},
    Payment_Method: {type: String},
    Reference_Number: { type: String },
+   Payment_Status: { type: String },
+   Payment_Date: { type: Date },
    Date: {type: Date },
    Created_By : { type: Schema.Types.ObjectId, ref: 'Hub'},
    Last_Modified_By: { type: Schema.Types.ObjectId, ref: 'Hub'},

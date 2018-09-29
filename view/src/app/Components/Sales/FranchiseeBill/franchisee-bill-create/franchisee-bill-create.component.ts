@@ -28,7 +28,6 @@ export class FranchiseeBillCreateComponent implements OnInit {
    _ProductList: any[] = [];
    _temProductList: any[] = [];
    selectedOption: string;
-   options = ['Cash', 'Credit', 'Card'];
    User_Id: any;
    Franchisee_Id: any;
    price: any;
@@ -62,7 +61,6 @@ export class FranchiseeBillCreateComponent implements OnInit {
          BillDate: new FormControl(new Date(), [Validators.required]),
          items: this.formBuilder.array([this.createItems()]),
          Net_Amount: new FormControl(null),
-         PaymentType: new FormControl(null, Validators.required),
          Date: new FormControl(new Date())
       });
      // get Franchisee list
@@ -155,24 +153,11 @@ export class FranchiseeBillCreateComponent implements OnInit {
       this.Form.controls['Net_Amount'].setValue(this.Total_Value);
    }
 
-   Next(template: TemplateRef<any>) {
-      this.bsModalRef = this.bsModalService.show(template);
-   }
 
   onSelectFranchisee(selectedFranchisee: any) {
      const _Index = this._FranchiseeList.findIndex(obj => obj._id === selectedFranchisee);
     this.Form.controls['FranchiseeEmail'].setValue(this._FranchiseeList[_Index]['Email']);
   }
-
-   onChange(paymentMethod: any) {
-      if (paymentMethod === 'Card') {
-         this.Form.addControl('ReferenceNumber', new FormControl(null, Validators.required));
-         this.referenceInput = true;
-      } else {
-         this.Form.removeControl('ReferenceNumber');
-         this.referenceInput = false;
-      }
-   }
 
    Submit() {
       if (this.Form.valid) {
@@ -182,7 +167,7 @@ export class FranchiseeBillCreateComponent implements OnInit {
             const ResponseData = JSON.parse(response['_body']);
             if (response['status'] === 200 && ResponseData['Status'] ) {
                this.Toaster.NewToastrMessage({ Type: 'Success', Message: 'Bill Successfully Created' });
-               this.router.navigate(['/List_Bill']);
+               this.router.navigate(['/FranchiseeBill_List']);
             } else if (response['status'] === 400 || response['status'] === 417 && !ResponseData['Status']) {
                this.Toaster.NewToastrMessage({ Type: 'Error', Message: ResponseData['Message'] });
             } else if (response['status'] === 401 && !ResponseData['Status']) {
