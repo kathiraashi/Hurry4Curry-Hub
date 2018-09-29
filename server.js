@@ -64,10 +64,13 @@ app.use(bodyParser.json());
     require('./server/Web/Routes/Supplier/Supplier.routes.js')(app);
 // Accounts
     require('./server/Web/Routes/Accounts/LogExpenses.routes.js')(app);
+<<<<<<< HEAD
 // Purchase Order
     require('./server/Web/Routes/PurchaseOrder/PurchaseOrder.routes.js')(app);
 // Deliver products Order
     require('./server/Web/Routes/DeliverProducts/DeliverProducts.routes.js')(app);
+=======
+>>>>>>> 69b8f265534d9e7848000e4a52d09a1fe3eaf169
     require('./server/Web/Routes/Accounts/BankRegister.routes.js')(app);
     require('./server/Web/Routes/Accounts/CashRegister.routes.js')(app);
 
