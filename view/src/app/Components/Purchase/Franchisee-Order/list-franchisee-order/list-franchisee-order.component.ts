@@ -48,11 +48,11 @@ export class ListFranchiseeOrderComponent implements OnInit {
 
      SetActionId(_index) {
       this.ActionIndex = _index;
-      if (this._List[_index].Current_Status === 'Deliver Created') {
-        this.ShowBill = true;
-     } else {
-        this.ShowBill = false;
-     }
+    //   if (this._List[_index].Current_Status === 'Deliver Created') {
+    //     this.ShowBill = true;
+    //  } else {
+    //     this.ShowBill = false;
+    //  }
    }
      View() {
       this.router.navigate(['/View_Franchisee_Order', this._List[this.ActionIndex]['_id']]);
